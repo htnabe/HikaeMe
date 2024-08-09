@@ -1,0 +1,47 @@
+<!doctype html>
+
+<!-- prettier-ignore -->
+{{- "<!--" | safeHTML -}}
+
+    　　　　　  ,-､　　　 　 　 　　　　..-､
+    　　　　 ./:::::＼　　　　 　 　 ／:::::ヽ
+    　　　　/::::::::;ゝ--──-- ､._/:::::::::ヽ
+    　　　 /,.-‐''"′ 　　　　　　　　＼:::::::|
+    　　／　 　　　　　　　　　　　　　　ヽ､:::|
+    　/　　　　●　　　 　 　 　 　 　 　 　ヽ|
+     l　　　､､､　　 　 　 　 　 　 ●　　 　   l
+     .|　　　 　　　　(_人__丿　　､､､　 　　　 1
+     l　　　　　　　　　　　　　　　　 　 　　l
+    　` ､　　　　　　　　 　 　 　　 　 　  /
+    　　　`ｰ ､__　　　 　 　 　　　 　　.／
+    　　　　　　/`'''ｰ‐‐──‐‐‐-┬／
+
+               Sup DUUUUDE
+               Take it ez
+
+{{- "-->" | safeHTML -}}
+
+
+<html lang="{{ .Site.Language.LanguageCode }}" data-bs-theme="auto">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+
+  <body class="wo-ul p-0 min-vh-100 bg-body-tertiary">
+    <header class="py-1 px-2 bg-body">
+      {{ partial "header.html" . }}
+    </header>
+
+    <div class="container-xl">
+      <main class="px-0 py-4 m-auto">
+        <div class="row justify-content-md-center">
+          <div class="col-lg-9">
+            {{ block "main" . }}{{ end }}
+          </div>
+          <div class="col-lg-3"></div>
+        </div>
+      </main>
+    </div>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

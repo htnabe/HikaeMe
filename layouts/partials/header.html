@@ -1,0 +1,67 @@
+<div class="container-xl">
+  <nav class="navbar me-auto navbar-expand-lg">
+    <div class="container-fluid">
+      <a
+        class="navbar-brand d-flex align-items-center"
+        href="{{ .Site.BaseURL }}"
+      >
+        <img
+          src="https://res.cloudinary.com/takenoko/image/upload/w_800,f_auto/v1722703191/logos/blog-only-logo_lb6etv.svg"
+          title="t-pot"
+          height="30"
+          width="30"
+          class="img-fluid"
+          alt="blog-logo"
+          class="d-inline"
+        />
+        <p class="d-inline fs-2 logo-font m-0 ms-1">{{ .Site.Title }}</p>
+      </a>
+      <div class="align-self-center align-items-center">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarToggler"
+          aria-controls="navbarToggler"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav d-flex align-items-center">
+            {{ with .Site.Menus.main }}
+              {{ range . }}
+                <li class="nav-item">
+                  {{ if $.IsMenuCurrent .Menu . }}
+                    <a class="nav-link" aria-current="page" href="{{ .URL }}">
+                      <span class="fs-6 m-0 fw-semibold">{{ .Name }}</span>
+                    </a>
+                  {{ else }}
+                    <a class="nav-link" href="{{ .URL }}">
+                      <span class="fs-6 m-0 fw-semibold">
+                        {{ .Name }}
+                      </span>
+                    </a>
+                  {{ end }}
+                </li>
+              {{ end }}
+            {{ end }}
+            <li class="nav-item">
+              <a
+                href="{{ .Site.BaseURL }}/search/"
+                class="nav-link"
+                aria-label="Search some articles"
+              >
+                <i class="fas fa-search"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              {{ partial "color-toggle-button.html" }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

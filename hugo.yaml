@@ -1,0 +1,72 @@
+baseURL: "https://example.org"
+title: "My New Hugo Site"
+enableEmoji: true
+enableGitInfo: true
+enableRobotsTXT: true
+timeZone: "Japan"
+languageCode : "ja-JP"
+
+params:
+  description: "the description of the website"
+  dateformat: "2006/01/02"
+  defaultGoogleFonts: "https://fonts.googleapis.com/css?family=Roboto+Slab:400,700"
+  googlefonts: "" # Optional, Include google fonts.
+  enableHighlight: true
+  amazonAffiliateId: ""
+  since: 2020
+  defaultThumbnail: ""
+  copyright: ""
+
+  author:
+    thumbnail: ""
+    name: "Saitama"
+    comment: "Hi there!"
+    sns:
+      github: "https://github.com"
+      steam: "https://steamcommunity.com"
+      strava: "https://www.strava.com"
+      nostter: "https://nostter.app"
+  algolia:
+    vars:
+      - "title"
+      - "summary"
+      - "content"
+      - "date"
+      - "publishdate"
+      - "permalink"
+      - "keywords"
+    params:
+      - "tags"
+      - "categories"
+
+outputs:
+  home:
+    - "HTML"
+    - "Algolia"
+  section:
+    - "HTML"
+
+outputFormats:
+  Algolia:
+    baseName: "algolia"
+    isPlainText: true
+    mediaType: "application/json"
+    notAlternative: true
+
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - name: About
+      pageRef: /about
+      weight: 20
+    - name: Author
+      pageRef: /author
+      weight: 30
+
+permalinks:
+  about: "/:filename"
+  author: "/:filename"
+  privacy: "/:filename"
+  search: "/:filename"

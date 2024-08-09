@@ -1,0 +1,128 @@
+{{/* not allow bing ai to use site contents */}}
+<meta name="bingbot" content="noarchive" />
+<meta name="msnbot" content="noarchive" />
+<meta name="pinterest" content="nopin" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com/" crossorigin />
+<link rel="preconnect" href="//fonts.googleapis.com/" crossorigin />
+<link rel="dns-prefetch" href="https://res.cloudinary.com/" crossorigin />
+<link rel="preconnect" href="https://res.cloudinary.com/" crossorigin />
+{{ with .Site.Params.contact }}
+  <meta name="contact" content="{{ . }}" />
+{{ end }}
+{{ hugo.Generator }}
+
+{{/* icon */}}
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="https://res.cloudinary.com/takenoko/image/upload/w_180,h_180,f_auto/v1630765927/NabeBlog/favicon_irx8pk.png"
+/>
+<link
+  rel="icon"
+  href="https://res.cloudinary.com/takenoko/image/upload/f_auto/v1630765889/NabeBlog/favicon_e5u8fh.svg"
+  type="image/svg+xml"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="https://res.cloudinary.com/takenoko/image/upload/w_32,h_32,f_auto/v1630765927/NabeBlog/favicon_irx8pk.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="https://res.cloudinary.com/takenoko/image/upload/w_16,h_16,f_auto/v1630765927/NabeBlog/favicon_irx8pk.png"
+/>
+
+{{ range .AlternativeOutputFormats }}
+  <link
+    rel="{{ .Rel }}"
+    type="{{ .MediaType.Type | html }}"
+    href="{{ .Permalink | safeURL }}"
+    title="{{ $.Site.Title | safeHTML }}"
+  />
+{{ end }}
+
+{{/* add noindex in particular urls */}}
+{{ if or (hasPrefix .RelPermalink "/tags/") (hasPrefix .RelPermalink "/categories/") (hasPrefix .RelPermalink
+  "/search/")
+}}
+  <meta name="robots" content="noindex, nofollow" />
+{{ end }}
+
+
+<meta
+  name="description"
+  content="{{ with .Description }}
+    {{ . }}
+  {{ else }}
+    {{ if .IsPage }}
+      {{ .Summary }}
+    {{ else }}
+      {{ with .Site.Params.description }}{{ . }}{{ end }}
+    {{ end }}
+
+  {{ end }}
+  "
+/>
+
+{{/* og */}}
+<meta
+  property="og:title"
+  content="{{ if .IsPage }}
+    {{ .Title }} - {{ .Site.Title }}
+  {{ else }}
+    {{ with  .Site.Title }}{{ . }}{{ end }}
+  {{ end }}"
+/>
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta
+  property="og:image"
+  content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnail ) }}"
+/>
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta
+  property="og:description"
+  content="{{ with .Description }}
+    {{ . }}
+  {{ else }}
+    {{ if .IsPage }}
+      {{ .Content | plainify | truncate 200 }}
+    {{ else }}
+      {{ with .Site.Params.description }}{{ . }}{{ end }}
+    {{ end }}
+  {{ end }}"
+/>
+<meta property="og:locale" content="ja_JP" />
+
+{{/* twitter card setting */}}
+<meta name="twitter:card" content="summary_large_image" />
+<meta
+  name="twitter:site"
+  content="{{ if .IsPage }}
+    {{ .Title }} - {{ .Site.Title }}
+  {{ else }}
+    {{ with  .Site.Title }}{{ . }}{{ end }}
+  {{ end }}"
+/>
+<meta name="twitter:url" content="{{ .Permalink }}" />
+<meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}" />
+<meta
+  name="twitter:description"
+  content="{{ with .Description }}
+    {{ . }}
+  {{ else }}
+    {{ if .IsPage }}
+      {{ .Content | plainify | truncate 200 }}
+    {{ else }}
+      {{ with .Site.Params.description }}{{ . }}{{ end }}
+    {{ end }}
+  {{ end }}"
+/>
+<meta
+  name="twitter:image"
+  content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnail ) }}"
+/>
