@@ -1,0 +1,30 @@
+{{- $affiliateId := .Site.Params.amazonJpAffiliate }}
+{{- $asin := .Get "asin" -}}
+{{- $title := .Get "title" -}}
+<div class="card mb-3 border-3">
+  <div class="row g-0">
+    <div class="col-sm-3 d-flex align-items-center justify-content-center">
+      <img
+        class="height-100px shadow-none"
+        src="https://images-na.ssl-images-amazon.com/images/P/{{ $asin }}.09.LZZZZZZZ.jpg"
+      />
+    </div>
+    <div class="col-sm-9">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a
+            href="https://www.amazon.co.jp/gp/product/{{ $asin }}/?tag={{ $affiliateId }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-up-right-from-square"></i>&nbsp;{{ $title }}
+          </a>
+        </h5>
+        <p class="card-text text-body-secondary">
+          <i class="fa-brands fa-amazon"></i>
+          amazon.co.jp
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
