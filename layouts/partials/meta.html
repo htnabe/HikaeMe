@@ -72,7 +72,8 @@
 <meta
   property="og:title"
   content="{{ if .IsPage }}
-    {{ .Title }} - {{ .Site.Title }}
+    {{ .Title }} -
+    {{ .Site.Title }}
   {{ else }}
     {{ with  .Site.Title }}{{ . }}{{ end }}
   {{ end }}"
@@ -81,7 +82,7 @@
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta
   property="og:image"
-  content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnail ) }}"
+  content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnailUrl ) }}"
 />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 <meta
@@ -103,7 +104,8 @@
 <meta
   name="twitter:site"
   content="{{ if .IsPage }}
-    {{ .Title }} - {{ .Site.Title }}
+    {{ .Title }} -
+    {{ .Site.Title }}
   {{ else }}
     {{ with  .Site.Title }}{{ . }}{{ end }}
   {{ end }}"
@@ -124,5 +126,5 @@
 />
 <meta
   name="twitter:image"
-  content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnail ) }}"
+  content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnailUrl ) }}"
 />

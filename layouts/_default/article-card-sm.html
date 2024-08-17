@@ -1,0 +1,49 @@
+<div class="card border-0">
+  <a href="{{ .Permalink }}" class="row">
+    <div class="row">
+      <div class="col-3">
+        {{ if .Page.Params.thumbnail }}
+          <div
+            class="thumb h-100"
+            style="background-image: url('{{ .Page.Params.thumbnail | absURL }}');"
+            alt="pagination-thumb"
+          ></div>
+        {{ else }}
+          <div
+            class="thumb h-100"
+            style="background-image: url('{{ .Site.Params.defaultThumbnailUrl | absURL }}');"
+            alt="pagination-thumb"
+          ></div>
+        {{ end }}
+      </div>
+      <div class="col-9">
+        <div class="inner text-body">
+          <p class="fs-6 pt-1 ">{{ .Title }}</p>
+          <ul class="facts sm p-0 my-2 mx-0">
+            <li class="d-inline">
+              <i
+                class="fas fa-calendar text-secondary me-2"
+                aria-hidden="true"
+              ></i>
+              <time datetime="{{ .Date.Format " 2006-01-02T15:04:05JST" }}"
+                >{{ .Date.Format (
+                  .Site.Params.dateformat |
+                  default "2006/01/02")
+                }}</time
+              >
+            </li>
+            {{ with .Section }}
+              <li class="d-inline">
+                <i
+                  class="fas fa-bookmark text-secondary me-2"
+                  aria-hidden="true"
+                ></i
+                >{{ . | upper }}
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

@@ -5,5 +5,5 @@ draft = true
 toc = true
 tags = []
 categories = []
-thumbnail = "{{ "" | default .Site.Params.defaultThumbnail }}"
+thumbnail = "{{ "" | default .Site.Params.defaultThumbnailUrl }}"
 +++

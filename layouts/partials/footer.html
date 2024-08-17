@@ -1,10 +1,11 @@
 <footer class="px-0 pt-4 pb-3 w-100 my-0 mx-auto text-center bg-body">
   <div class="container">
     <p class="fw-semibold m-0">
-      &copy; {{ now.Year }}
+      &copy;
+      {{ now.Year }}
       {{ with .Site.Params.Copyright }}{{ . | safeHTML }}{{ end }} | Powered by
       <a href="https://gohugo.io/">Hugo</a> |
-      <a href="{{ .Site.BaseURL }}privacy/">Privacy And Disclaimer</a> |
+      <a href="{{ .Site.BaseURL }}privacy/">プライバシーポリシーと免責事項</a> |
       <a href="#">お問い合わせ</a>
     </p>
   </div>

@@ -1,0 +1,16 @@
+{{ $now := time.Now }}
+{{ $date := .Date }}
+{{ $yearsAgo := div (sub $now.Unix $date.Unix) 31536000 }}
+{{ $displayText := "作成" }}
+
+{{ if .Lastmod }}
+  {{ $yearsAgo = div (sub $now.Unix .Lastmod.Unix) 31536000 }}
+  {{ $displayText = "更新" }}
+{{ end }}
+
+{{ if gt $yearsAgo 0 }}
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    この記事は{{ $displayText }}から{{ $yearsAgo }}年以上経過しており、情報が古くなっている可能性があります。
+  </div>
+{{ end }}

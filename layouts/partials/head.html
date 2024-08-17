@@ -150,6 +150,8 @@
   integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
   crossorigin="anonymous"
 ></script>
+
+{{/* Color theme settings with Bootstrap */}}
 <script>
   (function () {
     var getStoredTheme = function () {
@@ -168,7 +170,11 @@
     document.documentElement.setAttribute("data-bs-theme", theme);
   })();
 </script>
-<!-- load color-module.js -->
-{{ with resources.Get "js/color-module.js" }}
-  <script defer type="text/javascript" src="{{ .Site.BaseURL }}/"></script>
+{{ with resources.Get "js/color-module.js" | resources.Minify | fingerprint }}
+  <script
+    defer
+    type="text/javascript"
+    src="{{ .RelPermalink }}"
+    integrity="{{ .Data.Integrity }}"
+  ></script>
 {{ end }}

@@ -1,0 +1,81 @@
+<article class="card-wrapper mb-4 mt-4">
+  <div class="card border-0">
+    {{ $showThumb := .Page.Params.show_thumb_post | default true }}
+    {{ if $showThumb }}
+      <div
+        class="thumb height-20rem"
+        style="background-image: url('{{ (.Page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}');"
+      ></div>
+    {{ end }}
+
+
+    <div class="card-body">
+      <header class="article-header">
+        <h1 class="card-title fw-bold mt-2 mb-2">{{ .Title }}</h1>
+        <div class="container text-center summary-header ms-0">
+          <div class="row row-cols-auto d-flex align-items-center">
+            <div class="col ps-0 me-2">
+              <i class="mx-0 fas fa-calendar" aria-hidden="true"></i>
+              <time datetime="{{ .Date.Format " 2006-01-02T15:04:05JST" }}">
+                {{ .Date.Format ( .Site.Params.dateformat | default "2006/01/02") }}
+              </time>
+            </div>
+
+            {{ if ne .Date .Lastmod }}
+              <div class="col ps-0 me-2">
+                <i class="mx-0 fas fa-sync" aria-hidden="true"></i>
+                <time
+                  datetime="{{ .Lastmod.Format " 2006-01-02T15:04:05JST" }}"
+                >
+                  {{ .Lastmod.Format ( .Site.Params.dateformat | default "2006/01/02") }}
+                </time>
+              </div>
+            {{ end }}
+
+            {{ range .Params.categories }}
+              <div class="col ps-0 me-2">
+                <i class="mx-0 fas fa-bookmark" aria-hidden="true"></i
+                ><a href="{{ $.Site.BaseURL }}/categories/{{ . | urlize }}">
+                  {{ . }}</a
+                >
+              </div>
+            {{ end }}
+          </div>
+        </div>
+        <div class="container text-center summary-header tags">
+          <div class="row row-cols-auto">
+            {{ $colors := (slice "text-warning" "text-primary" "text-success" "text-info" "text-danger"
+              "text-secondary" "text-dark") | shuffle
+            }}
+            {{ range $index, $tag := .Params.tags }}
+              <div class="col ps-0 me-2">
+                {{ $colorClass := index $colors (mod $index (len $colors)) }}
+                <i
+                  class="mx-0 fas fa-tags {{ $colorClass }}"
+                  aria-hidden="true"
+                ></i>
+                <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">
+                  {{ . }}
+                </a>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+        {{ partial "old-article-warning" . }}
+      </header>
+
+      {{ if .Params.toc }}
+        <div class="toc d-block d-lg-none">
+          {{ .TableOfContents }}
+        </div>
+      {{ end }}
+
+
+      <div>{{ .Content }}</div>
+
+      <footer class="article-footer row">
+        {{ partial "share.html" . }}
+      </footer>
+    </div>
+  </div>
+</article>

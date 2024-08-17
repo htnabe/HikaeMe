@@ -1,0 +1,95 @@
+{{ define "title" }}
+  {{ if not .IsHome }}
+    {{ .Title }} -
+  {{ end }}
+{{ end }}
+
+{{ define "main" }}
+  {{ if not .IsHome }}
+    <header class="page-title py-5 px-0 text-center">
+      <h3>{{ .Title }}</h3>
+    </header>
+  {{ end }}
+
+  {{ $pctx := . }}
+  {{ if .IsHome }}{{ $pctx = .Site }}{{ end }}
+  {{ $paginator := .Paginate (where $pctx.RegularPages ".Type" "posts") }}
+
+  {{ range $page := $paginator.Pages }}
+    <article class="li article-hover">
+      <a href="{{ .Permalink }}">
+        <div class="card mb-3 border-0 bg-body">
+          <div class="row g-0">
+            <div
+              class="col-md-4 thumb thumb-sm-height rounded"
+              style="background-image: url('{{ ($page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}');"
+            ></div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="fs-5 fw-semibold">{{ .Title }}</h5>
+                <small class="text-body-secondary fw-medium mt-1">
+                  <div class="container text-center">
+                    <div class="row row-cols-auto">
+                      <div class="col px-0">
+                        <i
+                          class="fas fa-calendar light mx-0"
+                          aria-hidden="true"
+                        ></i>
+                        <time
+                          datetime="{{ .Date.Format " 2006-01-02T15:04:05JST" }}"
+                        >
+                          {{ .Date.Format ( .Site.Params.dateformat | default "2006/01/02") }}
+                        </time>
+                      </div>
+                      <div class="col">
+                        {{ range .Params.categories }}
+                          <i
+                            class="fas fa-bookmark light mx-0"
+                            aria-hidden="true"
+                          ></i>
+                          {{ . }}
+                        {{ end }}
+                      </div>
+                    </div>
+                  </div>
+                </small>
+                <p class="fs-6 omit-text d-none d-sm-block mt-2 mb-0">
+                  {{ $content := plainify .Content }}
+                  {{ if gt (len $content) 80 }}
+                    {{ $content = printf "%s…" (slicestr $content 0 80) }}
+                  {{ end }}
+                  {{ $content | safeHTML }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+  {{ end }}
+
+  {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        {{ if .Paginator.HasPrev }}
+          <li class="page-item">
+            <a class="page-link border-end" href="{{ .Paginator.Prev.URL }}"
+              >前のページへ</a
+            >
+          </li>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+          <li class="page-item">
+            <a
+              class="page-link border-top"
+              href="{{ .Paginator.Next.URL }}"
+              rel="next"
+              >次のページへ</a
+            >
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+
+{{ end }}

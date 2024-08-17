@@ -1,0 +1,35 @@
+<img
+  src="{{- .Destination | safeURL -}}"
+  loading="lazy"
+  {{- with .Title }}title="{{ . }}"{{ end -}}
+  {{- with
+    .PlainText
+  }}
+    alt="{{ . }}"
+  {{ end -}}
+  {{- if not (urls.Parse .Destination).Scheme -}}
+    {{- with
+      .Page.Resources.GetMatch .Destination
+    -}}
+      {{- if eq .MediaType.SubType "svg" -}}
+        {{/* SVGファイルの場合はXMLとしてパースしてheight,
+          width属性を設定
+        */}}
+        {{- with .Content | transform.Unmarshal -}}
+          {{- with index . "-width" -}}width="{{ . }}"{{ end -}}
+          {{- with index . "-height" -}}height="{{ . }}"{{ end -}}
+        {{- end -}}
+      {{- else -}}
+        {{- with . }}width="{{ .Width }}" height="{{ .Height }}"{{ end -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $path :=path.Clean .Destination -}}
+      {{- if and (not
+        (hasPrefix $path "/" )) (not (hasPrefix $path "../" ))
+      -}}
+        {{/* ファイルが存在しない場合はエラー */}}
+        {{- errorf "Not Found Image: %s in page %s" .Destination .Page.Path -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end }}
+/>

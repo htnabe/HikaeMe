@@ -1,0 +1,48 @@
+{{ with .Site.Params.author }}
+  <section class="sidebar mb-3 pt-2 pt-1">
+    <header class="px-2 pt-2 pb-3 m-auto text-start">AUTHOR</header>
+    <div class="author p-2 text-center">
+      {{ with .thumbnail }}
+        <div
+          class="author-thumb mt-0 mx-auto mb-3 rounded-circle"
+          style="background-image: url({{ . | absURL }});"
+        ></div>
+      {{ end }}
+      <div class="mb-2 fw-semibold">{{ .name }}</div>
+      <div class="row justify-content-center mb-2">
+        {{ $socials := dict
+          "nostter" .nostter
+          "github" .github
+          "steam" .steam
+          "strava" .strava
+        }}
+
+        {{ $icons := dict
+          "nostter" "fa-regular fa-paw"
+          "github" "fab fa-github"
+          "steam" "fab fa-steam"
+          "strava" "fab fa-strava"
+        }}
+
+        {{ range $key, $url := $socials }}
+          {{ with $url }}
+            <div class="col-2">
+              <a
+                class="text-center d-inline rounded-1 fs-6"
+                href="{{ . }}"
+                rel="noopener nofollow"
+                target="_blank"
+              >
+                <i class="{{ index $icons $key }}" aria-hidden="true"></i>
+              </a>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      <div class="author-description text-start">
+        {{ .description | safeHTML }}
+      </div>
+    </div>
+  </section>
+{{ end }}

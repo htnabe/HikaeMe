@@ -38,7 +38,15 @@
           <div class="col-lg-9">
             {{ block "main" . }}{{ end }}
           </div>
-          <div class="col-lg-3"></div>
+          <div class="col-lg-3">
+            {{ if .Page.Params.authorSection | default false }}
+              {{ partial "author.html" . }}
+            {{ end }}
+            {{ partial "categories.html" . }}
+            <div class="sticky">
+              {{ partial "sidebar-toc.html" . }}
+            </div>
+          </div>
         </div>
       </main>
     </div>
