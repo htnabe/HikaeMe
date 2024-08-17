@@ -1,13 +1,14 @@
 plugins:
   - "prettier-plugin-go-template"
 trailingComma: "es5"
+singleQuote: false
 goTemplateBracketSpacing: true
+
 overrides:
   - files: "*.html"
     options:
       bracketSpacing: true
       parser: "go-template"
-      singleQuote: false
 
   - files:
     - "*.scss"

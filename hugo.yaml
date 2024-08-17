@@ -12,9 +12,10 @@ params:
   defaultGoogleFonts: "https://fonts.googleapis.com/css?family=Roboto+Slab:400,700"
   googlefonts: "" # Optional, Include google fonts.
   enableHighlight: true
-  amazonAffiliateId: ""
+  amazonAffiliateId: "" # Optional, Include amazon affiliate ID(eg. hikaeme-22)
   since: 2020
-  defaultThumbnail: ""
+  defaultThumbnailUrl: ""
+  logoImageUrl: "https://res.cloudinary.com/takenoko/image/upload/w_800,f_auto/v1722703191/logos/blog-only-logo_lb6etv.svg"
   copyright: ""
 
   author:
