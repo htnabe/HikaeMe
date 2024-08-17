@@ -1,0 +1,47 @@
+<aside>
+  {{ $shareLinks := slice
+    (dict "href" (printf "https://b.hatena.ne.jp/add?mode=confirm&url=%s&title=%s" .Permalink .Title)
+    "title" "はてなブックマーク"
+    "class" "ht"
+    "label" "B!")
+    (dict
+    "href" (printf "https://twitter.com/intent/tweet?url=%s&text=%s&tw_p=tweetbutton" .Permalink .Title)
+    "title" "Twitterでシェア"
+    "class" "tw"
+    "icon" "twitter")
+    (dict "href"
+    (printf "https://www.facebook.com/sharer.php?u=%s&t=%s" .Permalink .Title)
+    "title" "Facebookでシェア"
+    "class" "fb"
+    "icon" "facebook")
+    (dict
+    "href" (printf "https://getpocket.com/edit?url=%s&title=%s" .Permalink .Title)
+    "title" "Pocketに保存"
+    "class" "pk"
+    "icon" "get-pocket")
+    (dict
+    "href" (printf "https://social-plugins.line.me/lineit/share?url=%s" .Permalink)
+    "title" "LINEでシェア"
+    "class" "ln"
+    "icon" "line")
+  }}
+
+  {{ range $link := $shareLinks }}
+    <a
+      href="{{ $link.href }}"
+      title="{{ $link.title }}"
+      class="{{ $link.class }} py-0 px-2 text-center d-inline-block rounded-1 bg-body-tertiary shadow me-1"
+      target="_blank"
+      rel="noopener nofollow"
+    >
+      {{ if $link.label }}
+        {{ $link.label }}
+      {{ else }}
+        <i
+          class="fab fa-{{ $link.icon }} fs-6 fw-semibold"
+          aria-hidden="true"
+        ></i>
+      {{ end }}
+    </a>
+  {{ end }}
+</aside>
