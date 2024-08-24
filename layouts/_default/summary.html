@@ -1,4 +1,4 @@
-<article class="card-wrapper mb-4 mt-4">
+<article class="card-wrapper mb-4 mt-4 p-0">
   <div class="card border-0">
     {{ $showThumb := .Page.Params.show_thumb_post | default true }}
     {{ if $showThumb }}
@@ -12,7 +12,7 @@
     <div class="card-body">
       <header class="article-header">
         <h1 class="card-title fw-bold mt-2 mb-2">{{ .Title }}</h1>
-        <div class="container text-center summary-header ms-0">
+        <div class="container text-center summary-header m-1">
           <div class="row row-cols-auto d-flex align-items-center">
             <div class="col ps-0 me-2">
               <i class="mx-0 fas fa-calendar" aria-hidden="true"></i>
@@ -35,17 +35,20 @@
             {{ range .Params.categories }}
               <div class="col ps-0 me-2">
                 <i class="mx-0 fas fa-bookmark" aria-hidden="true"></i
-                ><a href="{{ $.Site.BaseURL }}/categories/{{ . | urlize }}">
+                ><a
+                  href="{{ $.Site.BaseURL }}/categories/{{ . | urlize }}"
+                  class="fw-medium"
+                >
                   {{ . }}</a
                 >
               </div>
             {{ end }}
           </div>
         </div>
-        <div class="container text-center summary-header tags">
+        <div class="container text-center summary-header mx-1 my-2">
           <div class="row row-cols-auto">
             {{ $colors := (slice "text-warning" "text-primary" "text-success" "text-info" "text-danger"
-              "text-secondary" "text-dark") | shuffle
+              "text-secondary") | shuffle
             }}
             {{ range $index, $tag := .Params.tags }}
               <div class="col ps-0 me-2">
@@ -54,7 +57,10 @@
                   class="mx-0 fas fa-tags {{ $colorClass }}"
                   aria-hidden="true"
                 ></i>
-                <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">
+                <a
+                  href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}"
+                  class="fw-medium"
+                >
                   {{ . }}
                 </a>
               </div>

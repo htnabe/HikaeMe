@@ -1,0 +1,32 @@
+<!-- Icon trigger modal -->
+<a
+  href="{{ .Site.BaseURL }}search"
+  class="nav-link"
+  data-bs-toggle="modal"
+  data-bs-target="#searchModal"
+  aria-label="Search some articles"
+>
+  <i class="fas fa-search"></i>
+</a>
+
+<!-- Modal for search-bar -->
+{{/* TODO: manage html ids with some external files */}}
+<div
+  class="modal fade"
+  id="searchModal"
+  tabindex="-1"
+  aria-labelledby="searchModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <section id="searchbox" class="w-100"></section>
+      </div>
+      <div class="modal-body overflow-y-auto" id="hits"></div>
+      <div class="modal-footer">
+        <span id="powered-by-algolia"></span>
+      </div>
+    </div>
+  </div>
+</div>

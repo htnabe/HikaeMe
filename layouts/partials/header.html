@@ -7,16 +7,21 @@
       >
         {{ with .Site.Params.logoImageUrl }}
           <img
-            src="{{ . }}"
+            src="{{ . | absURL }}"
             title="t-pot"
             height="30"
             width="30"
-            class="img-fluid"
+            class="img-fluid rounded "
             alt="blog-logo"
             class="d-inline"
           />
         {{ end }}
-        <p class="d-inline fs-2 logo-font m-0 ms-1">{{ .Site.Title }}</p>
+        <p
+          class="d-inline fs-2 logo-font m-0 ms-1"
+          style="font-family: {{ .Site.Params.logoFontFamily }};"
+        >
+          {{ .Site.Title }}
+        </p>
       </a>
       <div class="align-self-center align-items-center">
         <button
@@ -37,14 +42,14 @@
                 <li class="nav-item">
                   {{ if $.IsMenuCurrent .Menu . }}
                     <a
-                      class="nav-link"
+                      class="nav-link hover-with-ul"
                       aria-current="page"
                       href="{{ .PageRef }}"
                     >
                       <span class="fs-6 m-0 fw-semibold">{{ .Name }}</span>
                     </a>
                   {{ else }}
-                    <a class="nav-link" href="{{ .PageRef }}">
+                    <a class="nav-link hover-with-ul" href="{{ .PageRef }}">
                       <span class="fs-6 m-0 fw-semibold">
                         {{ .Name }}
                       </span>
@@ -53,15 +58,11 @@
                 </li>
               {{ end }}
             {{ end }}
-            <li class="nav-item">
-              <a
-                href="{{ .Site.BaseURL }}search"
-                class="nav-link"
-                aria-label="Search some articles"
-              >
-                <i class="fas fa-search"></i>
-              </a>
-            </li>
+            {{ if .Site.Params.enableAlgolia }}
+              <li class="nav-item">
+                {{ partial "search-modal.html" }}
+              </li>
+            {{ end }}
             <li class="nav-item">
               {{ partial "color-toggle-button.html" }}
             </li>

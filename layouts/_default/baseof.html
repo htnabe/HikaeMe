@@ -27,7 +27,7 @@
     {{ partial "head.html" . }}
   </head>
 
-  <body class="wo-ul p-0 min-vh-100 bg-body-tertiary">
+  <body class="p-0 min-vh-100 bg-body-tertiary">
     <header class="py-1 px-2 bg-body">
       {{ partial "header.html" . }}
     </header>
@@ -43,7 +43,8 @@
               {{ partial "author.html" . }}
             {{ end }}
             {{ partial "categories.html" . }}
-            <div class="sticky">
+            <div class="sticky mt-1 d-block top-0">
+              {{ partial "support-url.html" . }}
               {{ partial "sidebar-toc.html" . }}
             </div>
           </div>

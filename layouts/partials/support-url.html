@@ -1,0 +1,22 @@
+{{ $gsUrl := .Site.Params.Author.githubSponsorUrl }}
+{{ $gsButtonUrl := .Site.Params.Author.githubSponsorButtonUrl }}
+
+{{ if and $gsUrl $gsButtonUrl }}
+  <section class="sidebar mb-3 pt-2 pt-1">
+    <header class="px-2 pt-2 pb-3 m-auto text-start fw-bold">
+      サポートする
+    </header>
+    <div class="mt-auto mb-2 text-center overflow-hidden">
+      <!-- Github logo -->
+      <a href="{{ $gsUrl }}">
+        <iframe
+          src="{{ $gsButtonUrl }}"
+          title="GitHub Sponsor Banner"
+          height="32"
+          width="114"
+          class="border border-0 rounded"
+        ></iframe>
+      </a>
+    </div>
+  </section>
+{{ end }}
