@@ -1,31 +1,7 @@
-{
-  { /* Generates a valid Algolia search index */}
-}
-{
-  {- $.Scratch.Add "index" slice -
-  }
-}
-{
-  {- range .Site.RegularPages -
-  }
-}
-{
-  {- if .Page.Params.postsPage | default true -
-  }
-}
-     {
-  {- $.Scratch.Add "index" (dict "objectID" .File.UniqueID "title" .Title "tags" .Params.tags "categories" .Params.categories "permalink" .Permalink "summary" (.Summary | plainify) "date"  (.Date.Format .Site.Params.dateformat) ) -
-  }
-}
-{
-  {- end -
-  }
-}
-{
-  {- end -
-  }
-}
-{
-  {- $.Scratch.Get "index" | jsonify -
-  }
-}
+{{- $.Scratch.Add "index" slice -}}
+{{- range .Site.RegularPages -}}
+{{- if .Page.Params.postsPage | default true -}}
+{{- $.Scratch.Add "index" (dict "objectID" .File.UniqueID "title" .Title "tags" .Params.tags "categories" .Params.categories "permalink" .Permalink "summary" (.Summary | plainify) "date"  (.Date.Format .Site.Params.dateformat) ) -}}
+{{- end -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

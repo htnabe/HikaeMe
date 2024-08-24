@@ -7,25 +7,16 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 
 <!-- load custom and main css files -->
-{{/* {{ $options := (dict
-  "outputStyle" "compressed"
-  "transpiler" "dartsass")
+{{ $options := (dict
+  "outputStyle" "compressed" "transpiler" "dartsass")
 }}
-{{ $mainstyle := resources.Get "styles.scss" | resources.ToCSS $options }}
+{{ $mainstyle := resources.Get "css/styles.scss" | resources.ToCSS $options }}
 <link
   crossorigin="anonymous"
   href="{{ $mainstyle.Permalink }}"
   rel="preload stylesheet"
   as="style"
 />
-{{ $customstyle := resources.Get "custom.scss" | resources.ToCSS $options }}
-<link
-  crossorigin="anonymous"
-  href="{{ $customstyle.Permalink }}"
-  rel="preload stylesheet"
-  as="style"
-/>
-*/}}
 
 <!-- load Google Fonts -->
 {{ $fonts := .Site.Params.googlefonts | default .Site.Params.defaultGoogleFonts }}
@@ -64,39 +55,6 @@
   ></script>
 {{ end }}
 
-{{/* enable js and css files only in search page */}}
-{{ if .Page.Params.searchpage | default false }}
-  <!-- Include only the reset -->
-  <link
-    rel="preload stylesheet"
-    as="style"
-    href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.3.0/themes/reset-min.css"
-    integrity="sha256-D+cGTF0LVHjuEf+CDRkHeNw/KTHPg47t1AA/qmzxgtA="
-    crossorigin="anonymous"
-  />
-  <!-- or include the full Satellite theme -->
-  <link
-    rel="preload stylesheet"
-    as="style"
-    href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.3.0/themes/satellite-min.css"
-    integrity="sha256-Qn2jMxB0SkFi+WAf540nGb5LBaVTyjVQLqPNaNjduio="
-    crossorigin="anonymous"
-  />
-  <script
-    src="https://cdn.jsdelivr.net/npm/algoliasearch@4.24.0/dist/algoliasearch-lite.umd.js"
-    integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ="
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.73.2/dist/instantsearch.production.min.js"
-    integrity="sha256-B+n6MHbHATZ/S1vmXS1gM5q96eLCMCZhmrgg+2KkcY4="
-    crossorigin="anonymous"
-  ></script>
-  {{ with resources.Get "js/search.js" }}
-    <script defer type="text/javascript" src="{{ .RelPermalink }}"></script>
-  {{ end }}
-{{ end }}
-
 
 <!-- fontawesome -->
 <link
@@ -122,13 +80,6 @@
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
-
-<!-- affiliate -->
-<script
-  defer
-  type="text/javascript"
-  src="//mlb.valuecommerce.com/mylinkbox.js"
-></script>
 
 {{/* load Bootstrap */}}
 <link
@@ -170,11 +121,40 @@
     document.documentElement.setAttribute("data-bs-theme", theme);
   })();
 </script>
-{{ with resources.Get "js/color-module.js" | resources.Minify | fingerprint }}
+{{ $tsCommonOpt := dict "minify" "true" }}
+{{ with resources.Get "ts/color-module.ts" | js.Build $tsCommonOpt | fingerprint }}
   <script
-    defer
+    async
     type="text/javascript"
     src="{{ .RelPermalink }}"
     integrity="{{ .Data.Integrity }}"
   ></script>
+{{ end }}
+
+{{/* load Instant search for Algolia */}}
+{{ if .Site.Params.EnableAlgolia | default false }}
+  <link
+    rel="preload stylesheet"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.3.0/themes/satellite-min.css"
+    integrity="sha256-Qn2jMxB0SkFi+WAf540nGb5LBaVTyjVQLqPNaNjduio="
+    crossorigin="anonymous"
+  />
+
+  {{ with .Site.Params.Algolia }}
+    {{ $tsCommonOpt :=
+      dict "params" (dict
+      "indexName" .indexName
+      "appId" .appId
+      "algoliaSearchApiKey" .searchOnlyApiKey)
+    }}
+
+    {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsCommonOpt | resources.Minify }}
+    <script
+      defer
+      type="text/javascript"
+      src="{{ $compiledJs.RelPermalink }}"
+      crossorigin="anonymous"
+    ></script>
+  {{ end }}
 {{ end }}

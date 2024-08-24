@@ -17,18 +17,18 @@
 
   {{ range $page := $paginator.Pages }}
     <article class="li article-hover">
-      <a href="{{ .Permalink }}">
+      <a class="text-decoration-none" href="{{ .Permalink }}">
         <div class="card mb-3 border-0 bg-body">
           <div class="row g-0">
             <div
-              class="col-md-4 thumb thumb-sm-height rounded"
+              class="col-md-4 thumb thumb-sm-height rounded object-fit-cover"
               style="background-image: url('{{ ($page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}');"
             ></div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="fs-5 fw-semibold">{{ .Title }}</h5>
                 <small class="text-body-secondary fw-medium mt-1">
-                  <div class="container text-center">
+                  <div class="container m-0">
                     <div class="row row-cols-auto">
                       <div class="col px-0">
                         <i

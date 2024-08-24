@@ -1,0 +1,137 @@
+@use "./widgets/amazon";
+@use "./widgets/toc";
+@use "./widgets/author";
+@use "./utils";
+@use "./widgets/header";
+@use "./widgets/math-jax";
+@use "./widgets/sidebar";
+@use "./widgets/algolia";
+
+body {
+  font-family: "Raleway", "Roboto", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", sans-serif !important;
+  letter-spacing: 0.05em;
+  font-feature-settings: "palt";
+
+  a {
+    text-decoration: none;
+  }
+
+  main {
+
+    // 画面サイズが大きいときのh1 ~ h6のサイズ
+    @media (min-width: 768px) {
+
+      .h1,
+      h1 {
+        font-size: 2rem;
+      }
+
+      .h2,
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .h3,
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      .h4,
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+/* Layouts */
+main {
+  max-width: 80rem;
+}
+
+// 記事下部のページネーションの表示
+ul.facts {
+  li {
+    font-size: 0.9rem;
+  }
+}
+
+// タグ・カテゴリごとのタイトルの下線
+.page-title {
+  &::after {
+    content: "";
+    display: block;
+    border-bottom: 0.25rem solid #686060;
+    width: 3rem;
+    margin: 1.5rem auto;
+  }
+}
+
+// 記事内部の画像、レイアウト、フォントについて
+article.card-wrapper img,
+article.card-wrapper figure img {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  max-width: 100%;
+}
+
+article.card-wrapper figcaption {
+  color: #888890;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+article.card-wrapper div.card-body {
+
+  padding-left: 4%;
+  padding-right: 4%;
+
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    border-bottom: 0.1rem solid #6c757d;
+    margin: 1.5rem 0;
+    padding: 0.5rem 0;
+  }
+
+  h3 {
+    border-left: 0.45rem solid #333;
+    margin: 1.5rem 0;
+    padding: 0.125rem 0.5rem;
+  }
+
+  p {
+    margin: 1rem 0;
+    line-height: 1.75rem;
+  }
+
+  .summary-header {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+
+    i {
+      color: #cfd8dc;
+      margin-right: 0.5em;
+    }
+  }
+
+  .article-footer {
+    padding: 2rem;
+  }
+}
+
+// リスト表示した時のサムネ
+.thumb {
+  background-size: cover;
+  background-position: center;
+}
+
+.thumb-sm-height {
+  height: 180px;
+
+  @media (max-width: 575.98px) {
+    height: 110px;
+  }
+}

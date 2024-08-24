@@ -7,10 +7,16 @@
   },
   "scripts": {
     "format": "prettier --write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "debug": "cd exampleSite &&  hugo server --gc --watch"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "prettier --write",
     "*.{html,css}": "prettier --write"
+  },
+  "dependencies": {
+    "@algolia/client-search": "^4.24.0",
+    "algoliasearch": "^4.24.0",
+    "instantsearch.js": "^4.74.0"
   }
 }

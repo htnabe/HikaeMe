@@ -17,10 +17,10 @@
         {{ end }}
       </div>
       <div class="col-9">
-        <div class="inner text-body">
+        <div class="text-body">
           <p class="fs-6 pt-1 ">{{ .Title }}</p>
-          <ul class="facts sm p-0 my-2 mx-0">
-            <li class="d-inline">
+          <ul class="facts p-0 my-2 mx-0">
+            <li class="d-inline me-4">
               <i
                 class="fas fa-calendar text-secondary me-2"
                 aria-hidden="true"
@@ -38,7 +38,7 @@
                   class="fas fa-bookmark text-secondary me-2"
                   aria-hidden="true"
                 ></i
-                >{{ . | upper }}
+                >{{ humanize . }}
               </li>
             {{ end }}
           </ul>

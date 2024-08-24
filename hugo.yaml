@@ -1,32 +1,36 @@
-baseURL: "https://example.org"
-title: "My New Hugo Site"
+baseURL:
+title:
 enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
-timeZone: "Japan"
-languageCode : "ja-JP"
+timeZone:
+languageCode:
 
 params:
-  description: "the description of the website"
-  dateformat: "2006/01/02"
-  defaultGoogleFonts: "https://fonts.googleapis.com/css?family=Roboto+Slab:400,700"
-  googlefonts: "" # Optional, Include google fonts.
+  description:
+  dateformat:
+  defaultGoogleFonts:
+  googlefonts:
   enableHighlight: true
-  amazonAffiliateId: "" # Optional, Include amazon affiliate ID(eg. hikaeme-22)
-  since: 2020
-  defaultThumbnailUrl: ""
-  logoImageUrl: "https://res.cloudinary.com/takenoko/image/upload/w_800,f_auto/v1722703191/logos/blog-only-logo_lb6etv.svg"
-  copyright: ""
+  amazonAffiliateId: # Optional, Include amazon affiliate ID(eg. hikaeme-22)
+  since: # you can add the start period
+  defaultThumbnailUrl: # https://~ format is also supported
+  logoImageUrl: # https://~ format is also supported
+  copyright:
+  contactUrl: # Optional, if you want to add a contact form / sns accFount please write the URL here
+  enableAlgolia: true
+  logoFontFamily:
 
   author:
-    thumbnail: ""
-    name: "Saitama"
-    comment: "Hi there!"
+    thumbnailUrl:
+    name:
+    comment:
     sns:
-      github: "https://github.com"
-      steam: "https://steamcommunity.com"
-      strava: "https://www.strava.com"
-      nostter: "https://nostter.app"
+      github:
+    # Optional, if you are using GitHub Sponsors, you can add the url
+    githubSponsorUrl:
+    githubSponsorButtonUrl:
+
   algolia:
     vars:
       - "title"
@@ -70,4 +74,3 @@ permalinks:
   about: "/:filename"
   author: "/:filename"
   privacy: "/:filename"
-  search: "/:filename"

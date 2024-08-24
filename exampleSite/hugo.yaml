@@ -1,0 +1,92 @@
+baseURL: "https://example.org"
+title: "HUGO Site"
+enableEmoji: true
+enableGitInfo: true
+enableRobotsTXT: true
+timeZone: "Japan"
+languageCode: "ja-JP"
+theme: "HikaeMe"
+themesdir: "../.."
+
+params:
+  description: "the description of the website"
+  dateformat: "2006/01/02"
+  defaultGoogleFonts: "https://fonts.googleapis.com/css?family=Roboto+Slab:400,700"
+  googlefonts: "https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Orbitron:wght@400&family=Roboto:wght@400;500;700&display=swap" # Optional, Include google fonts.
+  enableHighlight: true
+  amazonAffiliateId: "" # Optional, Include amazon affiliate ID(eg. hikaeme-22)
+  since: "2020" # you can add the start period
+  defaultThumbnailUrl: "/img/about-page-thumbnail.webp" # https://~ format is also supported
+  logoImageUrl: "/img/site-logo.webp" # https://~ format is also supported
+  copyright: "author name?"
+  contactUrl: "" # Optional, if you want to add a contact form / sns accFount please write the URL here
+  enableAlgolia: true
+  logoFontFamily: "Orbitron"
+
+  author:
+    thumbnailUrl: "/img/icon.webp"
+    name: "Saitama"
+    comment: "Hi there! Write comments here!"
+    sns:
+      github:
+        icon: "fa-brands fa-github"
+        url: "https://github.com"
+      steam:
+        icon: "fa-brands fa-steam"
+        url: "https://steamcommunity.com"
+      strava:
+        icon: "fa-brands fa-strava"
+        url: "https://www.strava.com"
+      nostter:
+        icon: "fa-regular fa-paw"
+        url: "https://nostter.app"
+    # Optional, if you are using GitHub Sponsors, you can add the url
+    githubSponsorUrl: "https://github.com/sponsors/htnabe/button"
+    githubSponsorButtonUrl: "https://github.com/sponsors/htnabe/button"
+
+  algolia:
+    vars:
+      - "title"
+      - "summary"
+      - "content"
+      - "date"
+      - "publishdate"
+      - "permalink"
+      - "keywords"
+    params:
+      - "tags"
+      - "categories"
+    indexName: "nabeBlog"
+    appId: "938E446F5B"
+    searchOnlyApiKey: "b544c4b02e93e53f58fe29a6fef6603c"
+
+outputs:
+  home:
+    - "HTML"
+    - "Algolia"
+  section:
+    - "HTML"
+
+outputFormats:
+  Algolia:
+    baseName: "algolia"
+    isPlainText: true
+    mediaType: "application/json"
+    notAlternative: true
+
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - name: About
+      pageRef: /about
+      weight: 20
+    - name: Author
+      pageRef: /author
+      weight: 30
+
+permalinks:
+  about: "/:filename"
+  author: "/:filename"
+  privacy: "/:filename"

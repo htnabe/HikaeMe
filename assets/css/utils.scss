@@ -1,0 +1,14 @@
+// 機能
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.height-20rem {
+  height: 20rem;
+
+  @media screen and (max-width: 768px) {
+    height: 12rem;
+  }
+}
