@@ -3,6 +3,7 @@ plugins:
 trailingComma: "es5"
 singleQuote: false
 goTemplateBracketSpacing: true
+tabWidth: 2
 
 overrides:
   - files: "*.html"
@@ -11,7 +12,19 @@ overrides:
       parser: "go-template"
 
   - files:
-    - "*.scss"
-    - "*.css"
+      - "*.scss"
+      - "*.css"
     options:
       parser: "scss"
+
+  - files: "*.ts"
+    options:
+      parser: typescript
+      singleQuote: false
+      trailingComma: "es5"
+
+  - files: "*.js"
+    options:
+      parser: babel
+      singleQuote: false
+      trailingComma: "all"
