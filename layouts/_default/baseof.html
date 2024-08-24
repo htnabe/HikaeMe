@@ -30,6 +30,9 @@
   <body class="p-0 min-vh-100 bg-body-tertiary">
     <header class="py-1 px-2 bg-body">
       {{ partial "header.html" . }}
+      {{ if templates.Exists "partials/custom-head.html" }}
+        {{ partial "custom-head.html" . }}
+      {{ end }}
     </header>
 
     <div class="container-xl">

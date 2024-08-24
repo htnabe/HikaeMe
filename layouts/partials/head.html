@@ -7,13 +7,19 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 
 <!-- load custom and main css files -->
-{{ $options := (dict
-  "outputStyle" "compressed" "transpiler" "dartsass")
-}}
+{{ $options := (dict "outputStyle" "compressed" "transpiler" "dartsass") }}
 {{ $mainstyle := resources.Get "css/styles.scss" | resources.ToCSS $options }}
+{{ $styles := $mainstyle }}
+
+{{ if resources.Get "css/custom.scss" }}
+  {{ $customstyle := resources.Get "css/custom.scss" | resources.ToCSS $options }}
+  {{ $styles = slice $mainstyle $customstyle | resources.Concat "css/bundle.css" }}
+{{ end }}
+
+
 <link
   crossorigin="anonymous"
-  href="{{ $mainstyle.Permalink }}"
+  href="{{ $styles.Permalink }}"
   rel="preload stylesheet"
   as="style"
 />
