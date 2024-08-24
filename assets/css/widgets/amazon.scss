@@ -1,0 +1,58 @@
+// Amazon商品の表示
+.amazon-widget-container {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+
+  .amazon-widget {
+    padding: 1rem 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: 1px solid #ccc;
+
+    img {
+      box-shadow: none !important;
+    }
+
+    &-img {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      margin: 0 1rem 0 0.5rem;
+
+      img {
+        max-height: 100px;
+      }
+    }
+
+    &-info {
+      flex: 2;
+      margin: 0 0.5rem;
+      display: flex;
+      flex-direction: column;
+
+      .amazon-widget-title {
+        font-size: 1.2em;
+        line-height: 1.2em;
+      }
+    }
+
+    &-via {
+      color: #aaa;
+
+      >img {
+        border: none;
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        padding: 0;
+        display: inline;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+// TODO: 値をvariable.scssに書き出し
+
+section {
+  &.sidebar {
+
+    >header {
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+    }
+
+    >header::after {
+      margin: 0.5rem 0px;
+      width: 100px;
+      display: block;
+      height: 2px;
+      background-color: #d3d3d3;
+      content: "";
+    }
+  }
+}
