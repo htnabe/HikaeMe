@@ -130,7 +130,7 @@
 {{ $tsCommonOpt := dict "minify" "true" }}
 {{ with resources.Get "ts/color-module.ts" | js.Build $tsCommonOpt | fingerprint }}
   <script
-    async
+    defer
     type="text/javascript"
     src="{{ .RelPermalink }}"
     integrity="{{ .Data.Integrity }}"
@@ -155,12 +155,13 @@
       "algoliaSearchApiKey" .searchOnlyApiKey)
     }}
 
-    {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsCommonOpt | resources.Minify }}
+    {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsCommonOpt | resources.Minify | fingerprint }}
     <script
       defer
       type="text/javascript"
       src="{{ $compiledJs.RelPermalink }}"
       crossorigin="anonymous"
+      integrity="{{ .Data.Integrity }}"
     ></script>
   {{ end }}
 {{ end }}
