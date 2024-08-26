@@ -8,7 +8,7 @@
   "scripts": {
     "format": "prettier --write",
     "prepare": "husky",
-    "debug": "cd exampleSite &&  hugo server --gc --watch"
+    "dev": "cd exampleSite &&  hugo server --gc --watch"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "prettier --write",
