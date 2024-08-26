@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@algolia/client-search": "^4.24.0",
+    "algoliasearch": "^4.24.0",
+    "instantsearch.js": "^4.74.0"
+  }
+}
