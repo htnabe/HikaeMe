@@ -12,3 +12,15 @@
     height: 12rem;
   }
 }
+
+.height-100px {
+  height: 100px;
+}
+
+.thumb-sm-height {
+  height: 200px;
+
+  @media (max-width: 575.98px) {
+    height: 110px;
+  }
+}
