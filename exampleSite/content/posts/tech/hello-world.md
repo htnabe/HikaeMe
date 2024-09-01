@@ -70,9 +70,22 @@ Markdownは、簡単に構造化された文書を作成するための軽量マ
 
 コードブロックは ``` で囲みます：
 
-```python
+- example
+
+{{< highlight markdown >}}
+```python {linenos=inline}
 def hello_world():
     print("Hello, World!")
+    print(sorted([*[num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]], max([num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]]) * 2]))
+```
+{{</ highlight >}}
+
+- result
+
+```python {linenos=inline}
+def hello_world():
+    print("Hello, World!")
+    print(sorted([*[num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]], max([num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]]) * 2]))
 ```
 
 あるいはショートコード{{</* highlight */>}}を使ってください

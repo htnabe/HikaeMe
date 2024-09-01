@@ -8,20 +8,21 @@
 
 <!-- load custom and main css files -->
 {{ $options := (dict "outputStyle" "compressed" "transpiler" "dartsass") }}
-{{ $mainstyle := resources.Get "css/styles.scss" | resources.ToCSS $options }}
+{{ $mainstyle := resources.Get "css/styles.scss" | resources.ToCSS $options | fingerprint }}
 {{ $styles := $mainstyle }}
 
 {{ if resources.Get "css/custom.scss" }}
   {{ $customstyle := resources.Get "css/custom.scss" | resources.ToCSS $options }}
-  {{ $styles = slice $mainstyle $customstyle | resources.Concat "css/bundle.css" }}
+  {{ $styles = slice $mainstyle $customstyle | resources.Concat "css/bundle.css" | fingerprint }}
 {{ end }}
 
 
 <link
   crossorigin="anonymous"
-  href="{{ $styles.Permalink  | safeURL }}"
+  href="{{ $styles.RelPermalink }}"
   rel="preload stylesheet"
   as="style"
+  integrity="{{ .Data.Integrity }}"
 />
 
 <!-- load Google Fonts -->
@@ -164,4 +165,37 @@
       integrity="{{ .Data.Integrity }}"
     ></script>
   {{ end }}
+{{ end }}
+
+{{/* syntax highlisht */}}
+<!-- コードのハイライト -->
+{{ if .Site.Params.EnableHighlight | default true }}
+  <link
+    rel="preload stylesheet"
+    as="style"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/base16/espresso.min.css"
+    integrity="sha512-Alf9gBIx7O9Pn9+n7HJXcwZK6uXCaGDNj5ScAAtNsQ5OpUHBaXLEAaX00Z9N8S9o9lTG7FKgnRB5eXwUQKNu6g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script
+    defer
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"
+    integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    defer
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"
+    integrity="sha512-axd5V66bnXpNVQzm1c7u1M614TVRXXtouyWCE+eMYl8ALK8ePJEs96Xtx7VVrPBc0UraCn63U1+ARFI3ofW+aA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    window.addEventListener("load", function () {
+      hljs.highlightAll();
+      hljs.initLineNumbersOnLoad(); //行番号用の起動コードを追加
+    });
+  </script>
 {{ end }}

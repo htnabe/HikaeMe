@@ -1,10 +1,7 @@
 <div class="container-xl">
   <nav class="navbar me-auto navbar-expand-lg">
     <div class="container-fluid">
-      <a
-        class="navbar-brand d-flex align-items-center"
-        href="{{ .Site.BaseURL }}"
-      >
+      <a class="navbar-brand d-flex align-items-center" href="/">
         {{ with .Site.Params.logoImageUrl }}
           <img
             src="{{ . | absURL }}"
@@ -17,7 +14,7 @@
           />
         {{ end }}
         <p
-          class="d-inline fs-2 logo-font m-0 ms-1"
+          class="d-inline fs-2 m-0 ms-1 fw-bolder"
           style="font-family: {{ .Site.Params.logoFontFamily }};"
         >
           {{ .Site.Title }}

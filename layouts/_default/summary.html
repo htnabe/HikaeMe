@@ -35,10 +35,7 @@
             {{ range .Params.categories }}
               <div class="col ps-0 me-2">
                 <i class="mx-0 fas fa-bookmark" aria-hidden="true"></i
-                ><a
-                  href="{{ $.Site.BaseURL }}/categories/{{ . | urlize }}"
-                  class="fw-medium"
-                >
+                ><a href="/categories/{{ . | urlize }}" class="fw-medium">
                   {{ . }}</a
                 >
               </div>
@@ -57,10 +54,7 @@
                   class="mx-0 fas fa-tags {{ $colorClass }}"
                   aria-hidden="true"
                 ></i>
-                <a
-                  href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}"
-                  class="fw-medium"
-                >
+                <a href="/tags/{{ . | urlize }}" class="fw-medium">
                   {{ . }}
                 </a>
               </div>
