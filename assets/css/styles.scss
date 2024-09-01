@@ -6,6 +6,7 @@
 @use "./widgets/math-jax";
 @use "./widgets/sidebar";
 @use "./widgets/algolia";
+@use "./widgets/code";
 
 body {
   font-family: "Raleway", "Roboto", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", sans-serif !important;
