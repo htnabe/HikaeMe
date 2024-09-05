@@ -8,11 +8,11 @@
 
 <!-- load custom and main css files -->
 {{ $options := (dict "outputStyle" "compressed" "transpiler" "dartsass") }}
-{{ $mainstyle := resources.Get "css/styles.scss" | resources.ToCSS $options | fingerprint }}
+{{ $mainstyle := resources.Get "css/styles.scss" | toCSS $options | fingerprint }}
 {{ $styles := $mainstyle }}
 
 {{ if resources.Get "css/custom.scss" }}
-  {{ $customstyle := resources.Get "css/custom.scss" | resources.ToCSS $options }}
+  {{ $customstyle := resources.Get "css/custom.scss" | toCSS $options }}
   {{ $styles = slice $mainstyle $customstyle | resources.Concat "css/bundle.css" | fingerprint }}
 {{ end }}
 
