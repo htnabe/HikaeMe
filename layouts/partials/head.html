@@ -129,13 +129,8 @@
   })();
 </script>
 {{ $tsCommonOpt := dict "minify" "true" }}
-{{ with resources.Get "ts/color-module.ts" | js.Build $tsCommonOpt | fingerprint }}
-  <script
-    defer
-    type="text/javascript"
-    src="{{ .RelPermalink }}"
-    integrity="{{ .Data.Integrity }}"
-  ></script>
+{{ with resources.Get "ts/color-module.ts" | js.Build $tsCommonOpt }}
+  <script defer type="text/javascript" src="{{ .RelPermalink }}"></script>
 {{ end }}
 
 {{/* load Instant search for Algolia */}}
@@ -156,13 +151,11 @@
       "algoliaSearchApiKey" .searchOnlyApiKey)
     }}
 
-    {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsCommonOpt | resources.Minify | fingerprint }}
+    {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsCommonOpt | resources.Minify }}
     <script
       defer
       type="text/javascript"
       src="{{ $compiledJs.RelPermalink }}"
-      crossorigin="anonymous"
-      integrity="{{ .Data.Integrity }}"
     ></script>
   {{ end }}
 {{ end }}
