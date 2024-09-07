@@ -3,38 +3,32 @@
 <meta name="msnbot" content="noarchive" />
 <meta name="pinterest" content="nopin" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="dns-prefetch" href="//fonts.googleapis.com/" crossorigin />
-<link rel="preconnect" href="//fonts.googleapis.com/" crossorigin />
-<link rel="dns-prefetch" href="https://res.cloudinary.com/" crossorigin />
-<link rel="preconnect" href="https://res.cloudinary.com/" crossorigin />
+<link
+  rel="dns-prefetch preconnect"
+  href="//fonts.googleapis.com/"
+  crossorigin
+/>
+<link
+  rel="dns-prefetch preconnect"
+  href="https://cdn.jsdelivr.net/"
+  crossorigin
+/>
+<link
+  rel="dns-prefetch preconnect"
+  href="https://cdnjs.cloudflare.com/"
+  crossorigin
+/>
 {{ with .Site.Params.contact }}
   <meta name="contact" content="{{ . }}" />
 {{ end }}
 {{ hugo.Generator }}
 
 {{/* icon */}}
-<link
-  rel="apple-touch-icon"
-  sizes="180x180"
-  href="https://res.cloudinary.com/takenoko/image/upload/w_180,h_180,f_auto/v1630765927/NabeBlog/favicon_irx8pk.png"
-/>
-<link
-  rel="icon"
-  href="https://res.cloudinary.com/takenoko/image/upload/f_auto/v1630765889/NabeBlog/favicon_e5u8fh.svg"
-  type="image/svg+xml"
-/>
-<link
-  rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="https://res.cloudinary.com/takenoko/image/upload/w_32,h_32,f_auto/v1630765927/NabeBlog/favicon_irx8pk.png"
-/>
-<link
-  rel="icon"
-  type="image/png"
-  sizes="16x16"
-  href="https://res.cloudinary.com/takenoko/image/upload/w_16,h_16,f_auto/v1630765927/NabeBlog/favicon_irx8pk.png"
-/>
+{{ with .Site.Params.favicon }}
+  <link rel="icon" href="{{ .defaultUrl }}" sizes="16x16 32x32 48x48" />
+  <link rel="icon" href="{{ .svgUrl }}" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="{{ .appleUrl }}" sizes="180x180" />
+{{ end }}
 
 {{ range .AlternativeOutputFormats }}
   <link
@@ -52,78 +46,100 @@
   <meta name="robots" content="noindex, nofollow" />
 {{ end }}
 
+{{ $title := "title" }}
+{{ $description := "description" }}
+{{ $shortDescription := "shortDescription" }}
 
-<meta
-  name="description"
-  content="{{ with .Description }}
-    {{ . }}
-  {{ else }}
-    {{ if .IsPage }}
-      {{ .Summary }}
-    {{ else }}
-      {{ with .Site.Params.description }}{{ . }}{{ end }}
-    {{ end }}
+{{ if .IsPage }}
+  {{ .Scratch.Set $title .Title }}
+  {{ .Scratch.Set $description .Summary }}
+{{ else }}
+  {{ .Scratch.Set $title .Site.Title }}
+  {{ .Scratch.Set $description .Site.Params.description }}
+{{ end }}
+{{ .Scratch.Set $shortDescription .Content | plainify | truncate 200 }}
 
-  {{ end }}
-  "
-/>
 
-{{/* og */}}
-<meta
-  property="og:title"
-  content="{{ if .IsPage }}
-    {{ .Title }} -
-    {{ .Site.Title }}
-  {{ else }}
-    {{ with  .Site.Title }}{{ . }}{{ end }}
-  {{ end }}"
-/>
-<meta property="og:type" content="website" />
+<meta name="description" content="{{ .Scratch.Get $description }}" />
+
+{{/* Open Graph Protocol */}}
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="{{ .Scratch.Get $title }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
 <meta
   property="og:image"
   content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnailUrl ) }}"
 />
-<meta property="og:site_name" content="{{ .Site.Title }}" />
 <meta
-  property="og:description"
-  content="{{ with .Description }}
-    {{ . }}
-  {{ else }}
-    {{ if .IsPage }}
-      {{ .Content | plainify | truncate 200 }}
-    {{ else }}
-      {{ with .Site.Params.description }}{{ . }}{{ end }}
-    {{ end }}
-  {{ end }}"
+  property="og:type"
+  content="
+    {{- if .IsPage -}}
+    article
+  {{- else -}}
+    website
+  {{- end -}}
+"
 />
-<meta property="og:locale" content="ja_JP" />
+
+{{- if .IsPage -}}
+  <meta
+    property="og:description"
+    content="{{ .Scratch.Get $shortDescription }}"
+  />
+
+  <meta property="article:section" content="{{ .Section | title }}" />
+  {{- range .Params.tags -}}
+    <meta property="article:tag" content="{{ . }}" />
+  {{- end -}}
+
+  {{- if not .Date.IsZero -}}
+    <meta
+      property="article:published_time"
+      content="{{ .Date.Format (
+        .Site.Params.dateformat |
+        default "2006/01/02") | safeHTML
+      }}"
+    />
+  {{- end -}}
+  {{- if not .Lastmod.IsZero -}}
+    <meta
+      property="article:modified_time"
+      content="{{ .Lastmod.Format (
+        .Site.Params.dateformat |
+        default "2006/01/02")| safeHTML
+      }}"
+    />
+  {{- end -}}
+{{- else -}}
+  <meta property="og:description" content="{{ .Scratch.Get $description }}" />
+
+  {{- if not .Site.Lastmod.IsZero -}}
+    <meta
+      property="og:updated_time"
+      content="{{ .Site.Lastmod.Format (
+        .Site.Params.dateformat |
+        default "2006/01/02") | safeHTML
+      }}"
+    />
+  {{- end -}}
+{{- end -}}
 
 {{/* twitter card setting */}}
 <meta name="twitter:card" content="summary_large_image" />
-<meta
-  name="twitter:site"
-  content="{{ if .IsPage }}
-    {{ .Title }} -
-    {{ .Site.Title }}
-  {{ else }}
-    {{ with  .Site.Title }}{{ . }}{{ end }}
-  {{ end }}"
-/>
+{{ with .Site.Params.twitterXId }}
+  <meta name="twitter:site" content="{{ . }}" />
+{{ end }}
 <meta name="twitter:url" content="{{ .Permalink }}" />
 <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}" />
-<meta
-  name="twitter:description"
-  content="{{ with .Description }}
-    {{ . }}
-  {{ else }}
-    {{ if .IsPage }}
-      {{ .Content | plainify | truncate 200 }}
-    {{ else }}
-      {{ with .Site.Params.description }}{{ . }}{{ end }}
-    {{ end }}
-  {{ end }}"
-/>
+{{- if .IsPage -}}
+  <meta
+    name="twitter:description"
+    content="{{ .Scratch.Get $shortDescription }}"
+  />
+{{ else }}
+  <meta name="twitter:description" content="{{ .Scratch.Get $description }}" />
+{{ end }}
 <meta
   name="twitter:image"
   content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnailUrl ) }}"
