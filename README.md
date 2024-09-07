@@ -1,12 +1,17 @@
 # HikaeMe
-今のところ自分のためだけのHUGOテーマ
+
+A HUGO theme just for me.
 
 ## TODOs
 
-1. `variables.scss`を作って定数を管理する
-2. 実際にmodを使ってサイトを作ってみる
+### Must
 
-## Wants
+1. `head.html`, `meta.html`の修正
+2. `variables.scss`を作って定数を管理する
+3. 実際にmodを使ってサイトを作って導入方法の説明
+
+### Want
+
 - Dev Containers周りの開発環境の整備
 
 ## LICENSE
