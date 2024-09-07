@@ -22,7 +22,7 @@ params:
   enableAlgolia: true
   logoFontFamily:
   favicon:
-    defaultUrl: "img/icon.webp" # Required, add a url to the 32x32 size image
+    defaultUrl: # Required, add a url to the 32x32 size image. eg: "img/icon.webp"
     svgUrl: # Required, add a url to the svg image
     appleUrl: # Required, add a url to the 180x180 size image
   twitterXId: # Optional, add the account id like => "@example-id"
