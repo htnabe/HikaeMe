@@ -22,6 +22,11 @@ params:
   contactUrl: "" # Optional, if you want to add a contact form / sns accFount please write the URL here
   enableAlgolia: true
   logoFontFamily: "Orbitron"
+  favicon:
+    defaultUrl: "/img/icon.webp" # Required, add a url to the 32x32 size image. eg: "/img/icon.webp"
+    svgUrl: # Required, add a url to the svg image
+    appleUrl: # Required, add a url to the 180x180 size image
+  twitterXId: # Optional, add the account id like => "@example-id"
 
   author:
     thumbnailUrl: "/img/icon.webp"
