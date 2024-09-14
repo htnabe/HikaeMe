@@ -1,0 +1,18 @@
+name = "HikaeMe"
+license = "MIT"
+licenselink = "https://github.com/htnabe/HikaeMe/blob/main/LICENSE"
+description = "Theme description"
+
+# The home page of the theme, where the source can be found.
+homepage = "https://github.com/htnabe/HikaeMe"
+
+# If you have a running demo of the theme.
+# demosite = "https://gohugo.io"
+
+tags = ["bootstrap", "opengraph", "darkmode", "table of contents", "search", "minimal", "responsive", "personal"]
+features = ["syntax highlighting", "dark mode", "emoji", "algolia"]
+
+# If the theme has a single author
+[author]
+    name = "htnabe"
+    homepage = "https://t-pot.me/"
