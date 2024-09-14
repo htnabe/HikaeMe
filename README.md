@@ -1,4 +1,4 @@
-![theme thumbnail](images/tn.png)
+![theme thumbnail](https://raw.githubusercontent.com/htnabe/HikaeMe/dev/images/tn.png)
 
 # HikaeMe
 
