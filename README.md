@@ -1,18 +1,38 @@
+![theme thumbnail](https://raw.githubusercontent.com/htnabe/HikaeMe/dev/images/tn.png)
+
 # HikaeMe
 
-A HUGO theme just for me.
+A simple theme that displays only the bare minimum of elements readers need.
 
-## TODOs
+## How to start(WIP)
 
-### Must
+```
+hugo mod init
+```
 
-1. `.Permalink`, `.RelPermalink`辺りの差し替え
-2. `variables.scss`を作って定数を管理する
-3. 実際にmodを使ってサイトを作って導入方法の説明
+Add the following in your configuration file. If you are using a non-YAML file, the writing style is different.
 
-### Want
+```
+module:
+  imports:
+    - path: "github.com/htnabe/HikaeMe"
+```
 
-- Dev Containers周りの開発環境の整備
+Then, execute the next command. You need the environment to execute `node` and `npm` .
+
+```
+hugo mod get -u
+hugo mod npm pack
+npm i
+```
+
+## Demo(WIP)
+
+- [My personal blog](https://t-pot.me/)
+
+## Docs(WIP)
+
+
 
 ## LICENSE
 
