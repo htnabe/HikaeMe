@@ -28,7 +28,7 @@ npm i
 
 ## Demo(WIP)
 
-
+- [My personal blog](https://t-pot.me/)
 
 ## Docs(WIP)
 
