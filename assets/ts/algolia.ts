@@ -14,8 +14,8 @@ const algoliaClient: SearchClient = algoliasearch(
   params.algoliaSearchApiKey
 );
 
-// instantSearchを初期化
-// クエリ自体が空白の場合はリクエストを送らない
+// initialize instantSearch
+// not send requests when the query is empty
 const search = instantsearch({
   indexName: params.indexName,
   searchClient: {
@@ -77,7 +77,7 @@ search.addWidgets([
                   <i class="far fa-calendar-alt"></i>
                   ${hit.date}
                 </time>
-                <a href="{{ permalink }}">Read More ></a>
+                <a href="${hit.permalink}">Read More ></a>
               </p>
             </div>
           </div>
