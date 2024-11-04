@@ -1,8 +1,6 @@
 <meta charset="utf-8" />
 <title>{{ .Site.Title }}</title>
 {{ partial "meta.html" . }}
-
-{{/* TODO Add custom meta.html */}}
 {{ block "meta" . }}{{ end }}
 
 
@@ -178,19 +176,12 @@
 
 <!-- load custom and main css files -->
 {{ $options := (dict "outputStyle" "compressed" "transpiler" "dartsass") }}
-{{ $mainstyle := resources.Get "css/styles.scss" | toCSS $options | fingerprint }}
-{{ $styles := $mainstyle }}
-
-{{ if resources.Get "css/custom.scss" }}
-  {{ $customstyle := resources.Get "css/custom.scss" | toCSS $options }}
-  {{ $styles = slice $mainstyle $customstyle | resources.Concat "css/bundle.css" | fingerprint }}
-{{ end }}
+{{ $mainstyle := resources.Get "css/styles.scss" | toCSS $options }}
 
 
 <link
   crossorigin="anonymous"
-  href="{{ $styles.RelPermalink }}"
+  href="{{ $mainstyle.RelPermalink }}"
   rel="stylesheet"
   as="style"
-  integrity="{{ .Data.Integrity }}"
 />
