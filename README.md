@@ -4,6 +4,9 @@
 
 A simple theme that displays only the bare minimum of elements readers need.
 
+> [!IMPORTANT]
+> Currently only Japanese is supported! If you wanna use other langs, plz add i18n support and push PR!
+
 ## How to start(WIP)
 
 ```
@@ -26,13 +29,11 @@ hugo mod npm pack
 npm i
 ```
 
-## Demo(WIP)
+## Demo
 
 - [My personal blog](https://t-pot.me/)
 
 ## Docs(WIP)
-
-
 
 ## LICENSE
 
