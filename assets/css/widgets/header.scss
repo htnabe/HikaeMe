@@ -1,24 +1,21 @@
-// ヘッダーのメニューの下線
-// TODO: 色や値を他のファイルに書き出す
+@use "../_variables" as v;
 
-// ホバー時に下線を引く
+// show underline when hovering
 .hover-with-ul {
   position: relative;
-  /* 親要素に相対位置を設定 */
 
   &::before {
     content: "";
     position: absolute;
-    bottom: 6px;
-    left: 5%;
-    width: 90%;
-    height: 3px;
-    background: #00adb5;
+    bottom: v.$underline-bottom;
+    left: v.$underline-left;
+    width: v.$underline-width;
+    height: v.$underline-height;
+    background: v.$light-blue;
     display: block;
     transform-origin: center;
     transform: scaleX(0);
-    /* 初期状態では非表示 */
-    transition: transform 0.3s cubic-bezier(1, 0, 0, 1);
+    transition: transform v.$transition-duration v.$transition-timing;
   }
 
   &:hover::before {

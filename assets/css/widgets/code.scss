@@ -1,6 +1,8 @@
+@use "../_variables" as v;
+
 article.card-wrapper pre {
-  line-height: 1.15rem;
-  border-radius: 10px;
+  line-height: v.$code-line-hight;
+  border-radius: v.$border-radius-xl;
 
   /* for block of numbers */
   .hljs-ln-numbers {

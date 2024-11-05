@@ -1,0 +1,19 @@
+// Border radius
+$border-radius-none: 0;
+$border-radius-sm: 0.125rem;  // 2px
+$border-radius-md: 0.25rem;   // 4px
+$border-radius-lg: 0.5rem;    // 8px
+$border-radius-xl: 1rem;      // 16px
+$border-radius-full: 9999px;  // 円形
+
+// header's underline style
+$light-blue: #00adb5;
+$underline-height: 3px;
+$underline-bottom: 6px;
+$underline-width: 90%;
+$underline-left: 5%;
+$transition-duration: 0.3s;
+$transition-timing: cubic-bezier(1, 0, 0, 1);
+
+// code in articles style
+$code-line-hight: 1.15rem;
