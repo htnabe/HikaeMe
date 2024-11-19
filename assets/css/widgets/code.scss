@@ -1,7 +1,7 @@
 @use "../_variables" as v;
 
 article.card-wrapper pre {
-  line-height: v.$code-line-hight;
+  line-height: v.$code-line-height;
   border-radius: v.$border-radius-xl;
 
   /* for block of numbers */

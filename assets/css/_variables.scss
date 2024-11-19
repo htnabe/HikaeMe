@@ -1,19 +1,51 @@
 // Border radius
 $border-radius-none: 0;
-$border-radius-sm: 0.125rem;  // 2px
-$border-radius-md: 0.25rem;   // 4px
-$border-radius-lg: 0.5rem;    // 8px
-$border-radius-xl: 1rem;      // 16px
-$border-radius-full: 9999px;  // 円形
+$border-radius-sm: 0.125rem; // 2px
+$border-radius-md: 0.25rem; // 4px
+$border-radius-lg: 0.5rem; // 8px
+$border-radius-xl: 1rem; // 16px
+$border-radius-full: 9999px; // circle
 
 // header's underline style
-$light-blue: #00adb5;
-$underline-height: 3px;
 $underline-bottom: 6px;
 $underline-width: 90%;
 $underline-left: 5%;
 $transition-duration: 0.3s;
 $transition-timing: cubic-bezier(1, 0, 0, 1);
 
-// code in articles style
-$code-line-hight: 1.15rem;
+// Typography
+$line-heights: (
+  sm: 2px,
+  md: 3px,
+  lg: 4px,
+);
+
+$code-line-height: 1.15rem;
+
+// Colors
+$colors: (
+  gray: (
+    extra-light: #cfd8dc,
+    light: #888890,
+    dark: #686060,
+    extra-dark: #333,
+  ),
+  blue: (
+    light: #00adb5,
+  ),
+);
+
+// image shadow
+$shadow-light: rgba(0, 0, 0, 0.12);
+$shadow-medium: rgba(0, 0, 0, 0.24);
+$card-image-box-shadow:
+  0 1px 3px $shadow-light,
+  0 1px 2px $shadow-medium;
+
+// heading sizes
+$heading-sizes: (
+  1: 2rem,
+  2: 1.6rem,
+  3: 1.4rem,
+  4: 1.2rem,
+);

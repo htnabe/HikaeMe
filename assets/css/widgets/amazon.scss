@@ -1,4 +1,7 @@
-// Amazon商品の表示
+@use "./_variables" as v;
+@use "sass:map";
+
+// Amazon widget
 .amazon-widget-container {
   width: 100%;
   margin: 1rem 0;
@@ -12,7 +15,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    border: 1px solid #ccc;
+    border: 1px solid map.get(v.$colors, gray, light);
 
     img {
       box-shadow: none !important;
@@ -42,7 +45,7 @@
     }
 
     &-via {
-      color: #aaa;
+      color: map.get(v.$colors, gray, light);
 
       >img {
         border: none;

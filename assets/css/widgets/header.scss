@@ -1,4 +1,5 @@
 @use "../_variables" as v;
+@use "sass:map";
 
 // show underline when hovering
 .hover-with-ul {
@@ -10,8 +11,8 @@
     bottom: v.$underline-bottom;
     left: v.$underline-left;
     width: v.$underline-width;
-    height: v.$underline-height;
-    background: v.$light-blue;
+    height: map.get(v.$line-heights, sm);
+    background: map.get(v.$colors, blue, light);
     display: block;
     transform-origin: center;
     transform: scaleX(0);
