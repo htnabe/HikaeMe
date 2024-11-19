@@ -1,0 +1,7 @@
+{
+  "name": "Custom Ubuntu Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "yarn install"
+}
