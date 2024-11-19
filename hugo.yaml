@@ -87,4 +87,4 @@ module:
   hugoVersion:
    extended: true
    min: "0.128.0"
-   max: "0.134.2"
+   max: "0.138.0"
