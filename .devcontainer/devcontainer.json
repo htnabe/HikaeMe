@@ -3,5 +3,5 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "yarn install"
+  "postCreateCommand": "sudo npm install -g yarn && yarn install && yarn global add npm-check-updates"
 }
