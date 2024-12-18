@@ -1,5 +1,5 @@
-
-// TODO: 値をvariable.scssに書き出し
+@use "./_variables" as v;
+@use "sass:map";
 
 section {
   &.sidebar {
@@ -13,8 +13,8 @@ section {
       margin: 0.5rem 0px;
       width: 100px;
       display: block;
-      height: 2px;
-      background-color: #d3d3d3;
+      height: map.get(v.$line-heights, sm);
+      background-color: map.get(v.$colors, gray, extra-light);
       content: "";
     }
   }

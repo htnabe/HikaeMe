@@ -55,7 +55,7 @@ Markdownは、簡単に構造化された文書を作成するための軽量マ
 
 ## 6. 画像
 
-![代替テキスト](https://www.example.com)
+![代替テキスト](/img/about-page-thumbnail.webp)
 
 `![代替テキスト](画像URL)`
 
