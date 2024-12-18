@@ -3,5 +3,5 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "sudo npm install -g yarn && yarn install && yarn global add npm-check-updates"
+  "postCreateCommand": "export COREPACK_ENABLE_DOWNLOAD_PROMPT=0 &&sudo  corepack enable && yarn set version stable && yarn install"
 }

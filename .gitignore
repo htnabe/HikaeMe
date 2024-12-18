@@ -1,7 +1,12 @@
-package-lock.json
 node_modules/
 public/
 .hugo_build.lock
 resources/
 .env
-pnpm-lock.yaml
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
