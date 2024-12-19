@@ -115,11 +115,3 @@ article.card-wrapper div.card-body {
   background-size: cover;
   background-position: center;
 }
-
-.thumb-sm-height {
-  height: 180px;
-
-  @media (max-width: 575.98px) {
-    height: 110px;
-  }
-}

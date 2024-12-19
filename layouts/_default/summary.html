@@ -2,13 +2,11 @@
   <div class="card border-0">
     {{ $showThumb := .Page.Params.show_thumb_post | default true }}
     {{ if $showThumb }}
-      <div
-        class="thumb height-20rem"
-        style="background-image: url('{{ (.Page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}');"
-      ></div>
+      <img
+        class="thumb height-20rem object-fit-cover"
+        src="{{ (.Page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}"
+      />
     {{ end }}
-
-
     <div class="card-body">
       <header class="article-header">
         <h1 class="card-title fw-bold mt-2 mb-2">{{ .Title }}</h1>
