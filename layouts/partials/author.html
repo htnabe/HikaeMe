@@ -3,10 +3,10 @@
     <header class="px-2 pt-2 pb-3 m-auto text-start fw-bold">AUTHOR</header>
     <div class="author p-2 text-center">
       {{ with .thumbnailUrl }}
-        <div
+        <img
           class="author-thumb mt-0 mx-auto mb-3 rounded-circle"
-          style="background-image: url({{ . | absURL }});"
-        ></div>
+          src="{{ . | absURL }}"
+        />
       {{ end }}
       <div class="mb-2 fw-semibold">{{ .name }}</div>
       <div class="row justify-content-center mb-2">

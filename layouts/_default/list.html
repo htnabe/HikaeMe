@@ -15,15 +15,18 @@
   {{ if .IsHome }}{{ $pctx = .Site }}{{ end }}
   {{ $paginator := .Paginate (where $pctx.RegularPages ".Type" "posts") }}
 
-  {{ range $page := $paginator.Pages }}
+  {{ range $index, $page := $paginator.Pages }}
     <article class="li article-hover">
       <a class="text-decoration-none" href="{{ .RelPermalink }}">
         <div class="card mb-3 border-0 bg-body">
           <div class="row g-0">
-            <div
-              class="col-md-4 thumb thumb-sm-height rounded object-fit-cover"
-              style="background-image: url('{{ ($page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}');"
-            ></div>
+            <img
+              class="col-md-4 thumb-sm-height rounded object-fit-cover"
+              src="{{ ($page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}"
+              alt="article thumbnail"
+              {{ if ge $index 4 }}loading="lazy"{{ end }}
+              {{ if le $index 3 }}fetchpriority="high"{{ end }}
+            />
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="fs-5 fw-semibold">{{ .Title }}</h5>
