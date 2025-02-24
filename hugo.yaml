@@ -51,6 +51,9 @@ params:
     params:
       - "tags"
       - "categories"
+    indexName:
+    appId:
+    searchOnlyApiKey: # https://www.algolia.com/doc/guides/security/api-keys/#search-only-api-key
 
 outputs:
   home:
@@ -87,4 +90,4 @@ module:
   hugoVersion:
    extended: true
    min: "0.128.0"
-   max: "0.138.0"
+   max: "0.140.0"
