@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 LABEL maintainer="htnabe"
 
-ARG username=not-root
+ARG username=not_root
 ARG useruid=1234
 ARG usergid=${useruid}
 
