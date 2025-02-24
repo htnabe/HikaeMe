@@ -28,9 +28,9 @@
     "*.{js,jsx,ts,tsx}": "prettier --write"
   },
   "scripts": {
-    "dev": "cd exampleSite &&  hugo server --gc --watch",
+    "dev": "cd exampleSite && hugo server --gc --watch",
     "format": "prettier --write",
     "prepare": "husky"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.6.0"
 }
