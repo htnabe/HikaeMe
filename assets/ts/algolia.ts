@@ -1,4 +1,3 @@
-import algoliasearch, { SearchClient } from "algoliasearch";
 import instantsearch from "instantsearch.js";
 import {
   configure,
@@ -8,6 +7,7 @@ import {
 } from "instantsearch.js/es/widgets";
 // @ts-ignore
 import params from "@params";
+import { algoliasearch, SearchClient } from "algoliasearch";
 
 const algoliaClient: SearchClient = algoliasearch(
   params.appId,
@@ -28,9 +28,7 @@ const search = instantsearch({
             nbHits: 0,
             nbPages: 0,
             page: 0,
-            processingTimeMS: 0,
             hitsPerPage: 0,
-            exhaustiveNbHits: false,
             query: "",
             params: "",
           })),

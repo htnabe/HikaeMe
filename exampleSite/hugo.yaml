@@ -63,7 +63,7 @@ params:
       - "categories"
     indexName: "nabeBlog"
     appId: "938E446F5B"
-    searchOnlyApiKey: "b544c4b02e93e53f58fe29a6fef6603c"
+    searchOnlyApiKey: "b544c4b02e93e53f58fe29a6fef6603c" # https://www.algolia.com/doc/guides/security/api-keys/#search-only-api-key
 
 outputs:
   home:
