@@ -13,24 +13,24 @@
     }
   },
   "dependencies": {
-    "@algolia/client-search": "^5.20.3",
-    "algoliasearch": "^5.20.3",
-    "instantsearch.js": "^4.77.3"
+    "@algolia/client-search": "^5.29.0",
+    "algoliasearch": "^5.29.0",
+    "instantsearch.js": "^4.79.0"
   },
   "devDependencies": {
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "prettier": "^3.5.2",
+    "lint-staged": "^16.1.2",
+    "npm-check-updates": "^18.0.1",
+    "prettier": "^3.5.3",
     "prettier-plugin-go-template": "^0.0.15"
   },
   "lint-staged": {
-    "*.{html,css}": "prettier --write",
+    "*.{html,css,scss}": "prettier --write",
     "*.{js,jsx,ts,tsx}": "prettier --write"
   },
   "scripts": {
     "dev": "cd exampleSite && hugo server --gc --watch",
     "format": "prettier --write",
     "prepare": "husky"
-  },
-  "packageManager": "yarn@4.6.0"
+  }
 }
