@@ -32,5 +32,6 @@
     "dev": "cd exampleSite && hugo server --gc --watch",
     "format": "prettier --write",
     "prepare": "husky"
-  }
+  },
+  "version": "0.1.0"
 }
