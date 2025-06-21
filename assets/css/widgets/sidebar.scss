@@ -3,13 +3,12 @@
 
 section {
   &.sidebar {
-
-    >header {
+    > header {
       font-size: 0.9rem;
       letter-spacing: 4px;
     }
 
-    >header::after {
+    > header::after {
       margin: 0.5rem 0px;
       width: 100px;
       display: block;

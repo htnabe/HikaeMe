@@ -88,6 +88,6 @@ permalinks:
 
 module:
   hugoVersion:
-   extended: true
-   min: "0.128.0"
-   max: "0.144.2"
+    extended: true
+    min: "0.128.0"
+    max: "0.144.2"
