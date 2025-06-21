@@ -92,6 +92,6 @@ menus:
       weight: 30
 
 permalinks:
-  about: "/:filename"
-  author: "/:filename"
-  privacy: "/:filename"
+  about: "/:contentbasename"
+  author: "/:contentbasename"
+  privacy: "/:contentbasename"

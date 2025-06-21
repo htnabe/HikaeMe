@@ -82,12 +82,18 @@ menus:
       weight: 30
 
 permalinks:
-  about: "/:filename"
-  author: "/:filename"
-  privacy: "/:filename"
+  about: "/:contentbasename"
+  author: "/:contentbasename"
+  privacy: "/:contentbasename"
+
+headers:
+  - for: "/*" # Apply to all pages
+    values:
+      X-Frame-Options: "DENY" # Prevents clickjacking
+      X-Content-Type-Options: "nosniff" # Prevents MIME type sniffing
+      Referrer-Policy: "no-referrer" # Prevents referrer information from being sent
 
 module:
   hugoVersion:
     extended: true
-    min: "0.128.0"
-    max: "0.144.2"
+    min: "0.144.0"
