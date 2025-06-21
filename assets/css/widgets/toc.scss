@@ -2,7 +2,7 @@
   display: flex;
   text-align: center;
 
-  nav>ul {
+  nav > ul {
     display: inline-block;
     font-size: 0.9rem;
     padding-right: 1rem;
@@ -13,7 +13,7 @@
     overflow-y: auto;
   }
 
-  nav>ul::before {
+  nav > ul::before {
     content: "目次";
     font-size: 120%;
     font-weight: 600;
@@ -22,7 +22,7 @@
   }
 
   ul {
-    >li {
+    > li {
       font-weight: 520;
       text-align: left;
       margin: 0.1rem 0rem 0.1rem 0rem;
@@ -31,7 +31,7 @@
 
   ul {
     ul {
-      >li {
+      > li {
         font-weight: 420;
       }
     }

@@ -47,7 +47,6 @@ $$Var(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2$$
 
 ここで、$x_i$ は確率変数の取りうる値、$p_i$ はその確率です。これらの式は、確率分布の特性を理解する上で非常に重要です。
 
-
 ## ちょっと長めの式もこんな感じ
 
 \begin{equation} \rho A\frac{\partial^2w}{\partial t^2}=-EI\left(\frac{\partial^4w}{\partial x^4}-\frac{\rho\kappa}{G}\frac{\partial^4w}{\partial t^2\partial x^2}-\frac{\kappa}{AG}\frac{\partial^2q}{\partial x^2}\right)+\rho I\left(\frac{\partial^4w}{\partial x^2\partial t^2}-\frac{\kappa}{AG}\frac{\partial^3Q}{\partial x\partial t^2}\right)+q \end{equation}
