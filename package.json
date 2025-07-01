@@ -8,6 +8,7 @@
     "devDependencies": {
       "husky": "project",
       "lint-staged": "project",
+      "npm-check-updates": "project",
       "prettier": "project",
       "prettier-plugin-go-template": "project"
     }
@@ -21,7 +22,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "npm-check-updates": "^18.0.1",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "prettier-plugin-go-template": "^0.0.15"
   },
   "lint-staged": {

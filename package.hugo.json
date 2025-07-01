@@ -1,7 +1,37 @@
 {
+  "comments": {
+    "dependencies": {
+      "@algolia/client-search": "project",
+      "algoliasearch": "project",
+      "instantsearch.js": "project"
+    },
+    "devDependencies": {
+      "husky": "project",
+      "lint-staged": "project",
+      "prettier": "project",
+      "prettier-plugin-go-template": "project"
+    }
+  },
   "dependencies": {
-    "@algolia/client-search": "^4.24.0",
-    "algoliasearch": "^4.24.0",
-    "instantsearch.js": "^4.74.0"
-  }
+    "@algolia/client-search": "^5.29.0",
+    "algoliasearch": "^5.29.0",
+    "instantsearch.js": "^4.79.0"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "npm-check-updates": "^18.0.1",
+    "prettier": "^3.5.3",
+    "prettier-plugin-go-template": "^0.0.15"
+  },
+  "lint-staged": {
+    "*.{html,css,scss}": "prettier --write",
+    "*.{js,jsx,ts,tsx}": "prettier --write"
+  },
+  "scripts": {
+    "dev": "cd exampleSite && hugo server --gc --watch",
+    "format": "prettier --write",
+    "prepare": "husky"
+  },
+  "version": "0.1.0"
 }
