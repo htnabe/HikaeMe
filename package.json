@@ -14,14 +14,14 @@
     }
   },
   "dependencies": {
-    "@algolia/client-search": "^5.29.0",
-    "algoliasearch": "^5.29.0",
-    "instantsearch.js": "^4.79.0"
+    "@algolia/client-search": "^5.40.0",
+    "algoliasearch": "^5.40.0",
+    "instantsearch.js": "^4.80.0"
   },
   "devDependencies": {
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2",
-    "npm-check-updates": "^18.0.1",
+    "lint-staged": "^16.2.3",
+    "npm-check-updates": "^19.0.0",
     "prettier": "^3.6.2",
     "prettier-plugin-go-template": "^0.0.15"
   },
