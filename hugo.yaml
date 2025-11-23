@@ -13,7 +13,7 @@ params:
   defaultGoogleFonts:
   googlefonts:
   enableHighlight: true
-  amazonAffiliateId: # Optional, Include amazon affiliate ID(eg. hikaeme-22)
+  amazonAssociateId: # Optional, Include amazon affiliate ID(eg. hikaeme-22)
   since: # you can add the start period
   defaultThumbnailUrl: # https://~ format is also supported
   logoImageUrl: # https://~ format is also supported
