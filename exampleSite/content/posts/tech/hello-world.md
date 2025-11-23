@@ -59,8 +59,11 @@ _イタリック体_ や **太字** を使って文字を強調できます。
 
 ## 7. 引用
 
-> これは引用文です。
-> 複数行にまたがることもできます。
+> これは引用文です。  
+> 複数行にまたがることもできます。  
+> 本当です。  
+> 本当か？  
+> ながーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーい文章も表示できます
 
 ## 8. コード
 
@@ -72,7 +75,7 @@ _イタリック体_ や **太字** を使って文字を強調できます。
 
 {{< highlight markdown >}}
 
-```python {linenos=inline}
+```python
 def hello_world():
     print("Hello, World!")
     print(sorted([*[num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]], max([num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]]) * 2]))
@@ -82,7 +85,7 @@ def hello_world():
 
 - result
 
-```python {linenos=inline}
+```python
 def hello_world():
     print("Hello, World!")
     print(sorted([*[num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]], max([num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]]) * 2]))

@@ -96,6 +96,21 @@ article.card-wrapper div.card-body {
     line-height: 1.75rem;
   }
 
+  blockquote {
+    position: relative;
+    padding: 0.2rem 1rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid map.get(v.$colors, blue, light);
+    font-style: italic;
+
+    /* “引用符” アイコンとしての decorative line */
+    &::before {
+      content: "";
+      position: absolute;
+      height: map.get($map: v.$line-heights, $key: sm);
+    }
+  }
+
   .summary-header {
     font-size: 0.9rem;
     line-height: 1.3rem;

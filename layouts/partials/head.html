@@ -46,26 +46,23 @@
 
 <!-- fontawesome -->
 <link
-  rel="preload stylesheet"
-  as="style"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"
-  integrity="sha512-B46MVOJpI6RBsdcU307elYeStF2JKT87SsHZfRSkjVi4/iZ3912zXi45X5/CBr/GbCyLx6M1GQtTKYRd52Jxgw=="
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css"
+  integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg=="
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
 <link
   rel="stylesheet"
-  as="style"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css"
-  integrity="sha512-EJp8vMVhYl7tBFE2rgNGb//drnr1+6XKMvTyamMS34YwOEFohhWkGq13tPWnK0FbjSS6D8YoA3n3bZmb3KiUYA=="
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css"
+  integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw=="
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
 <link
   rel="stylesheet"
-  as="style"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/solid.min.css"
-  integrity="sha512-/r+0SvLvMMSIf41xiuy19aNkXxI+3zb/BN8K9lnDDWI09VM0dwgTMzK7Qi5vv5macJ3VH4XZXr60ip7v13QnmQ=="
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/solid.min.css"
+  integrity="sha512-EHa6vH03/Ty92WahM0/tet1Qicl76zihDCkBnFhN3kFGQkC+mc86d7V+6y2ypiLbk3h0beZAGdUpzfMcb06cMg=="
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
@@ -119,8 +116,8 @@
 {{ if .Site.Params.EnableAlgolia | default false }}
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.3.0/themes/satellite-min.css"
-    integrity="sha256-Qn2jMxB0SkFi+WAf540nGb5LBaVTyjVQLqPNaNjduio="
+    href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.5.1/themes/satellite-min.css"
+    integrity="sha256-woeV7a4SRDsjDc395qjBJ4+ZhDdFn8AqswN1rlTO64E="
     crossorigin="anonymous"
   />
 
@@ -145,23 +142,20 @@
 {{ if .Site.Params.EnableHighlight | default true }}
   <link
     rel="stylesheet"
-    as="style"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/base16/espresso.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/espresso.min.css"
     integrity="sha512-Alf9gBIx7O9Pn9+n7HJXcwZK6uXCaGDNj5ScAAtNsQ5OpUHBaXLEAaX00Z9N8S9o9lTG7FKgnRB5eXwUQKNu6g=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
   <script
-    defer
-    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"
-    integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA=="
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
+    integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
   <script
-    defer
-    src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"
-    integrity="sha512-axd5V66bnXpNVQzm1c7u1M614TVRXXtouyWCE+eMYl8ALK8ePJEs96Xtx7VVrPBc0UraCn63U1+ARFI3ofW+aA=="
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.6.0/highlightjs-line-numbers.min.js"
+    integrity="sha512-nkjLcPbHjdAof51b8uUd+6q4YH7YrMwh+kfTwSBrg5T/yMKrz8GUxM4uJJ1xAL7Q1lfAMIEowDsTzfWskZ5RcQ=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
@@ -175,13 +169,26 @@
 
 
 <!-- load custom and main css files -->
-{{ $options := (dict "outputStyle" "compressed" "transpiler" "dartsass") }}
-{{ $mainstyle := resources.Get "css/styles.scss" | toCSS $options }}
+{{ $mainStyle := resources.Get "css/styles.scss" }}
+{{ $options := dict "outputStyle" "compressed" "transpiler" "dartsass" }}
 
+{{ $files := slice $mainStyle }}
+{{ $custom := resources.Match "css/_custom.scss" }}
+{{ if gt (len $custom) 0 }}
+  {{ $files = $files | append (index $custom 0) }}
+{{ end }}
 
-<link
-  crossorigin="anonymous"
-  href="{{ $mainstyle.RelPermalink }}"
-  rel="stylesheet"
-  as="style"
-/>
+{{ $result := $files | resources.Concat "css/bundle.css" | toCSS $options }}
+
+{{ if hugo.IsDevelopment }}
+  <link rel="stylesheet" href="{{ $result.RelPermalink }}" />
+{{ else }}
+  {{ with $result | fingerprint }}
+    <link
+      rel="stylesheet"
+      href="{{ .RelPermalink }}"
+      integrity="{{ .Data.Integrity }}"
+      crossorigin="anonymous"
+    />
+  {{ end }}
+{{ end }}
