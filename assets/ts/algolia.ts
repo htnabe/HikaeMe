@@ -72,7 +72,7 @@ search.addWidgets([
               <h5>${components.Highlight({ hit, attribute: "title" })}</h5>
               <p class="card-text d-flex justify-content-between">
                 <time datetime="${hit.date}">
-                  <i class="far fa-calendar-alt"></i>
+                  <i class="bi bi-clock me-1"></i>
                   ${hit.date}
                 </time>
                 <a href="${hit.permalink}">Read More ></a>

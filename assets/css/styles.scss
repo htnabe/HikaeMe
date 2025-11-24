@@ -113,11 +113,8 @@ article.card-wrapper div.card-body {
 
   .summary-header {
     font-size: 0.9rem;
-    line-height: 1.3rem;
-
-    i {
-      color: map.get(v.$colors, gray, extra-light);
-      margin-right: 0.5em;
+    i::before {
+      font-weight: 600 !important;
     }
   }
 

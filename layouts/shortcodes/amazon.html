@@ -1,11 +1,11 @@
 {{- $affiliateId := .Site.Params.amazonAssociateId }}
 {{- $asin := .Get "asin" -}}
 {{- $title := .Get "title" -}}
-<div class="card mb-3 border-3">
+<div class="card mb-3 border-0 bg-body-secondary shadow">
   <div class="row g-0">
     <div class="col-sm-3 d-flex align-items-center justify-content-center">
       <img
-        class="height-100px shadow-none"
+        class="height-100px shadow-none rounded"
         src="https://images-na.ssl-images-amazon.com/images/P/{{ $asin }}.09.LZZZZZZZ.jpg"
         loading="lazy"
       />
@@ -18,11 +18,11 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="fa-solid fa-up-right-from-square"></i>&nbsp;{{ $title }}
+            <i class="bi bi-box-arrow-up-right"></i>&nbsp;{{ $title }}
           </a>
         </h5>
         <p class="card-text text-body-secondary">
-          <i class="fa-brands fa-amazon"></i>
+          <i class="bi bi-amazon"></i>
           amazon.co.jp
         </p>
       </div>
