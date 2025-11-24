@@ -34,16 +34,16 @@ params:
     comment: "Hi there! Write comments here!"
     sns:
       github:
-        icon: "fa-brands fa-github"
+        icon: "bi bi-github"
         url: "https://github.com"
       steam:
-        icon: "fa-brands fa-steam"
+        icon: "bi bi-steam"
         url: "https://steamcommunity.com"
       strava:
-        icon: "fa-brands fa-strava"
+        icon: "bi bi-strava"
         url: "https://www.strava.com"
       nostter:
-        icon: "fa-regular fa-paw"
+        icon: "bi bi-link"
         url: "https://nostter.app"
     # Optional, if you are using GitHub Sponsors, you can add the url
     githubSponsorUrl: "https://github.com/sponsors/htnabe/button"
