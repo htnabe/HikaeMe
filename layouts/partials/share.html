@@ -1,24 +1,15 @@
 <aside>
   {{ $shareLinks := slice
-    (dict "href" (printf "https://b.hatena.ne.jp/add?mode=confirm&url=%s&title=%s" .Permalink .Title)
-    "title" "はてなブックマーク"
-    "class" "ht"
-    "label" "B!")
     (dict
     "href" (printf "https://twitter.com/intent/tweet?url=%s&text=%s&tw_p=tweetbutton" .Permalink .Title)
     "title" "Twitterでシェア"
-    "class" "tw"
-    "icon" "twitter")
+    "class" "x"
+    "icon" "twitter-x")
     (dict "href"
     (printf "https://www.facebook.com/sharer.php?u=%s&t=%s" .Permalink .Title)
     "title" "Facebookでシェア"
     "class" "fb"
     "icon" "facebook")
-    (dict
-    "href" (printf "https://getpocket.com/edit?url=%s&title=%s" .Permalink .Title)
-    "title" "Pocketに保存"
-    "class" "pk"
-    "icon" "get-pocket")
     (dict
     "href" (printf "https://social-plugins.line.me/lineit/share?url=%s" .Permalink)
     "title" "LINEでシェア"
@@ -38,7 +29,7 @@
         {{ $link.label }}
       {{ else }}
         <i
-          class="fab fa-{{ $link.icon }} fs-6 fw-semibold"
+          class="bi bi-{{ $link.icon }} fs-5 fw-semibold"
           aria-hidden="true"
         ></i>
       {{ end }}

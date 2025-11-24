@@ -12,16 +12,16 @@
         <h1 class="card-title fw-bold mt-2 mb-2">{{ .Title }}</h1>
         <div class="container text-center summary-header m-1">
           <div class="row row-cols-auto d-flex align-items-center">
-            <div class="col ps-0 me-2">
-              <i class="mx-0 fas fa-calendar" aria-hidden="true"></i>
+            <div class="col ps-0 me-2 text-muted">
+              <i class="mx-0 bi bi-clock fw-bold" aria-hidden="true"></i>
               <time datetime="{{ .Date.Format " 2006-01-02T15:04:05JST" }}">
                 {{ .Date.Format ( .Site.Params.dateformat | default "2006/01/02") }}
               </time>
             </div>
 
             {{ if ne .Date .Lastmod }}
-              <div class="col ps-0 me-2">
-                <i class="mx-0 fas fa-sync" aria-hidden="true"></i>
+              <div class="col ps-0 me-2 text-muted">
+                <i class="mx-0 bi bi-arrow-repeat" aria-hidden="true"></i>
                 <time
                   datetime="{{ .Lastmod.Format " 2006-01-02T15:04:05JST" }}"
                 >
@@ -32,7 +32,7 @@
 
             {{ range .Params.categories }}
               <div class="col ps-0 me-2">
-                <i class="mx-0 fas fa-bookmark" aria-hidden="true"></i
+                <i class="mx-0 bi bi-bookmark" aria-hidden="true"></i
                 ><a href="/categories/{{ . | urlize }}" class="fw-medium">
                   {{ . }}</a
                 >
@@ -46,10 +46,10 @@
               "text-secondary") | shuffle
             }}
             {{ range $index, $tag := .Params.tags }}
-              <div class="col ps-0 me-2">
+              <div class="col ps-0">
                 {{ $colorClass := index $colors (mod $index (len $colors)) }}
                 <i
-                  class="mx-0 fas fa-tags {{ $colorClass }}"
+                  class="mx-0 bi bi-hash {{ $colorClass }}"
                   aria-hidden="true"
                 ></i>
                 <a href="/tags/{{ . | urlize }}" class="fw-medium">
