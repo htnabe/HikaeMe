@@ -16,7 +16,7 @@
   "dependencies": {
     "@algolia/client-search": "^5.44.0",
     "algoliasearch": "^5.44.0",
-    "instantsearch.js": "^4.84.0"
+    "instantsearch.js": "^4.85.2"
   },
   "devDependencies": {
     "husky": "^9.1.7",
