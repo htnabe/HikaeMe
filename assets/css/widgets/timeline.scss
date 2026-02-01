@@ -1,0 +1,60 @@
+@use "../_variables" as v;
+
+.timeline {
+  width: 100%;
+  padding: v.$timeline-padding-y 0;
+}
+
+.timeline-container {
+  position: relative;
+  padding: v.$timeline-padding-y 0;
+  padding-left: v.$timeline-padding-left;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: v.$timeline-line-left;
+    top: 0;
+    width: v.$timeline-line-width;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      var(--color-primary, v.$timeline-color-primary),
+      var(--color-secondary, v.$timeline-color-secondary)
+    );
+  }
+}
+
+.timeline-item {
+  margin-bottom: v.$timeline-item-spacing;
+  position: relative;
+}
+
+.timeline-content {
+  transition: all v.$transition-duration v.$transition-timing;
+
+  .timeline-item:hover & {
+    transform: translateY(v.$timeline-hover-translate-y);
+  }
+}
+
+.timeline-year {
+  margin-bottom: v.$timeline-year-margin-bottom;
+}
+
+.timeline-title {
+  margin: v.$timeline-title-margin-top 0 0 0;
+}
+
+.timeline-description {
+  margin-top: v.$timeline-description-margin-top;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--color-primary, v.$timeline-color-primary);
+    }
+  }
+}
