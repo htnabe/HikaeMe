@@ -17,9 +17,7 @@
                         {{ $event.title }}
                       </h4>
                       {{ if $event.description }}
-                        <p
-                          class="timeline-description text-muted small mt-2 mb-0"
-                        >
+                        <p class="timeline-description text-muted mt-2 mb-0">
                           {{ $event.description | markdownify }}
                         </p>
                       {{ end }}
@@ -31,7 +29,7 @@
                   {{ $item.title }}
                 </h4>
                 {{ if $item.description }}
-                  <p class="timeline-description text-muted small mt-2 mb-0">
+                  <p class="timeline-description text-muted mt-2 mb-0">
                     {{ $item.description | markdownify }}
                   </p>
                 {{ end }}
