@@ -1,0 +1,45 @@
+<div class="timeline">
+  {{ $career := .Site.Params.author.career }}
+  {{ if $career }}
+    <div class="timeline-container">
+      {{ range $item := $career }}
+        <div class="timeline-item">
+          <div class="timeline-content card shadow-sm">
+            <div class="card-body">
+              <span class="timeline-year badge bg-primary"
+                >{{ $item.year }}</span
+              >
+              {{ if $item.events }}
+                <ul class="timeline-events list-unstyled mt-2 mb-0">
+                  {{ range $event := $item.events }}
+                    <li class="timeline-event mb-2">
+                      <h4 class="timeline-title card-title mt-2 mb-0">
+                        {{ $event.title }}
+                      </h4>
+                      {{ if $event.description }}
+                        <p
+                          class="timeline-description text-muted small mt-2 mb-0"
+                        >
+                          {{ $event.description | markdownify }}
+                        </p>
+                      {{ end }}
+                    </li>
+                  {{ end }}
+                </ul>
+              {{ else }}
+                <h4 class="timeline-title card-title mt-2 mb-0">
+                  {{ $item.title }}
+                </h4>
+                {{ if $item.description }}
+                  <p class="timeline-description text-muted small mt-2 mb-0">
+                    {{ $item.description | markdownify }}
+                  </p>
+                {{ end }}
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>
