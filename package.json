@@ -35,5 +35,5 @@
     "prepare": "husky",
     "update": "ncu -u && npm install"
   },
-  "version": "0.2.0"
+  "version": "1.1.1"
 }

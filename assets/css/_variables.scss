@@ -13,6 +13,19 @@ $underline-left: 5%;
 $transition-duration: 0.3s;
 $transition-timing: cubic-bezier(1, 0, 0, 1);
 
+// timeline
+$timeline-padding-y: 2rem;
+$timeline-padding-left: 2.5rem;
+$timeline-line-left: 0.75rem;
+$timeline-line-width: 3px;
+$timeline-item-spacing: 2rem;
+$timeline-year-margin-bottom: 0.5rem;
+$timeline-title-margin-top: 0.5rem;
+$timeline-description-margin-top: 1rem;
+$timeline-hover-translate-y: -2px;
+$timeline-color-primary: #00adb5;
+$timeline-color-secondary: #2ecc71;
+
 // Typography
 $line-heights: (
   sm: 2px,

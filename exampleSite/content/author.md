@@ -12,15 +12,9 @@ authorSection: true
 
 私はHogeです。
 
-## 経歴 etc.
+## 経歴
 
-{{< table "table" >}}
-| 年度 | 名称 | 備考 |
-| --- | --- | --- |
-| 20xx | 高校xx | |
-| 20xx | 大学xx | xxx |
-| ~20xx | hoge | hige |
-{{< /table >}}
+{{< timeline >}}
 
 ## スキルセット
 
