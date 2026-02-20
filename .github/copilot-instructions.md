@@ -25,7 +25,7 @@ These instructions define how AI coding assistants should work in this repositor
 ## Frontend Asset Guidelines
 - Keep script/style loading order stable unless behavior requires change.
 - Avoid adding blocking scripts unless necessary.
-- Ensure compatibility with current supported Bootstrap/Algolia setup.
+- Ensure compatibility with currently supported Bootstrap/Algolia setup.
 
 ## Dependency Update Policy
 - Prefer safe upgrades (patch/minor) unless major upgrades are explicitly requested.
