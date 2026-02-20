@@ -14,6 +14,7 @@ These instructions define how AI coding assistants should work in this repositor
 - Do not introduce new frameworks or large dependencies unless explicitly requested.
 - Write all commit messages, PR text, and generated docs in English unless the user asks otherwise.
 - When reviewing changes (including pull requests), read `.github/prompts/review.prompt.md` first and follow its checklist and output format.
+- When you need to understand folder or file placement, read `docs/project-structure.md` first and follow its structure guidance.
 
 ## Hugo / Template Guidelines
 - Prefer Hugo built-in functions and existing partial structure.
