@@ -11,8 +11,8 @@ themesdir: "../.."
 params:
   description: "the description of the website"
   dateformat: "2006/01/02"
-  defaultGoogleFonts: "https://fonts.googleapis.com/css?family=Roboto+Slab:400,700"
-  googlefonts: "https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Orbitron:wght@400&family=Roboto:wght@400;500;700&display=swap" # Optional, Include google fonts.
+  defaultGoogleFonts: ""
+  googlefonts: "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Orbitron:wght@400;700&display=swap" # Optional, Include google fonts.
   enableHighlight: true
   amazonAssociateId: "" # Optional, Include amazon affiliate ID(eg. hikaeme-22)
   since: "2020" # you can add the start period

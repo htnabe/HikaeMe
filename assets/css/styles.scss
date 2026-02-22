@@ -13,8 +13,16 @@
 
 body {
   font-family:
-    "Raleway", "Roboto", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic",
-    sans-serif !important;
+    /* macOS / iOS */
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    /* Windows 10+ / Vista+ */ "Yu Gothic UI",
+    "Yu Gothic",
+    "Meiryo",
+    /* Linux / Android  */ "Noto Sans CJK JP",
+    system-ui,
+    -apple-system,
+    sans-serif;
   letter-spacing: 0.05em;
   font-feature-settings: "palt";
 

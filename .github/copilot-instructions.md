@@ -39,6 +39,11 @@ These instructions define how AI coding assistants should work in this repositor
   - `npm run dev` (or `cd exampleSite && hugo server --gc --watch`)
 - Confirm no unintended file changes in `git status`.
 
+## Pull Request Guidelines
+- When creating a pull request, always use `.github/PULL_REQUEST_TEMPLATE.md` as the body template.
+- Fill in all sections of the template based on the actual changes made.
+- Use `gh pr create` with `--base` and `--body` flags to submit PRs via the CLI.
+
 ## Output Expectations for AI Assistants
 - Summarize what changed and why.
 - Highlight risks or follow-up checks if any.

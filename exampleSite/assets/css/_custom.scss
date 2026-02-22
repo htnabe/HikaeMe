@@ -1,0 +1,20 @@
+// Override default font settings
+// https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Orbitron:wght@400;700&display=swap
+//
+// - For Japanese and English: Noto Sans JP (Google Fonts)
+// - For logo: Orbitron (Google Fonts)
+
+body {
+  font-family:
+    /* Google Fonts: Japanese and English */
+    "Noto Sans JP",
+    /* macOS / iOS fallback */ "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    /* Windows fallback */ "Yu Gothic UI",
+    "Yu Gothic",
+    "Meiryo",
+    /* Linux / Android OS fallback */ "Noto Sans CJK JP",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
