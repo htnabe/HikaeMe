@@ -10,3 +10,5 @@ resources/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+playwright-report/
+test-results/
