@@ -4,46 +4,76 @@
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  */
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
-(() => {
-  const storageKey = "theme";
-  const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+const storageKey = "theme";
+
+export const getStoredTheme = (): Theme | null => {
+  const stored = localStorage.getItem(storageKey);
+  if (stored === "light" || stored === "dark") {
+    return stored;
+  }
+  return null;
+};
+
+export const setStoredTheme = (theme: Theme): void =>
+  localStorage.setItem(storageKey, theme);
+
+export const getPreferredTheme = (
+  storedTheme: Theme | null,
+  prefersDark: boolean
+): Theme => {
+  if (storedTheme) return storedTheme;
+  return prefersDark ? "dark" : "light";
+};
+
+export const updateRadioButtons = (
+  theme: Theme,
+  root: Document = document
+): void => {
   const themeToggles = {
-    light: document.getElementById("themeToggleSun") as HTMLInputElement | null,
-    dark: document.getElementById("themeToggleMoon") as HTMLInputElement | null,
+    light: root.getElementById("themeToggleSun") as HTMLInputElement | null,
+    dark: root.getElementById("themeToggleMoon") as HTMLInputElement | null,
   };
+  Object.entries(themeToggles).forEach(([key, toggle]) => {
+    if (toggle) toggle.checked = key === theme;
+  });
+};
 
-  const getStoredTheme = (): Theme | null =>
-    localStorage.getItem(storageKey) as Theme | null;
+export const setTheme = (theme: Theme, root: Document = document): void => {
+  root.documentElement.setAttribute("data-bs-theme", theme);
+  updateRadioButtons(theme, root);
+};
 
-  const setStoredTheme = (theme: Theme): void =>
-    localStorage.setItem(storageKey, theme);
+/** Persists the selected theme and applies it to the document. */
+export const handleThemeChange = (
+  theme: Theme,
+  root: Document = document
+): void => {
+  setStoredTheme(theme);
+  setTheme(theme, root);
+};
 
-  const getPreferredTheme = (): Theme =>
-    getStoredTheme() || (darkModeMediaQuery.matches ? "dark" : "light");
-
-  const setTheme = (theme: Theme): void => {
-    document.documentElement.setAttribute("data-bs-theme", theme);
-    updateRadioButtons(theme);
-  };
-
-  const updateRadioButtons = (theme: Theme): void => {
-    Object.entries(themeToggles).forEach(([key, toggle]) => {
-      if (toggle) toggle.checked = key === theme;
-    });
-  };
-
-  const handleThemeChange = (theme: Theme) => {
-    setStoredTheme(theme);
-    setTheme(theme);
-  };
+// Initialization
+(() => {
+  const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
   // Initial setup
-  setTheme(getPreferredTheme());
+  setTheme(getPreferredTheme(getStoredTheme(), darkModeMediaQuery.matches));
 
   // Event listeners
   document.addEventListener("DOMContentLoaded", () => {
+    // map of theme names to their corresponding toggle elements
+    const themeToggles = {
+      light: document.getElementById(
+        "themeToggleSun"
+      ) as HTMLInputElement | null,
+      dark: document.getElementById(
+        "themeToggleMoon"
+      ) as HTMLInputElement | null,
+    };
+
+    // Apply the corresponding theme when each toggle is selected
     Object.entries(themeToggles).forEach(([theme, toggle]) => {
       toggle?.addEventListener("change", function (this: HTMLInputElement) {
         if (this.checked) handleThemeChange(theme as Theme);
@@ -53,6 +83,7 @@ type Theme = "light" | "dark";
 
   darkModeMediaQuery.addEventListener("change", () => {
     const storedTheme = getStoredTheme();
-    if (!storedTheme) setTheme(getPreferredTheme());
+    if (!storedTheme)
+      setTheme(getPreferredTheme(null, darkModeMediaQuery.matches));
   });
 })();

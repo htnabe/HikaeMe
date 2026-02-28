@@ -5,3 +5,4 @@ echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/node/.bas
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install gcc hugo sass/sass/sass
 npm ci
+npx playwright install --with-deps chromium
