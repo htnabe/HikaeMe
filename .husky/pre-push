@@ -1,2 +1,3 @@
 # Run all tests before pushing
-npx vitest run
+npm test
+npm run test:e2e
