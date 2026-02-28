@@ -14,30 +14,39 @@ export const getStoredTheme = (): Theme | null =>
 export const setStoredTheme = (theme: Theme): void =>
   localStorage.setItem(storageKey, theme);
 
-export const getPreferredTheme = (): Theme =>
-  getStoredTheme() ||
-  (window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light");
+export const getPreferredTheme = (
+  storedTheme: Theme | null,
+  prefersDark: boolean
+): Theme => {
+  if (storedTheme) return storedTheme;
+  return prefersDark ? "dark" : "light";
+};
 
-export const updateRadioButtons = (theme: Theme): void => {
+export const updateRadioButtons = (
+  theme: Theme,
+  root: Document = document
+): void => {
   const themeToggles = {
-    light: document.getElementById("themeToggleSun") as HTMLInputElement | null,
-    dark: document.getElementById("themeToggleMoon") as HTMLInputElement | null,
+    light: root.getElementById("themeToggleSun") as HTMLInputElement | null,
+    dark: root.getElementById("themeToggleMoon") as HTMLInputElement | null,
   };
   Object.entries(themeToggles).forEach(([key, toggle]) => {
     if (toggle) toggle.checked = key === theme;
   });
 };
 
-export const setTheme = (theme: Theme): void => {
-  document.documentElement.setAttribute("data-bs-theme", theme);
-  updateRadioButtons(theme);
+export const setTheme = (theme: Theme, root: Document = document): void => {
+  root.documentElement.setAttribute("data-bs-theme", theme);
+  updateRadioButtons(theme, root);
 };
 
-export const handleThemeChange = (theme: Theme): void => {
+/** Persists the selected theme and applies it to the document. */
+export const handleThemeChange = (
+  theme: Theme,
+  root: Document = document
+): void => {
   setStoredTheme(theme);
-  setTheme(theme);
+  setTheme(theme, root);
 };
 
 // Initialization
@@ -45,10 +54,11 @@ export const handleThemeChange = (theme: Theme): void => {
   const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
   // Initial setup
-  setTheme(getPreferredTheme());
+  setTheme(getPreferredTheme(getStoredTheme(), darkModeMediaQuery.matches));
 
   // Event listeners
   document.addEventListener("DOMContentLoaded", () => {
+    // map of theme names to their corresponding toggle elements
     const themeToggles = {
       light: document.getElementById(
         "themeToggleSun"
@@ -57,6 +67,8 @@ export const handleThemeChange = (theme: Theme): void => {
         "themeToggleMoon"
       ) as HTMLInputElement | null,
     };
+
+    // Apply the corresponding theme when each toggle is selected
     Object.entries(themeToggles).forEach(([theme, toggle]) => {
       toggle?.addEventListener("change", function (this: HTMLInputElement) {
         if (this.checked) handleThemeChange(theme as Theme);
@@ -66,6 +78,7 @@ export const handleThemeChange = (theme: Theme): void => {
 
   darkModeMediaQuery.addEventListener("change", () => {
     const storedTheme = getStoredTheme();
-    if (!storedTheme) setTheme(getPreferredTheme());
+    if (!storedTheme)
+      setTheme(getPreferredTheme(null, darkModeMediaQuery.matches));
   });
 })();

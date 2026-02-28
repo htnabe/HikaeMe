@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import {
   getPreferredTheme,
   getStoredTheme,
@@ -45,103 +45,93 @@ describe("setStoredTheme", () => {
 });
 
 describe("getPreferredTheme", () => {
-  beforeEach(() => {
-    localStorage.clear();
-    vi.mocked(window.matchMedia).mockReturnValue({
-      matches: false,
-      media: "(prefers-color-scheme: dark)",
-      onchange: null,
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn(),
-      dispatchEvent: vi.fn(),
-    } as unknown as MediaQueryList);
+  it("returns stored theme when one is set", () => {
+    expect(getPreferredTheme("dark", false)).toBe("dark");
   });
 
-  it("returns stored theme when one is set", () => {
-    localStorage.setItem("theme", "dark");
-    expect(getPreferredTheme()).toBe("dark");
+  it("returns stored theme even when system prefers dark", () => {
+    expect(getPreferredTheme("light", true)).toBe("light");
   });
 
   it("returns 'dark' when no stored theme and system prefers dark", () => {
-    vi.mocked(window.matchMedia).mockReturnValue({
-      matches: true,
-      media: "(prefers-color-scheme: dark)",
-      onchange: null,
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn(),
-      dispatchEvent: vi.fn(),
-    } as unknown as MediaQueryList);
-    expect(getPreferredTheme()).toBe("dark");
+    expect(getPreferredTheme(null, true)).toBe("dark");
   });
 
   it("returns 'light' when no stored theme and system prefers light", () => {
-    expect(getPreferredTheme()).toBe("light");
+    expect(getPreferredTheme(null, false)).toBe("light");
   });
 });
 
 describe("setTheme", () => {
+  let fakeDoc: Document;
+
+  beforeEach(() => {
+    fakeDoc = document.implementation.createHTMLDocument();
+  });
+
   it("sets data-bs-theme to 'light' on the html element", () => {
-    setTheme("light");
-    expect(document.documentElement.getAttribute("data-bs-theme")).toBe(
-      "light"
-    );
+    setTheme("light", fakeDoc);
+    expect(fakeDoc.documentElement.getAttribute("data-bs-theme")).toBe("light");
   });
 
   it("sets data-bs-theme to 'dark' on the html element", () => {
-    setTheme("dark");
-    expect(document.documentElement.getAttribute("data-bs-theme")).toBe("dark");
+    setTheme("dark", fakeDoc);
+    expect(fakeDoc.documentElement.getAttribute("data-bs-theme")).toBe("dark");
   });
 });
 
 describe("updateRadioButtons", () => {
+  let fakeDoc: Document;
   let sunToggle: HTMLInputElement;
   let moonToggle: HTMLInputElement;
 
   beforeEach(() => {
-    sunToggle = document.createElement("input");
+    fakeDoc = document.implementation.createHTMLDocument();
+
+    sunToggle = fakeDoc.createElement("input");
     sunToggle.type = "radio";
     sunToggle.id = "themeToggleSun";
-    document.body.appendChild(sunToggle);
+    fakeDoc.body.appendChild(sunToggle);
 
-    moonToggle = document.createElement("input");
+    moonToggle = fakeDoc.createElement("input");
     moonToggle.type = "radio";
     moonToggle.id = "themeToggleMoon";
-    document.body.appendChild(moonToggle);
-  });
-
-  afterEach(() => {
-    document.body.removeChild(sunToggle);
-    document.body.removeChild(moonToggle);
+    fakeDoc.body.appendChild(moonToggle);
   });
 
   it("checks sun toggle when theme is 'light'", () => {
-    updateRadioButtons("light");
+    updateRadioButtons("light", fakeDoc);
     expect(sunToggle.checked).toBe(true);
     expect(moonToggle.checked).toBe(false);
   });
 
   it("checks moon toggle when theme is 'dark'", () => {
-    updateRadioButtons("dark");
+    updateRadioButtons("dark", fakeDoc);
     expect(sunToggle.checked).toBe(false);
     expect(moonToggle.checked).toBe(true);
+  });
+
+  it("does not throw when toggle elements are absent", () => {
+    const emptyDoc = document.implementation.createHTMLDocument();
+    expect(() => updateRadioButtons("light", emptyDoc)).not.toThrow();
   });
 });
 
 describe("handleThemeChange", () => {
+  let fakeDoc: Document;
+
   beforeEach(() => {
     localStorage.clear();
-    document.documentElement.removeAttribute("data-bs-theme");
+    fakeDoc = document.implementation.createHTMLDocument();
   });
 
   it("stores the theme in localStorage", () => {
-    handleThemeChange("dark");
+    handleThemeChange("dark", fakeDoc);
     expect(localStorage.getItem("theme")).toBe("dark");
   });
 
   it("applies the theme to the document", () => {
-    handleThemeChange("light");
-    expect(document.documentElement.getAttribute("data-bs-theme")).toBe(
-      "light"
-    );
+    handleThemeChange("light", fakeDoc);
+    expect(fakeDoc.documentElement.getAttribute("data-bs-theme")).toBe("light");
   });
 });
