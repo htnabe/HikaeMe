@@ -26,6 +26,11 @@ describe("getStoredTheme", () => {
     localStorage.setItem("theme", "dark");
     expect(getStoredTheme()).toBe("dark");
   });
+
+  it("returns null when an invalid value is stored", () => {
+    localStorage.setItem("theme", "invalid");
+    expect(getStoredTheme()).toBeNull();
+  });
 });
 
 describe("setStoredTheme", () => {

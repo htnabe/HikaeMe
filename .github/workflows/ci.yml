@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: ["**"]
   pull_request:
     branches: ["**"]
 
@@ -12,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.157.0
+      DART_SASS_VERSION: 1.97.3
+      HUSKY: 0
 
     steps:
       - name: Checkout
@@ -33,6 +33,13 @@ jobs:
 
       - name: Create directory for user-specific executable files
         run: mkdir -p "${HOME}/.local"
+
+      - name: Install Dart Sass
+        run: |
+          curl -sLJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          echo "${HOME}/.local/dart-sass" >> "${GITHUB_PATH}"
 
       - name: Install Hugo
         run: |

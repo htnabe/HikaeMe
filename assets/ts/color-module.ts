@@ -8,8 +8,13 @@ export type Theme = "light" | "dark";
 
 const storageKey = "theme";
 
-export const getStoredTheme = (): Theme | null =>
-  localStorage.getItem(storageKey) as Theme | null;
+export const getStoredTheme = (): Theme | null => {
+  const stored = localStorage.getItem(storageKey);
+  if (stored === "light" || stored === "dark") {
+    return stored;
+  }
+  return null;
+};
 
 export const setStoredTheme = (theme: Theme): void =>
   localStorage.setItem(storageKey, theme);
