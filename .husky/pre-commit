@@ -1,1 +1,7 @@
 npx lint-staged
+
+# Run tests related to staged files only (null-delimited to handle filenames with spaces/special chars)
+STAGED=$(git diff --cached --name-only --diff-filter=ACMR -z)
+if [ -n "$STAGED" ]; then
+  printf '%s' "$STAGED" | xargs -0 npx vitest related --run
+fi
