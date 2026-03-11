@@ -14,15 +14,15 @@
     }
   },
   "dependencies": {
-    "@algolia/client-search": "^5.49.1",
-    "algoliasearch": "^5.49.1",
-    "instantsearch.js": "^4.90.0"
+    "@algolia/client-search": "^5.49.2",
+    "algoliasearch": "^5.49.2",
+    "instantsearch.js": "^4.91.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "husky": "^9.1.7",
     "jsdom": "^28.1.0",
-    "lint-staged": "^16.3.2",
+    "lint-staged": "^16.3.3",
     "npm-check-updates": "^19.6.3",
     "prettier": "^3.8.1",
     "prettier-plugin-go-template": "^0.0.15",
