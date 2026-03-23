@@ -16,7 +16,7 @@
   "dependencies": {
     "@algolia/client-search": "^5.49.2",
     "algoliasearch": "^5.49.2",
-    "instantsearch.js": "^4.91.0"
+    "instantsearch.js": "^4.92.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
