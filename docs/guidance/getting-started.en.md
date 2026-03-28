@@ -63,7 +63,7 @@ npm install
 ### Start the Development Server
 
 ```bash
-hugo server --draft
+hugo server -D
 ```
 
 Open `http://localhost:1313` in your browser.
