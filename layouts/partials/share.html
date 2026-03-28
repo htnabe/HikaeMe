@@ -2,17 +2,17 @@
   {{ $shareLinks := slice
     (dict
     "href" (printf "https://twitter.com/intent/tweet?url=%s&text=%s&tw_p=tweetbutton" .Permalink .Title)
-    "title" "Twitterでシェア"
+    "title" (T "share.twitter")
     "class" "x"
     "icon" "twitter-x")
     (dict "href"
     (printf "https://www.facebook.com/sharer.php?u=%s&t=%s" .Permalink .Title)
-    "title" "Facebookでシェア"
+    "title" (T "share.facebook")
     "class" "fb"
     "icon" "facebook")
     (dict
     "href" (printf "https://social-plugins.line.me/lineit/share?url=%s" .Permalink)
-    "title" "LINEでシェア"
+    "title" (T "share.line")
     "class" "ln"
     "icon" "line")
   }}

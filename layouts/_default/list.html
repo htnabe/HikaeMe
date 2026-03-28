@@ -77,7 +77,7 @@
         {{ if .Paginator.HasPrev }}
           <li class="page-item">
             <a class="page-link border-end" href="{{ .Paginator.Prev.URL }}"
-              >前のページへ</a
+              >{{ T "pagination.prev" }}</a
             >
           </li>
         {{ end }}
@@ -87,7 +87,7 @@
               class="page-link border-top"
               href="{{ .Paginator.Next.URL }}"
               rel="next"
-              >次のページへ</a
+              >{{ T "pagination.next" }}</a
             >
           </li>
         {{ end }}
