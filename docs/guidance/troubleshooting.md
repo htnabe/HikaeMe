@@ -9,8 +9,9 @@ Solution:
 2. Try clearing the cache:
 
 ```bash
-rm -rf go.sum go.mod
-hugo mod init github.com/yourusername/my-blog
+hugo mod clean
+rm -f go.sum
+hugo mod tidy
 hugo mod get -u
 ```
 
