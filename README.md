@@ -18,6 +18,7 @@ A simple theme that displays only the bare minimum of elements readers need.
 ### Develop (for contributors/developers/AI)
 
 - Project Structure: [docs/develop/project-structure.md](./docs/develop/project-structure.md)
+- Testing Policy: [docs/develop/testing-policy.md](./docs/develop/testing-policy.md)
 
 ## Demo
 
