@@ -1,5 +1,8 @@
 baseURL:
 title:
+defaultContentLanguage: ja
+defaultContentLanguageInSubdir: false
+disableDefaultLanguageRedirect: false
 enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true

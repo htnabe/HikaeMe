@@ -1,10 +1,22 @@
 baseURL: "https://example.org"
 title: "HUGO Site"
+defaultContentLanguage: "ja"
+defaultContentLanguageInSubdir: false
+disableDefaultLanguageRedirect: false
 enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
 timeZone: "Japan"
 languageCode: "ja-JP"
+languages:
+  ja:
+    languageCode: "ja-JP"
+    languageName: "日本語"
+    weight: 1
+  en:
+    languageCode: "en-US"
+    languageName: "English"
+    weight: 2
 theme: "HikaeMe"
 themesdir: "../.."
 

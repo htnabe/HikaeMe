@@ -47,7 +47,7 @@ const search = instantsearch({
 search.addWidgets([
   searchBox({
     container: "#searchbox",
-    placeholder: "記事を検索",
+    placeholder: params.searchPlaceholder || "Search posts",
     showReset: true,
   }),
 
@@ -63,7 +63,9 @@ search.addWidgets([
     container: "#hits",
     templates: {
       empty: ({}, { html }) => {
-        return html`<div>No results have been found.</div>`;
+        return html`<div>
+          ${params.searchNoResults || "No results have been found."}
+        </div>`;
       },
       item: (hit, { html, components, sendEvent }) => {
         return html`
@@ -75,7 +77,9 @@ search.addWidgets([
                   <i class="bi bi-clock me-1"></i>
                   ${hit.date}
                 </time>
-                <a href="${hit.permalink}">Read More ></a>
+                <a href="${hit.permalink}"
+                  >${params.searchReadMore || "Read More >"}</a
+                >
               </p>
             </div>
           </div>

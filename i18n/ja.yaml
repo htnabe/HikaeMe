@@ -1,0 +1,52 @@
+footer:
+  privacy:
+    other: プライバシーポリシーと免責事項
+  contact:
+    other: お問い合わせ
+sidebar:
+  categories:
+    other: カテゴリー
+  author:
+    other: AUTHOR
+  support:
+    other: サポートする
+pagination:
+  prev:
+    other: 前のページへ
+  next:
+    other: 次のページへ
+oldArticle:
+  created:
+    other: 作成
+  updated:
+    other: 更新
+  warning:
+    other: この記事は{{ .label }}から{{ .years }}年以上経過しており、情報が古くなっている可能性があります。
+share:
+  twitter:
+    other: Twitterでシェア
+  facebook:
+    other: Facebookでシェア
+  line:
+    other: LINEでシェア
+search:
+  placeholder:
+    other: 記事を検索
+  noResults:
+    other: 検索結果が見つかりませんでした。
+  readMore:
+    other: 続きを読む >
+  ariaLabel:
+    other: 記事を検索
+error404:
+  title:
+    other: ページが見つかりません
+  message:
+    other: お探しのページは見つかりませんでした。<br />トップページからもう一度ご確認ください。
+  backHome:
+    other: ホームへ戻る
+article:
+  next:
+    other: 次の記事
+  previous:
+    other: 前の記事

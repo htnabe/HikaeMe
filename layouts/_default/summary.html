@@ -32,9 +32,14 @@
 
             {{ range .Params.categories }}
               <div class="col ps-0 me-2">
-                <i class="mx-0 bi bi-bookmark" aria-hidden="true"></i
-                ><a href="/categories/{{ . | urlize }}" class="fw-medium">
-                  {{ . }}</a
+                <i class="mx-0 bi bi-bookmark" aria-hidden="true"></i>
+                {{ $categoryName := . }}
+                {{ $categoryLink := printf "categories/%s/" ($categoryName | urlize) | relLangURL }}
+                {{ with site.GetPage (printf "/categories/%s" ($categoryName | urlize)) }}
+                  {{ $categoryLink = .RelPermalink }}
+                {{ end }}
+                <a href="{{ $categoryLink }}" class="fw-medium"
+                  >{{ $categoryName }}</a
                 >
               </div>
             {{ end }}
@@ -52,8 +57,13 @@
                   class="mx-0 bi bi-hash {{ $colorClass }}"
                   aria-hidden="true"
                 ></i>
-                <a href="/tags/{{ . | urlize }}" class="fw-medium">
-                  {{ . }}
+                {{ $tagName := . }}
+                {{ $tagLink := printf "tags/%s/" ($tagName | urlize) | relLangURL }}
+                {{ with site.GetPage (printf "/tags/%s" ($tagName | urlize)) }}
+                  {{ $tagLink = .RelPermalink }}
+                {{ end }}
+                <a href="{{ $tagLink }}" class="fw-medium">
+                  {{ $tagName }}
                 </a>
               </div>
             {{ end }}

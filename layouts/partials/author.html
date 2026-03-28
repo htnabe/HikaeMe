@@ -1,6 +1,8 @@
 {{ with .Site.Params.author }}
   <section class="sidebar mb-3 pt-2 pt-1">
-    <header class="px-2 pt-2 pb-3 m-auto text-start fw-bold">AUTHOR</header>
+    <header class="px-2 pt-2 pb-3 m-auto text-start fw-bold">
+      {{ T "sidebar.author" }}
+    </header>
     <div class="author p-2 text-center">
       {{ with .thumbnailUrl }}
         <img

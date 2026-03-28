@@ -9,12 +9,16 @@
       {{ now.Year }}
       {{ with .Site.Params.Copyright }}{{ . | safeHTML }}{{ end }} | Powered by
       <a href="https://gohugo.io/" target="_blank">HUGO</a> |
-      <a href="/privacy/">プライバシーポリシーと免責事項</a>
+      {{ with site.GetPage "/privacy" }}
+        <a href="{{ .RelPermalink }}">{{ T "footer.privacy" }}</a>
+      {{ else }}
+        <a href="{{ "privacy/" | relLangURL }}">{{ T "footer.privacy" }}</a>
+      {{ end }}
       {{ $url := .Site.Params.contactUrl }}
       {{ if $url }}
         |
         <a href="{{ $url | safeURL }}" target="_blank" rel="noreferrer"
-          >お問い合わせ</a
+          >{{ T "footer.contact" }}</a
         >
       {{ end }}
     </p>

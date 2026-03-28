@@ -109,7 +109,10 @@
       dict "params" (dict
       "indexName" .indexName
       "appId" .appId
-      "algoliaSearchApiKey" .searchOnlyApiKey)
+      "algoliaSearchApiKey" .searchOnlyApiKey
+      "searchPlaceholder" (T "search.placeholder")
+      "searchNoResults" (T "search.noResults")
+      "searchReadMore" (T "search.readMore"))
     }}
 
     {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsCommonOpt | resources.Minify }}
