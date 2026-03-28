@@ -1,6 +1,6 @@
 ---
 name: feature-implementation
-description: "Workflow skill for feature and documentation additions. Use when: a user requests 「○○の機能を実装して」 / 「○○についてドキュメント追加して」 or equivalent English requests like 'implement [feature]' or 'add documentation for [topic]'. Guides the entire planning phase: request analysis → clarifying questions → structured TODO list generation → Conventional Commits branch creation → Serena MCP memory persistence."
+description: "Workflow skill for feature and documentation additions. Use when: a user requests 「○○の機能を実装して」 / 「○○についてドキュメント追加して」 or equivalent English requests like 'implement [feature]' or 'add documentation for [topic]'. Guides the entire planning phase: request analysis → clarifying questions → structured TODO list generation → Conventional Commits branch creation."
 ---
 
 # Feature Implementation & Documentation Skill
@@ -13,7 +13,6 @@ This skill automates the planning and initialization phase for feature and docum
 - ✅ Request analysis and scope clarification
 - ✅ Structured TODO list generation
 - ✅ Conventional Commits branch creation (feat/, docs/, fix/)
-- ✅ Plan persistence in Serena MCP memory
 - ❌ Actual implementation (handled in subsequent phases)
 - ❌ PR submission or validation (follows after implementation)
 
@@ -179,7 +178,6 @@ User Responses:
 
 ✅ Ready to proceed?
 - Create branch `feat/feature-name`
-- Save this plan to project memory (Serena MCP)
 - Display plan in this conversation
 
 **Actions:**
@@ -199,10 +197,8 @@ User Responses:
 1. **Create Git Branch** (after user approval)
    ```bash
    git checkout -b feat/feature-name
-   git commit --allow-empty -m "chore: initialize feat/feature-name branch"
    ```
    - Branch naming follows `feat/`, `docs/`, `fix/` prefixes (Conventional Commits)
-   - Brief empty commit establishes branch history
 
 2. **Display Completion**
    ```
@@ -303,6 +299,6 @@ Agent: "✅ Branch `feat/homepage-latest-posts-slideshow` created!
 
 ## References
 
-- [Conventional Commits](https://www.conventionalcommits.org/) — branch naming standard
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#examples) — branch naming standard
 - [`copilot-instructions.md`](./.github/copilot-instructions.md) — project validation checklist
 - [`docs/develop/project-structure.md`](./docs/develop/project-structure.md) — file placement rules
