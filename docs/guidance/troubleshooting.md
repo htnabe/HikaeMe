@@ -38,10 +38,10 @@ Solution:
 1. Verify module is downloaded:
 
 ```bash
-ls -la go.mod
+hugo mod verify
 ```
 
-If missing, run `hugo mod get -u` again.
+If the command reports missing or corrupted modules, run `hugo mod get -u` again.
 
 2. Check for import errors:
 

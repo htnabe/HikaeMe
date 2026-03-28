@@ -13,6 +13,11 @@ Prepare the following tools:
 - GCC (required for compiling native dependencies)
 - Sass (SCSS compiler)
 
+For VS Code users (optional), sample dev container files are available here:
+
+- [devcontainer.json example](./assets/devcontainer.json)
+- [postCreateCommand.sh example](./assets/postCreateCommand.sh)
+
 Verify your environment:
 
 ```bash

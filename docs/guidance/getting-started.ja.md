@@ -13,6 +13,11 @@
 - GCC（ネイティブ依存のビルドに必要）
 - Sass（SCSS コンパイラ）
 
+VS Code 利用者向け（任意）として、Dev Container の実ファイル例を用意しています。
+
+- [devcontainer.json の例](./assets/devcontainer.json)
+- [postCreateCommand.sh の例](./assets/postCreateCommand.sh)
+
 環境確認コマンド:
 
 ```bash
