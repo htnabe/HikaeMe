@@ -63,7 +63,7 @@ npm install
 ### 開発サーバーを起動
 
 ```bash
-hugo server --draft
+hugo server -D
 ```
 
 ブラウザで `http://localhost:1313` を開いて確認します。
