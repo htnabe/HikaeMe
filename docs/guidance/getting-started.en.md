@@ -18,6 +18,7 @@ For VS Code users (optional), sample dev container files are available here:
 - [devcontainer.json example](./assets/devcontainer.json)
 - [postCreateCommand.sh example](./assets/postCreateCommand.sh)
 
+Copy these files into a `.devcontainer/` directory (for example `.devcontainer/devcontainer.json` and `.devcontainer/postCreateCommand.sh`) so VS Code can detect and use them.
 Verify your environment:
 
 ```bash
