@@ -22,7 +22,7 @@ Provide a practical, high-signal review focused on correctness, regressions, and
 - [ ] Does the PR clearly state what problem it solves?
 - [ ] Are the changes limited to the stated scope?
 - [ ] Are unrelated changes avoided?
-- [ ] Do added/updated files follow the existing folder structure and file-splitting approach described in `docs/project-structure.md`?
+- [ ] Do added/updated files follow the existing folder structure and file-splitting approach described in `docs/develop/project-structure.md`?
 
 ### 2) Correctness
 - [ ] Does the implementation match the intended behavior?

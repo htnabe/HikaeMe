@@ -7,33 +7,21 @@ A simple theme that displays only the bare minimum of elements readers need.
 > [!IMPORTANT]
 > Currently only Japanese is supported! If you wanna use other langs, plz add i18n support and push PR!
 
-## How to start(WIP)
+## Documentation Index
 
-```
-hugo mod init
-```
+### Guidance (for HikaeMe users)
 
-Add the following in your configuration file. If you are using a non-YAML file, the writing style is different.
+- [English](./docs/guidance/getting-started.en.md)
+- [日本語](./docs/guidance/getting-started.ja.md)
+- [Troubleshooting](./docs/guidance/troubleshooting.md)
 
-```
-module:
-  imports:
-    - path: "github.com/htnabe/HikaeMe"
-```
+### Develop (for contributors/developers/AI)
 
-Then, execute the next command. You need the environment to execute `node` and `npm` .
-
-```
-hugo mod get -u
-hugo mod npm pack
-npm i
-```
+- Project Structure: [docs/develop/project-structure.md](./docs/develop/project-structure.md)
 
 ## Demo
 
 - [My personal blog](https://t-pot.me/)
-
-## Docs(WIP)
 
 ## LICENSE
 
