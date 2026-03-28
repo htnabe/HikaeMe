@@ -55,10 +55,10 @@ hugo mod get -u
 Solution:
 
 ```bash
-# Fix npm permissions (macOS/Linux)
-sudo chown -R $(whoami) /usr/local/lib/node_modules
-
-# Or use a Node version manager (recommended)
+# Recommended: use a Node version manager to avoid global permission issues
 # - nvm: https://github.com/nvm-sh/nvm
 # - fnm: https://github.com/Schniz/fnm
+#
+# For more options and background, see:
+# https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
 ```
