@@ -13,7 +13,7 @@ This skill standardizes how to keep repository documentation accurate when comma
 - Detect stale command examples and outdated explanations
 - Update references when docs files/folders move
 - Keep `README.md`, `docs/**`, `.github` guidance, and guidance assets aligned
-- Apply structural reorganization when it improves clarity
+- Prefer minimal, surgical edits; only reorganize structure when necessary to resolve path/layout drift or duplicated/conflicting instructions
 
 **Scope:**
 - `README.md`
