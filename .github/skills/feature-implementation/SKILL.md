@@ -300,5 +300,5 @@ Agent: "✅ Branch `feat/homepage-latest-posts-slideshow` created!
 ## References
 
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#examples) — branch naming standard
-- [`copilot-instructions.md`](./.github/copilot-instructions.md) — project validation checklist
-- [`docs/develop/project-structure.md`](./docs/develop/project-structure.md) — file placement rules
+- [`copilot-instructions.md`](../../copilot-instructions.md) — project validation checklist
+- [`docs/develop/project-structure.md`](../../../docs/develop/project-structure.md) — file placement rules
