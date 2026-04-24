@@ -4,9 +4,6 @@
 
 A simple theme that displays only the bare minimum of elements readers need.
 
-> [!IMPORTANT]
-> Currently only Japanese is supported! If you wanna use other langs, plz add i18n support and push PR!
-
 ## Documentation Index
 
 ### Guidance (for HikaeMe users)

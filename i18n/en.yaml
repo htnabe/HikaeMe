@@ -1,0 +1,55 @@
+footer:
+  privacy:
+    other: Privacy Policy & Disclaimer
+  contact:
+    other: Contact
+sidebar:
+  categories:
+    other: Categories
+  author:
+    other: AUTHOR
+  support:
+    other: Support
+pagination:
+  prev:
+    other: Previous page
+  next:
+    other: Next page
+oldArticle:
+  created:
+    other: created
+  updated:
+    other: updated
+  warning:
+    other: This article is over {{ .years }} year(s) since {{ .label }} and may
+      contain outdated information.
+share:
+  twitter:
+    other: Share on Twitter
+  facebook:
+    other: Share on Facebook
+  line:
+    other: Share on LINE
+search:
+  placeholder:
+    other: Search posts
+  noResults:
+    other: No results have been found.
+  readMore:
+    other: Read More >
+  ariaLabel:
+    other: Search articles
+error404:
+  title:
+    other: Oops! You're lost.
+  message:
+    other:
+      The page was not found.<br />But if you keep going, maybe someday you'll
+      find a new path.
+  backHome:
+    other: Back to Home
+article:
+  next:
+    other: Next Article
+  previous:
+    other: Previous Article

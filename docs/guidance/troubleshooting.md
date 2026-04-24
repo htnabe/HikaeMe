@@ -5,8 +5,9 @@ This page collects common setup and development issues for HikaeMe.
 ## Issue: `hugo mod get -u` fails with "module not found"
 
 Solution:
-1. Ensure your `hugo.yaml` has the correct module path.
-2. Try clearing the cache:
+1. Ensure your site configuration has the correct module import path.
+2. If you use split config files, check `config/_default/module.yaml` instead of a single `hugo.yaml`.
+3. Try clearing the cache:
 
 ```bash
 hugo mod clean

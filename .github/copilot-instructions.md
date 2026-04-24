@@ -39,6 +39,17 @@ These instructions define how AI coding assistants should work in this repositor
   - `npm run dev` (or `cd exampleSite && hugo server --gc --watch`)
 - Confirm no unintended file changes in `git status`.
 
+## Commit Message Guidelines
+- Follow [Conventional Commits](https://www.conventionalcommits.org/) for all commit messages.
+- Format: `<type>[optional scope]: <description>`
+- Common types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
+- Write messages in English (imperative mood, lowercase after the colon).
+- Examples:
+  - `feat: add split config support for config/_default/`
+  - `docs: update getting-started guides for multilingual setup`
+  - `fix: correct YAML indentation in params.yaml`
+- When changes span multiple concerns, split into separate commits by type.
+
 ## Pull Request Guidelines
 - When creating a pull request, always use `.github/PULL_REQUEST_TEMPLATE.md` as the body template.
 - Fill in all sections of the template based on the actual changes made.

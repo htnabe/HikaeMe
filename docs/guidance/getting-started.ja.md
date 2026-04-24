@@ -50,7 +50,7 @@ hugo mod init github.com/yourusername/my-blog
 
 ### HikaeMe をモジュール依存として追加
 
-`hugo.yaml` を編集し、次を追加します。
+サイト設定に module import を追加します。単一ファイル構成であれば `hugo.yaml` を編集し、次を追加します。
 
 ```yaml
 module:
@@ -58,12 +58,34 @@ module:
     - path: "github.com/htnabe/HikaeMe"
 ```
 
+設定を分割している場合は、同じ内容を `config/_default/module.yaml` に配置してください。
+
 ### 依存関係を取得
 
 ```bash
 hugo mod get -u github.com/htnabe/HikaeMe
 hugo mod npm pack
 npm install
+```
+
+### 設定ファイルの構成
+
+設定は次のどちらでも構いません。
+
+- 小規模サイト向け: 単一の `hugo.yaml`
+- 設定が増えたサイト向け: `config/_default/` で分割
+
+このリポジトリでは設定量が多いため、`config/_default/` を採用しています。典型的な構成は次のとおりです。
+
+```text
+config/_default/
+  hugo.yaml
+  module.yaml
+  params.yaml
+  menus.yaml
+  outputs.yaml
+  outputFormats.yaml
+  permalinks.yaml
 ```
 
 ### 開発サーバーを起動
@@ -90,4 +112,34 @@ params:
   description: "My personal blog"
 ```
 
-追加の設定については[exampleSite の設定例](../../exampleSite/hugo.yaml)を参照してください。
+このガイドでは簡潔さのため単一の `hugo.yaml` を使っています。実リポジトリの設定分割例は [exampleSite/config/_default/](../../exampleSite/config/_default/) を参照してください。
+
+`hugo.yaml` をなるべく細かく分けて管理したい場合は [exampleSite/config/_default/](../../exampleSite/config/_default/) を参照してください。
+
+## 多言語設定
+
+HikaeMe は Hugo の多言語サイト構成に対応しています。
+
+- 推奨構成は、デフォルト言語をルートに置く single host 構成です
+- 既存のデフォルト言語 URL をそのまま正規 URL として維持できます
+- 追加言語は `/en/` のようなプレフィックス配下で公開できます
+- UI 文言は `i18n/ja.yaml`、`i18n/en.yaml` などの翻訳ファイルで管理できます
+
+例:
+
+```yaml
+defaultContentLanguage: "ja"
+defaultContentLanguageInSubdir: false
+
+languages:
+  ja:
+    languageCode: "ja-JP"
+    languageName: "日本語"
+    weight: 1
+  en:
+    languageCode: "en-US"
+    languageName: "English"
+    weight: 2
+```
+
+言語ブロックに定義していない設定値はグローバル設定へフォールバックするため、差分だけを各言語に書く運用が可能です。

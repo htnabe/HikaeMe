@@ -1,0 +1,32 @@
+ja:
+  languageCode: "ja-JP"
+  languageName: "日本語"
+  weight: 1
+en:
+  languageCode: "en-US"
+  languageName: "English"
+  weight: 2
+  params:
+    author:
+      career:
+        - year: "20xx"
+          events:
+            - title: "Graduated High School"
+              description: "Competed at the prefectural tournament in a club activity. [Achievement](https://example.com)"
+            - title: "Enrolled in University"
+              description: "Major in Computer Science. [Official site](https://example.com)"
+        - year: "20yy"
+          title: "Joined Company A"
+          description: "Worked as a frontend engineer. [Company site](https://example.com)"
+        - year: "20yy"
+          title: "Led Project B"
+          description: "Managed a large-scale project as team leader. [Project details](https://example.com)"
+        - year: "20yy"
+          title: "Published Technical Book"
+          description: "Published a book on web development. [Buy here](https://example.com)"
+        - year: "20yy"
+          title: "Conference Speaker"
+          description: "Gave a talk at a major domestic conference. [Details](https://example.com)"
+        - year: "20yy"
+          title: "Founded Startup"
+          description: "Engaged in product development leveraging AI technology. [Company site](https://example.com)"

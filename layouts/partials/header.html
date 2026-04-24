@@ -1,16 +1,18 @@
 <div class="container-xl">
   <nav class="navbar me-auto navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="/">
+      <a
+        class="navbar-brand d-flex align-items-center"
+        href="{{ .Site.Home.RelPermalink }}"
+      >
         {{ with .Site.Params.logoImageUrl }}
           <img
             src="{{ . | absURL }}"
-            title="t-pot"
+            title="Site Logo"
             height="30"
             width="30"
-            class="img-fluid rounded "
-            alt="blog-logo"
-            class="d-inline"
+            class="img-fluid rounded d-inline"
+            alt="site-logo"
           />
         {{ end }}
         <p
@@ -41,12 +43,12 @@
                     <a
                       class="nav-link hover-with-ul active"
                       aria-current="page"
-                      href="{{ .PageRef }}"
+                      href="{{ .URL }}"
                     >
                       <span class="fs-6 m-0 fw-semibold">{{ .Name }}</span>
                     </a>
                   {{ else }}
-                    <a class="nav-link hover-with-ul" href="{{ .PageRef }}">
+                    <a class="nav-link hover-with-ul" href="{{ .URL }}">
                       <span class="fs-6 m-0 fw-semibold">
                         {{ .Name }}
                       </span>
