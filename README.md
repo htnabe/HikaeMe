@@ -21,34 +21,6 @@ A simple theme that displays only the bare minimum of elements readers need.
 
 - [My personal blog](https://t-pot.me/)
 
-## Multilingual Support
-
-HikaeMe now supports Hugo multilingual sites.
-
-- Recommended setup: single host with default language at root.
-- Existing Japanese users can keep current URLs as canonical paths.
-- Secondary languages can be served with language prefixes such as `/en/`.
-- UI strings can be managed in dedicated translation files:
-	- `i18n/ja.yaml`
-	- `i18n/en.yaml`
-
-### Example settings
-
-```yaml
-defaultContentLanguage: "ja"
-defaultContentLanguageInSubdir: false
-
-languages:
-	ja:
-		languageCode: "ja-JP"
-		languageName: "日本語"
-		weight: 1
-	en:
-		languageCode: "en-US"
-		languageName: "English"
-		weight: 2
-```
-
 ## LICENSE
 
 This theme is released under the [MIT](https://opensource.org/license/MIT) License.
