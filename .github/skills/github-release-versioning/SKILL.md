@@ -29,21 +29,21 @@ argument-hint: "Target version, for example v1.2.5"
 3. Abort if current branch is main or dev.
 4. Abort if the release branch is not derived from dev.
 5. Abort if target tag already exists locally or on remote.
-6. Abort if `npm config get tag-version-prefix` is not `v`.
-7. Derive bareVersion by removing the leading `v` from targetVersion.
+6. Derive bareVersion by removing the leading `v` from targetVersion.
 
 ## Procedure
 1. Create a release branch from dev.
 2. Derive bareVersion (X.Y.Z) from targetVersion (vX.Y.Z).
-3. Run `npm version "${bareVersion}" -m "chore(release): v%s"`.
-4. Confirm `package.json` is updated and git tag `vX.Y.Z` is created by `npm version`.
-5. Run validation checks required by repository policy.
+3. Run validation checks required by repository policy.
+4. Run `npm version "${bareVersion}" --tag-version-prefix v -m "chore(release): v%s"`.
+5. Confirm `package.json` and `package-lock.json` are updated and git tag `vX.Y.Z` is created by `npm version`.
 6. Push release branch and tag.
 7. Open a Pull Request with base dev and head release branch.
 8. After PR is merged, create a GitHub Release for vX.Y.Z.
 
 ## Validation Checklist
 - package.json version matches targetVersion without leading v.
+- package-lock.json version matches package.json.
 - Tag name matches targetVersion.
 - Release commit message follows `chore(release): vX.Y.Z`.
 - Branch and tag are pushed successfully.
@@ -54,7 +54,6 @@ argument-hint: "Target version, for example v1.2.5"
 - Invalid targetVersion: stop and request a valid vX.Y.Z value.
 - Dirty working tree: stop and ask to commit or stash changes.
 - Existing tag: stop and bump to the next version.
-- Invalid npm tag prefix: set `npm config set tag-version-prefix v` and retry.
 - Wrong branch origin: recreate branch from dev.
 - Failed push or release creation: stop, report error, and retry from the failed step.
 
