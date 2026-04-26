@@ -21,7 +21,6 @@ argument-hint: "Target version, for example v1.2.5"
 ## Inputs
 - targetVersion: required, must follow vX.Y.Z format (e.g., v1.2.3).
 - releaseBranch: optional, defaults to chore/release-vX-Y-Z derived from targetVersion (e.g., chore/release-v1-2-3).
-- preRelease: optional, true or false.
 
 ## Decision Rules
 1. Validate targetVersion with pattern ^v[0-9]+\.[0-9]+\.[0-9]+$.
@@ -56,5 +55,4 @@ argument-hint: "Target version, for example v1.2.5"
 
 ## Example Prompts
 - Run release workflow for v1.2.5.
-- Prepare a prerelease v1.3.0 from dev and open a Pull Request.
 - Update package.json and create tag v2.0.0, then push and draft release.
