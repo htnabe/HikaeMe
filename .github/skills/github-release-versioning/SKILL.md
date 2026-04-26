@@ -9,6 +9,7 @@ argument-hint: "Target version, for example v1.2.5"
 ## Purpose
 - Standardize release preparation and publication for this repository.
 - Keep package version, git tag, and GitHub Release consistent.
+- Use `npm version` to update `package.json` and create the release tag in one operation.
 
 ## Language Rule
 - Write all skill outputs, commit messages, Pull Request descriptions, and release notes in English.
@@ -28,20 +29,23 @@ argument-hint: "Target version, for example v1.2.5"
 3. Abort if current branch is main or dev.
 4. Abort if the release branch is not derived from dev.
 5. Abort if target tag already exists locally or on remote.
+6. Derive bareVersion by removing the leading `v` from targetVersion.
 
 ## Procedure
 1. Create a release branch from dev.
-2. Update package.json version to X.Y.Z (remove leading v from targetVersion).
+2. Derive bareVersion (X.Y.Z) from targetVersion (vX.Y.Z).
 3. Run validation checks required by repository policy.
-4. Commit release preparation changes.
-5. Create an annotated tag named vX.Y.Z.
+4. Run `npm version "${bareVersion}" --tag-version-prefix v -m "chore(release): v%s"`.
+5. Confirm `package.json` and `package-lock.json` are updated and git tag `vX.Y.Z` is created by `npm version`.
 6. Push release branch and tag.
 7. Open a Pull Request with base dev and head release branch.
 8. After PR is merged, create a GitHub Release for vX.Y.Z.
 
 ## Validation Checklist
 - package.json version matches targetVersion without leading v.
-- Tag name matches targetVersion and is annotated.
+- package-lock.json version matches package.json.
+- Tag name matches targetVersion.
+- Release commit message follows `chore(release): vX.Y.Z`.
 - Branch and tag are pushed successfully.
 - Pull Request to dev is open or merged.
 - GitHub Release exists for targetVersion.
@@ -55,4 +59,5 @@ argument-hint: "Target version, for example v1.2.5"
 
 ## Example Prompts
 - Run release workflow for v1.2.5.
+- Run minor release workflow for v1.3.0 using npm version.
 - Update package.json and create tag v2.0.0, then push and draft release.
