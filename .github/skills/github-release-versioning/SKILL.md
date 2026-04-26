@@ -1,6 +1,6 @@
 ---
 name: github-release-versioning
-description: "Release workflow for publishing a new GitHub version. Use when updating package.json version, creating a vx.x.x tag, and preparing a Pull Request to dev for release."
+description: "Release workflow for publishing a new GitHub version. Use when updating package.json version, creating a vX.Y.Z tag, and preparing a Pull Request to dev for release."
 argument-hint: "Target version, for example v1.2.5"
 ---
 
@@ -19,8 +19,8 @@ argument-hint: "Target version, for example v1.2.5"
 - Release and tag work must be done on a branch derived from dev, then submitted as a Pull Request targeting dev.
 
 ## Inputs
-- targetVersion: required, must follow vx.x.x format.
-- releaseBranch: optional, defaults to chore/release-vx-x-x.
+- targetVersion: required, must follow vX.Y.Z format (e.g., v1.2.3).
+- releaseBranch: optional, defaults to chore/release-vX-Y-Z derived from targetVersion (e.g., chore/release-v1-2-3).
 - preRelease: optional, true or false.
 
 ## Decision Rules
