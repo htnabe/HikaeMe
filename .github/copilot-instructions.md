@@ -13,7 +13,7 @@ These instructions define how AI coding assistants should work in this repositor
 - Do not refactor unrelated code while implementing a request.
 - Do not introduce new frameworks or large dependencies unless explicitly requested.
 - Write all commit messages, PR text, and generated docs in English unless the user asks otherwise.
-- Write all skill files (`.github/skills/**/SKILL.md`) in English.
+- Write skill files (`.github/skills/**/SKILL.md`) primarily in English; non-English trigger examples are allowed when they improve usability or reflect existing behavior.
 - When reviewing changes (including pull requests), read `.github/prompts/review.prompt.md` first and follow its checklist and output format.
 - When you need to understand folder or file placement, read `docs/develop/project-structure.md` first and follow its structure guidance.
 - Direct merges to `main` and `dev` are not allowed; merge only through Pull Requests.
