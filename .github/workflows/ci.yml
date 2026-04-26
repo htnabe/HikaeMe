@@ -89,6 +89,43 @@ jobs:
       - name: Hugo production build
         run: cd exampleSite && hugo --gc --minify
 
+      - name: Validate Algolia JSON outputs
+        run: |
+          set -e
+          cd exampleSite
+
+          # Default language JSON (root) must exist and be non-empty
+          count=$(jq 'length' public/algolia.json)
+          if [ "$count" -eq 0 ]; then
+            echo "ERROR: public/algolia.json is empty"
+            exit 1
+          fi
+          echo "public/algolia.json: $count records OK"
+
+          # Secondary language JSON must exist and be non-empty
+          # NOTE: path 'public/en/' is tied to exampleSite's language config.
+          # Update this path if exampleSite languages change.
+          count=$(jq 'length' public/en/algolia.json)
+          if [ "$count" -eq 0 ]; then
+            echo "ERROR: public/en/algolia.json is empty"
+            exit 1
+          fi
+          echo "public/en/algolia.json: $count records OK"
+
+          # Default language JSON must not contain secondary language permalinks
+          if jq -e '[.[] | .permalink | contains("/en/")] | any' public/algolia.json > /dev/null; then
+            echo "ERROR: public/algolia.json contains /en/ permalinks (cross-language contamination)"
+            exit 1
+          fi
+          echo "public/algolia.json: no cross-language contamination OK"
+
+          # Secondary language JSON must only contain its own language permalinks
+          if jq -e '[.[] | .permalink | contains("/en/")] | all | not' public/en/algolia.json > /dev/null; then
+            echo "ERROR: public/en/algolia.json contains non-English permalinks"
+            exit 1
+          fi
+          echo "public/en/algolia.json: all records are English OK"
+
   e2e:
     name: E2E Tests
     runs-on: ubuntu-latest

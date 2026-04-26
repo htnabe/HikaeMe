@@ -143,3 +143,101 @@ languages:
 ```
 
 言語ブロックに定義していない設定値はグローバル設定へフォールバックするため、差分だけを各言語に書く運用が可能です。
+
+## 多言語サイトでの Algolia 検索
+
+### 出力パスの仕様
+
+Algolia JSON は **home** kind で生成されます。出力先は `defaultContentLanguageInSubdir` の値によって変わります。
+
+| `defaultContentLanguageInSubdir` | 既定言語 | 他言語 |
+|---|---|---|
+| `false`（既定値） | `/algolia.json` | `/en/algolia.json` |
+| `true` | `/ja/algolia.json` | `/en/algolia.json` |
+
+`false` のとき、ルートの `/algolia.json` が既定言語のインデックスになります。これは Hugo の仕様通りの動作であり、異常ではありません。
+
+### 必要な設定
+
+**`config/_default/outputFormats.yaml`**
+
+```yaml
+Algolia:
+  baseName: "algolia"
+  isPlainText: true
+  mediaType: "application/json"
+  notAlternative: true
+```
+
+**`config/_default/outputs.yaml`**
+
+```yaml
+home:
+  - "HTML"
+  - "Algolia"
+section:
+  - "HTML"
+```
+
+`home` だけで生成し `section` では生成しないことで、重複レコードを防ぎます。
+
+**`config/_default/params.yaml`**
+
+```yaml
+enableAlgolia: true
+
+algolia:
+  appId: "YOUR_APP_ID"
+  searchOnlyApiKey: "YOUR_SEARCH_ONLY_API_KEY"
+  indexName: "YOUR_INDEX_NAME"
+  vars:
+    - "title"
+    - "summary"
+    - "date"
+    - "permalink"
+  params:
+    - "tags"
+    - "categories"
+```
+
+### 言語別インデックス名の設定
+
+言語ごとに別の Algolia インデックスを使う場合は、言語ブロックで `indexName` を上書きします。
+
+```yaml
+languages:
+  ja:
+    params:
+      algolia:
+        indexName: YOUR_JA_INDEX
+  en:
+    params:
+      algolia:
+        indexName: YOUR_EN_INDEX
+```
+
+### コンテンツファイルの命名規則
+
+```text
+content/
+  posts/
+    tech/
+      article1.md        # 既定言語
+      article1.en.md     # 英語版
+  about.md
+  about.en.md
+```
+
+### 出力の確認方法
+
+```bash
+cd exampleSite && hugo --gc --minify
+
+# レコード件数（どちらも 0 でないことを確認）
+jq 'length' public/algolia.json
+jq 'length' public/en/algolia.json
+
+# 言語混在がないことを確認
+jq '[.[].permalink | contains("/en/")] | any' public/algolia.json    # false であること
+jq '[.[].permalink | contains("/en/")] | all'  public/en/algolia.json # true であること
+```

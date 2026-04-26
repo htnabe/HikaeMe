@@ -143,3 +143,101 @@ languages:
 ```
 
 Hugo will fall back to global configuration values for keys not defined inside a language block, which makes it practical to localize only the settings that differ.
+
+## Algolia Search with Multilingual Sites
+
+### Output path behavior
+
+Algolia JSON is generated at the **home** kind. Its output path depends on `defaultContentLanguageInSubdir`:
+
+| `defaultContentLanguageInSubdir` | Default language | Other languages |
+|---|---|---|
+| `false` (default) | `/algolia.json` | `/en/algolia.json` |
+| `true` | `/ja/algolia.json` | `/en/algolia.json` |
+
+With `false`, the root `/algolia.json` is the default-language index. This is expected Hugo behavior, not a bug.
+
+### Required config
+
+**`config/_default/outputFormats.yaml`**
+
+```yaml
+Algolia:
+  baseName: "algolia"
+  isPlainText: true
+  mediaType: "application/json"
+  notAlternative: true
+```
+
+**`config/_default/outputs.yaml`**
+
+```yaml
+home:
+  - "HTML"
+  - "Algolia"
+section:
+  - "HTML"
+```
+
+Generate only at `home`, not `section`, to avoid duplicate records.
+
+**`config/_default/params.yaml`**
+
+```yaml
+enableAlgolia: true
+
+algolia:
+  appId: "YOUR_APP_ID"
+  searchOnlyApiKey: "YOUR_SEARCH_ONLY_API_KEY"
+  indexName: "YOUR_INDEX_NAME"
+  vars:
+    - "title"
+    - "summary"
+    - "date"
+    - "permalink"
+  params:
+    - "tags"
+    - "categories"
+```
+
+### Per-language index names
+
+To use separate Algolia indexes per language, override `indexName` in the language block:
+
+```yaml
+languages:
+  ja:
+    params:
+      algolia:
+        indexName: YOUR_JA_INDEX
+  en:
+    params:
+      algolia:
+        indexName: YOUR_EN_INDEX
+```
+
+### Content file naming
+
+```text
+content/
+  posts/
+    tech/
+      article1.md        # default language
+      article1.en.md     # English translation
+  about.md
+  about.en.md
+```
+
+### Verifying the output
+
+```bash
+cd exampleSite && hugo --gc --minify
+
+# record counts (both should be non-zero)
+jq 'length' public/algolia.json
+jq 'length' public/en/algolia.json
+
+# confirm no cross-language contamination
+jq '[.[].permalink | contains("/en/")] | any' public/algolia.json   # expect false
+jq '[.[].permalink | contains("/en/")] | all'  public/en/algolia.json  # expect true
+```
