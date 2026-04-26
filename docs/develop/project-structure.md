@@ -34,8 +34,9 @@ Use it as the first reference when you need to understand where to add or modify
 
 ## Main Configuration and Metadata Files
 
-- `hugo.yaml`
-  - Theme-level Hugo configuration defaults.
+- `config/_default/`
+  - Theme-level Hugo configuration defaults split by root key.
+  - Typical files in this repository include `hugo.yaml`, `params.yaml`, `menus.yaml`, `outputs.yaml`, `outputFormats.yaml`, `permalinks.yaml`, and `module.yaml`.
 - `theme.toml`
   - Hugo theme metadata.
 - `package.json`
@@ -48,6 +49,8 @@ Use it as the first reference when you need to understand where to add or modify
   - Go module declaration (used by Hugo module workflows).
 - `README.md`
   - Main usage and setup instructions.
+
+For consumer sites, a single `hugo.yaml` is still valid. This repository uses `config/_default/` to keep large theme settings easier to maintain.
 
 ## Template and Asset Entry Points
 

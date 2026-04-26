@@ -8,16 +8,15 @@
         <i class="bi bi-exclamation-circle display-4"></i>
         <p class="display-1 fw-bold">4</p>
       </h2>
-      <h3 class="h2 mb-2">Oops! You're lost.</h3>
+      <h3 class="h2 mb-2">{{ T "error404.title" }}</h3>
       <p class="mb-5">
-        The page was not found. <br />But if you keep going, maybe someday
-        you'll find a new path.
+        {{ T "error404.message" | safeHTML }}
       </p>
       <a
         class="btn btn-secondary rounded-pill px-5 fs-6 m-0"
         href="{{ .Site.Home.RelPermalink }}"
         role="button"
-        >Back to Home</a
+        >{{ T "error404.backHome" }}</a
       >
     </div>
   </section>

@@ -1,0 +1,10 @@
+main:
+  - name: Home
+    pageRef: /
+    weight: 10
+  - name: About
+    pageRef: /about
+    weight: 20
+  - name: Author
+    pageRef: /author
+    weight: 30

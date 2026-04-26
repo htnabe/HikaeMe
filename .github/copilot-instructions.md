@@ -13,8 +13,12 @@ These instructions define how AI coding assistants should work in this repositor
 - Do not refactor unrelated code while implementing a request.
 - Do not introduce new frameworks or large dependencies unless explicitly requested.
 - Write all commit messages, PR text, and generated docs in English unless the user asks otherwise.
+- Write skill files (`.github/skills/**/SKILL.md`) primarily in English; non-English trigger examples are allowed when they improve usability or reflect existing behavior.
 - When reviewing changes (including pull requests), read `.github/prompts/review.prompt.md` first and follow its checklist and output format.
 - When you need to understand folder or file placement, read `docs/develop/project-structure.md` first and follow its structure guidance.
+- Direct merges to `main` and `dev` are not allowed; merge only through Pull Requests.
+- Release and tag work must be done on a branch derived from `dev`, then submitted as a Pull Request targeting `dev`.
+- Release operations must use tags in `vX.Y.Z` format, and `package.json` version must be updated to `X.Y.Z` before tagging.
 
 ## Hugo / Template Guidelines
 - Prefer Hugo built-in functions and existing partial structure.
@@ -38,6 +42,17 @@ These instructions define how AI coding assistants should work in this repositor
 - If template/script behavior changed, run a local smoke test:
   - `npm run dev` (or `cd exampleSite && hugo server --gc --watch`)
 - Confirm no unintended file changes in `git status`.
+
+## Commit Message Guidelines
+- Follow [Conventional Commits](https://www.conventionalcommits.org/) for all commit messages.
+- Format: `<type>[optional scope]: <description>`
+- Common types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
+- Write messages in English (imperative mood, lowercase after the colon).
+- Examples:
+  - `feat: add split config support for config/_default/`
+  - `docs: update getting-started guides for multilingual setup`
+  - `fix: correct YAML indentation in params.yaml`
+- When changes span multiple concerns, split into separate commits by type.
 
 ## Pull Request Guidelines
 - When creating a pull request, always use `.github/PULL_REQUEST_TEMPLATE.md` as the body template.

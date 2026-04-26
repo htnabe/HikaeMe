@@ -1,0 +1,16 @@
+baseURL:
+title:
+defaultContentLanguage: ja
+defaultContentLanguageInSubdir: false
+disableDefaultLanguageRedirect: false
+enableEmoji: true
+enableGitInfo: true
+enableRobotsTXT: true
+timeZone:
+languageCode:
+headers:
+  - for: "/*" # Apply to all pages
+    values:
+      X-Frame-Options: "DENY" # Prevents clickjacking
+      X-Content-Type-Options: "nosniff" # Prevents MIME type sniffing
+      Referrer-Policy: "no-referrer" # Prevents referrer information from being sent

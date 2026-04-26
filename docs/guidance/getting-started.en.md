@@ -50,7 +50,7 @@ This registers your site as a module. The module path does not need to match you
 
 ### Add HikaeMe as a Module Dependency
 
-Edit `hugo.yaml` and add:
+Add the module import to your site configuration. For a single-file setup, edit `hugo.yaml` and add:
 
 ```yaml
 module:
@@ -58,12 +58,34 @@ module:
     - path: "github.com/htnabe/HikaeMe"
 ```
 
+If you use a split configuration directory, place the same block in `config/_default/module.yaml`.
+
 ### Download Theme Dependencies
 
 ```bash
 hugo mod get -u github.com/htnabe/HikaeMe
 hugo mod npm pack
 npm install
+```
+
+### Configuration Layout
+
+You can use either of these layouts:
+
+- Single-file config for small sites: `hugo.yaml`
+- Split config for larger sites: `config/_default/`
+
+This repository uses `config/_default/` to keep large settings manageable. A typical split layout looks like this:
+
+```text
+config/_default/
+  hugo.yaml
+  module.yaml
+  params.yaml
+  menus.yaml
+  outputs.yaml
+  outputFormats.yaml
+  permalinks.yaml
 ```
 
 ### Start the Development Server
@@ -90,4 +112,34 @@ params:
   description: "My personal blog"
 ```
 
-Refer to the [example site config](../../exampleSite/hugo.yaml) for additional configuration options.
+This guide uses a single `hugo.yaml` for brevity. The repository example site uses split files under [exampleSite/config/_default/](../../exampleSite/config/_default/) for the same settings.
+
+If you want to manage Hugo configuration in smaller split files, see [exampleSite/config/_default/](../../exampleSite/config/_default/).
+
+## Multilingual Setup
+
+HikaeMe supports Hugo multilingual sites.
+
+- Recommended setup: single host with the default language at the root
+- Existing default-language URLs can remain canonical
+- Secondary languages can live under prefixes such as `/en/`
+- UI strings can be managed in `i18n/ja.yaml`, `i18n/en.yaml`, and other language files
+
+Example:
+
+```yaml
+defaultContentLanguage: "ja"
+defaultContentLanguageInSubdir: false
+
+languages:
+  ja:
+    languageCode: "ja-JP"
+    languageName: "Japanese"
+    weight: 1
+  en:
+    languageCode: "en-US"
+    languageName: "English"
+    weight: 2
+```
+
+Hugo will fall back to global configuration values for keys not defined inside a language block, which makes it practical to localize only the settings that differ.
