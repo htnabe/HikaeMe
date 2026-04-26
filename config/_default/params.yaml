@@ -9,7 +9,7 @@ since: # you can add the start period
 defaultThumbnailUrl: # https://~ format is also supported
 logoImageUrl: # https://~ format is also supported
 copyright:
-contactUrl: # Optional, if you want to add a contact form / sns accFount please write the URL here
+contactUrl: # Optional, if you want to add a contact form / sns account please write the URL here
 enableAlgolia: true
 logoFontFamily:
 favicon:
