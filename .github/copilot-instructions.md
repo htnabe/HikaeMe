@@ -13,8 +13,12 @@ These instructions define how AI coding assistants should work in this repositor
 - Do not refactor unrelated code while implementing a request.
 - Do not introduce new frameworks or large dependencies unless explicitly requested.
 - Write all commit messages, PR text, and generated docs in English unless the user asks otherwise.
+- Write all skill files (`.github/skills/**/SKILL.md`) in English.
 - When reviewing changes (including pull requests), read `.github/prompts/review.prompt.md` first and follow its checklist and output format.
 - When you need to understand folder or file placement, read `docs/develop/project-structure.md` first and follow its structure guidance.
+- Direct merges to `main` and `dev` are not allowed; merge only through Pull Requests.
+- Release and tag work must be done on a branch derived from `dev`, then submitted as a Pull Request targeting `dev`.
+- Release operations must use tags in `vX.Y.Z` format, and `package.json` version must be updated to `X.Y.Z` before tagging.
 
 ## Hugo / Template Guidelines
 - Prefer Hugo built-in functions and existing partial structure.
