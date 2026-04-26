@@ -48,7 +48,7 @@ argument-hint: "Target version, for example v1.2.5"
 - GitHub Release exists for targetVersion.
 
 ## Failure Handling
-- Invalid targetVersion: stop and request a valid vx.x.x value.
+- Invalid targetVersion: stop and request a valid vX.Y.Z value.
 - Dirty working tree: stop and ask to commit or stash changes.
 - Existing tag: stop and bump to the next version.
 - Wrong branch origin: recreate branch from dev.
