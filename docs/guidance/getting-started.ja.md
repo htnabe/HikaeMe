@@ -101,7 +101,7 @@ hugo server -D
 ```yaml
 title: "My Blog"
 baseURL: "https://example.com/"
-languageCode: "ja"
+locale: "ja"
 
 module:
   imports:
@@ -112,9 +112,7 @@ params:
   description: "My personal blog"
 ```
 
-このガイドでは簡潔さのため単一の `hugo.yaml` を使っています。実リポジトリの設定分割例は [exampleSite/config/_default/](../../exampleSite/config/_default/) を参照してください。
-
-`hugo.yaml` をなるべく細かく分けて管理したい場合は [exampleSite/config/_default/](../../exampleSite/config/_default/) を参照してください。
+このガイドでは簡潔さのため単一の `hugo.yaml` を使っています。設定を分割して管理したい場合は、実リポジトリの例として [exampleSite/config/_default/](../../exampleSite/config/_default/) を参照してください。
 
 ## 多言語設定
 
@@ -133,12 +131,12 @@ defaultContentLanguageInSubdir: false
 
 languages:
   ja:
-    languageCode: "ja-JP"
-    languageName: "日本語"
+    locale: "ja-JP"
+    label: "日本語"
     weight: 1
   en:
-    languageCode: "en-US"
-    languageName: "English"
+    locale: "en-US"
+    label: "English"
     weight: 2
 ```
 
@@ -153,9 +151,9 @@ Algolia JSON は **home** kind で生成されます。出力先は `defaultCont
 | `defaultContentLanguageInSubdir` | 既定言語 | 他言語 |
 |---|---|---|
 | `false`（既定値） | `/algolia.json` | `/en/algolia.json` |
-| `true` | `/ja/algolia.json` | `/en/algolia.json` |
+| `true` | `/<defaultLang>/algolia.json` | `/en/algolia.json` |
 
-`false` のとき、ルートの `/algolia.json` が既定言語のインデックスになります。これは Hugo の仕様通りの動作であり、異常ではありません。
+`false` のとき、ルートの `/algolia.json` が既定言語のインデックスになります。これは Hugo の仕様通りの動作であり、異常ではありません。なお、このドキュメントのサンプル設定では `defaultContentLanguage: "ja"` のため、`true` の場合の既定言語の出力先は `/ja/algolia.json` になります。
 
 ### 必要な設定
 

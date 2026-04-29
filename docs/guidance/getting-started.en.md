@@ -101,7 +101,7 @@ Open `http://localhost:1313` in your browser.
 ```yaml
 title: "My Blog"
 baseURL: "https://example.com/"
-languageCode: "ja"
+locale: "ja"
 
 module:
   imports:
@@ -112,9 +112,7 @@ params:
   description: "My personal blog"
 ```
 
-This guide uses a single `hugo.yaml` for brevity. The repository example site uses split files under [exampleSite/config/_default/](../../exampleSite/config/_default/) for the same settings.
-
-If you want to manage Hugo configuration in smaller split files, see [exampleSite/config/_default/](../../exampleSite/config/_default/).
+This guide uses a single `hugo.yaml` for brevity. If you prefer to split your configuration into multiple files, see [exampleSite/config/_default/](../../exampleSite/config/_default/) for a working example.
 
 ## Multilingual Setup
 
@@ -133,12 +131,12 @@ defaultContentLanguageInSubdir: false
 
 languages:
   ja:
-    languageCode: "ja-JP"
-    languageName: "Japanese"
+    locale: "ja-JP"
+    label: "Japanese"
     weight: 1
   en:
-    languageCode: "en-US"
-    languageName: "English"
+    locale: "en-US"
+    label: "English"
     weight: 2
 ```
 
@@ -153,9 +151,9 @@ Algolia JSON is generated at the **home** kind. Its output path depends on `defa
 | `defaultContentLanguageInSubdir` | Default language | Other languages |
 |---|---|---|
 | `false` (default) | `/algolia.json` | `/en/algolia.json` |
-| `true` | `/ja/algolia.json` | `/en/algolia.json` |
+| `true` | `/<defaultLang>/algolia.json` | `/en/algolia.json` |
 
-With `false`, the root `/algolia.json` is the default-language index. This is expected Hugo behavior, not a bug.
+With `false`, the root `/algolia.json` is the default-language index. This is expected Hugo behavior, not a bug. In this documentation's sample config, `defaultContentLanguage: "ja"`, so with `true` the default-language output path becomes `/ja/algolia.json`.
 
 ### Required config
 
