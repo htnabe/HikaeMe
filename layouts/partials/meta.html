@@ -40,7 +40,7 @@
 {{ end }}
 
 {{/* add noindex in particular urls */}}
-{{ if or (hasPrefix .RelPermalink "/tags/") (hasPrefix .RelPermalink "/categories/") }}
+{{ if and (or (eq .Kind "taxonomy") (eq .Kind "term")) (or (eq .Data.Plural "tags") (eq .Data.Plural "categories")) }}
   <meta name="robots" content="noindex, nofollow" />
 {{ end }}
 
@@ -61,7 +61,7 @@
 <meta name="description" content="{{ .Scratch.Get $description }}" />
 
 {{/* Open Graph Protocol */}}
-{{ $ogLocale := replace (.Site.Language.LanguageCode | default .Site.Language.Lang) "-" "_" }}
+{{ $ogLocale := replace (.Site.Language.Locale | default .Site.Language.Lang) "-" "_" }}
 <meta property="og:locale" content="{{ $ogLocale }}" />
 <meta property="og:title" content="{{ .Scratch.Get $title }}" />
 <meta property="og:url" content="{{ .Permalink }}" />

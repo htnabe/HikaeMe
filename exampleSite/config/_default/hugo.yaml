@@ -7,6 +7,6 @@ enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
 timeZone: "Japan"
-languageCode: "ja-JP"
+locale: "ja-JP"
 theme: "HikaeMe"
 themesdir: "../.."
