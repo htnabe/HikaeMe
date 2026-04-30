@@ -101,7 +101,7 @@ hugo server -D
 ```yaml
 title: "My Blog"
 baseURL: "https://example.com/"
-locale: "ja"
+languageCode: "ja"
 
 module:
   imports:
@@ -131,12 +131,12 @@ defaultContentLanguageInSubdir: false
 
 languages:
   ja:
-    locale: "ja-JP"
-    label: "日本語"
+    languageCode: "ja-JP"
+    languageName: "日本語"
     weight: 1
   en:
-    locale: "en-US"
-    label: "English"
+    languageCode: "en-US"
+    languageName: "English"
     weight: 2
 ```
 

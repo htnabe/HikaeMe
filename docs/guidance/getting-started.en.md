@@ -101,7 +101,7 @@ Open `http://localhost:1313` in your browser.
 ```yaml
 title: "My Blog"
 baseURL: "https://example.com/"
-locale: "ja"
+languageCode: "ja"
 
 module:
   imports:
@@ -131,12 +131,12 @@ defaultContentLanguageInSubdir: false
 
 languages:
   ja:
-    locale: "ja-JP"
-    label: "Japanese"
+    languageCode: "ja-JP"
+    languageName: "Japanese"
     weight: 1
   en:
-    locale: "en-US"
-    label: "English"
+    languageCode: "en-US"
+    languageName: "English"
     weight: 2
 ```
 
