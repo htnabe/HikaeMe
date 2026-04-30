@@ -1,32 +1,22 @@
 ## Overview
 
-Please provide a brief description of the purpose and changes in this pull request.
+<!-- What does this PR change and why? -->
 
 ## Changes
 
-- [ ] Change 1
-- [ ] Change 2
-- [ ] Change 3
+<!-- Summarize the key changes -->
 
 ## Related Issues
 
-If there are any related issues, please link them here.
-
-## Screenshots
-
-If there are UI changes, please attach before and after screenshots.
-
-## Testing
-
-- [ ] Conducted manual testing
+<!-- Link related issues, e.g. Closes #123 -->
 
 ## Checklist
 
-- [ ] I have followed the code style guidelines
-- [ ] I have performed a self-review of my code
-- [ ] I have updated the documentation (if necessary)
-- [ ] I have added appropriate labels to this pull request
+- [ ] Self-review done (following `review.prompt.md`)
+- [ ] Hugo production build passes: `cd exampleSite && hugo --gc --minify`
+- [ ] Docs updated if behavior changed
+- [ ] No unrelated changes included
 
-## Additional Comments
+## Notes for Reviewers
 
-Please add any special instructions for reviewers or points that need discussion here.
+<!-- Special instructions, discussion points, or known limitations -->
