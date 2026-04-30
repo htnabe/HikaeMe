@@ -7,7 +7,7 @@ enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
 timeZone:
-locale:
+languageCode:
 headers:
   - for: "/*" # Apply to all pages
     values:

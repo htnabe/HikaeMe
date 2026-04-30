@@ -84,7 +84,7 @@ jobs:
           tar -C "${HOME}/.local/hugo" -xf "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
           rm "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
           echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
-          echo "Hugo: $(hugo version)"          
+          echo "Hugo: $(hugo version)"
 
       - name: Hugo production build
         run: cd exampleSite && hugo --gc --minify
