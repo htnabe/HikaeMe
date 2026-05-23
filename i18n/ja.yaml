@@ -50,3 +50,7 @@ article:
     other: 次の記事
   previous:
     other: 前の記事
+header:
+  languageSwitch:
+    ariaLabel:
+      other: 言語を切り替える
