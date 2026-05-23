@@ -114,6 +114,8 @@ User Responses:
 
 ## Documentation (if needed)
 - [ ] Update README.md or relevant docs if user-facing
+- [ ] For locale-specific docs, use native heading labels and add placeholder notes when content is not yet translated
+- [ ] Keep README documentation index aligned with newly added locale guide files
 - [ ] Add comments to complex code sections
 
 ## Pull Request
