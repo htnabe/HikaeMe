@@ -1,7 +1,14 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Navigation", () => {
-  const toBaseLanguageCode = (code: string) => code.toLowerCase().split("-")[0];
+  const matchesLanguageCode = (languageTag: string, code: string) => {
+    const normalizedLanguageTag = languageTag.toLowerCase();
+    const normalizedCode = code.toLowerCase();
+    return (
+      normalizedLanguageTag === normalizedCode ||
+      normalizedLanguageTag.startsWith(`${normalizedCode}-`)
+    );
+  };
 
   test("clicking the navbar brand navigates to the home page", async ({
     page,
@@ -71,12 +78,8 @@ test.describe("Navigation", () => {
       expect(option.lang).toBeTruthy();
 
       const codeFromTestId = option.testId.replace("language-option-", "");
-      expect(toBaseLanguageCode(option.hreflang)).toBe(
-        toBaseLanguageCode(codeFromTestId)
-      );
-      expect(toBaseLanguageCode(option.lang)).toBe(
-        toBaseLanguageCode(codeFromTestId)
-      );
+      expect(matchesLanguageCode(option.hreflang, codeFromTestId)).toBe(true);
+      expect(matchesLanguageCode(option.lang, codeFromTestId)).toBe(true);
     }
 
     for (const optionId of optionIds) {
