@@ -9,14 +9,14 @@ thumbnail: ""
 postsPage: false
 ---
 
-## Finalite de l'utilisation des informations personnelles
+## Finalité de l'utilisation des informations personnelles
 
-Ce blog utilise les informations uniquement dans la mesure necessaire au fonctionnement et a l'amelioration du site.
+Ce blog utilise les informations uniquement dans la mesure nécessaire au fonctionnement et à l'amélioration du site.
 
-## Publicite
+## Publicité
 
-Ce blog peut utiliser des services tiers pour l'analyse ou la publicite.
+Ce blog peut utiliser des services tiers pour l'analyse ou la publicité.
 
-## Clause de non-responsabilite
+## Clause de non-responsabilité
 
-Nous ne sommes pas responsables des pertes ou dommages causes par le contenu de ce site.
+Nous ne sommes pas responsables des pertes ou dommages causés par le contenu de ce site.
