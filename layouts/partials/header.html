@@ -38,7 +38,7 @@
           <ul class="navbar-nav d-flex align-items-center">
             {{ with .Site.Menus.main }}
               {{ range . }}
-                <li class="nav-item">
+                <li class="nav-item px-1">
                   {{ if $.IsMenuCurrent .Menu . }}
                     <a
                       class="nav-link hover-with-ul active"
@@ -60,6 +60,54 @@
             {{ if .Site.Params.enableAlgolia }}
               <li class="nav-item">
                 {{ partial "search-modal.html" }}
+              </li>
+            {{ end }}
+            {{ $allLanguages := .Site.Home.AllTranslations }}
+            {{ if gt (len $allLanguages) 1 }}
+              <li class="nav-item dropdown">
+                <button
+                  class="nav-link dropdown-toggle hover-with-ul d-flex align-items-center border-0 bg-transparent"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  aria-label="{{ T "header.languageSwitch.ariaLabel" }}"
+                  data-testid="language-switcher-toggle"
+                >
+                  <span class="fs-6 m-0 fw-semibold">
+                    <i class="bi bi-translate"></i>
+                    {{ .Site.Language.LanguageName }}
+                  </span>
+                </button>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  style="--bs-dropdown-min-width: 0;"
+                  data-testid="language-switcher-menu"
+                >
+                  {{ $currentPage := . }}
+                  {{ range $langHome := $allLanguages }}
+                    {{ $targetURL := $langHome.RelPermalink }}
+                    {{ range $translation := $currentPage.AllTranslations }}
+                      {{ if eq $translation.Language.Lang $langHome.Language.Lang }}
+                        {{ $targetURL = $translation.RelPermalink }}
+                      {{ end }}
+                    {{ end }}
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center gap-2{{ if eq $langHome.Language.Lang $.Site.Language.Lang }}
+                          active
+                        {{ end }}"
+                        href="{{ $targetURL }}"
+                        hreflang="{{ $langHome.Language.LanguageCode | default $langHome.Language.Lang }}"
+                        lang="{{ $langHome.Language.LanguageCode | default $langHome.Language.Lang }}"
+                        data-testid="language-option-{{ $langHome.Language.Lang }}"
+                      >
+                        <span>
+                          {{ $langHome.Language.LanguageName | default (upper $langHome.Language.Lang) }}
+                        </span>
+                      </a>
+                    </li>
+                  {{ end }}
+                </ul>
               </li>
             {{ end }}
             <li class="nav-item">
