@@ -1,0 +1,56 @@
+footer:
+  privacy:
+    other: 개인정보 처리방침 및 면책 조항
+  contact:
+    other: 문의하기
+sidebar:
+  categories:
+    other: 카테고리
+  author:
+    other: AUTHOR
+  support:
+    other: 후원하기
+pagination:
+  prev:
+    other: 이전 페이지
+  next:
+    other: 다음 페이지
+oldArticle:
+  created:
+    other: 작성
+  updated:
+    other: 업데이트
+  warning:
+    other: 이 글은 {{ .label }} 기준 {{ .years }}년 이상 지난 글로, 오래된 정보가 포함될 수 있습니다.
+share:
+  twitter:
+    other: Twitter에 공유
+  facebook:
+    other: Facebook에 공유
+  line:
+    other: LINE에 공유
+search:
+  placeholder:
+    other: 글 검색
+  noResults:
+    other: 검색 결과가 없습니다.
+  readMore:
+    other: 더 보기 >
+  ariaLabel:
+    other: 글 검색
+error404:
+  title:
+    other: 페이지를 찾을 수 없습니다.
+  message:
+    other: 페이지를 찾을 수 없습니다.<br />하지만 계속 가면 새로운 길을 찾을지도 모릅니다.
+  backHome:
+    other: 홈으로 돌아가기
+article:
+  next:
+    other: 다음 글
+  previous:
+    other: 이전 글
+header:
+  languageSwitch:
+    ariaLabel:
+      other: 언어 변경

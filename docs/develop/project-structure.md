@@ -15,7 +15,8 @@ Use it as the first reference when you need to understand where to add or modify
   - `ts/`: TypeScript sources bundled by Hugo.
 - `exampleSite/`
   - Example Hugo site for local testing and previews.
-  - `content/`: sample pages and posts.
+  - `content/`: sample pages and posts, organized by language directories
+    (for example `content/ja/`, `content/en/`, `content/zh-cn/`).
   - `layouts/partials/`: example-site-specific partial overrides.
   - `public/`: generated output (build artifact).
 - `images/`

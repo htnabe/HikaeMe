@@ -1,0 +1,56 @@
+footer:
+  privacy:
+    other: Política de privacidad y descargo de responsabilidad
+  contact:
+    other: Contacto
+sidebar:
+  categories:
+    other: Categorías
+  author:
+    other: AUTOR
+  support:
+    other: Apoyar
+pagination:
+  prev:
+    other: Página anterior
+  next:
+    other: Página siguiente
+oldArticle:
+  created:
+    other: creado
+  updated:
+    other: actualizado
+  warning:
+    other: Este artículo tiene más de {{ .years }} año(s) desde {{ .label }} y puede contener información desactualizada.
+share:
+  twitter:
+    other: Compartir en Twitter
+  facebook:
+    other: Compartir en Facebook
+  line:
+    other: Compartir en LINE
+search:
+  placeholder:
+    other: Buscar artículos
+  noResults:
+    other: No se encontraron resultados.
+  readMore:
+    other: Leer más >
+  ariaLabel:
+    other: Buscar artículos
+error404:
+  title:
+    other: Vaya, te perdiste.
+  message:
+    other: No se encontró la página.<br />Pero si sigues, quizás encuentres un nuevo camino.
+  backHome:
+    other: Volver al inicio
+article:
+  next:
+    other: Artículo siguiente
+  previous:
+    other: Artículo anterior
+header:
+  languageSwitch:
+    ariaLabel:
+      other: Cambiar idioma

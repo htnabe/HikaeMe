@@ -1,0 +1,56 @@
+footer:
+  privacy:
+    other: गोपनीयता नीति और अस्वीकरण
+  contact:
+    other: संपर्क
+sidebar:
+  categories:
+    other: श्रेणियां
+  author:
+    other: AUTHOR
+  support:
+    other: सहयोग करें
+pagination:
+  prev:
+    other: पिछला पृष्ठ
+  next:
+    other: अगला पृष्ठ
+oldArticle:
+  created:
+    other: बनाया गया
+  updated:
+    other: अपडेट किया गया
+  warning:
+    other: यह लेख {{ .label }} से {{ .years }} वर्ष से अधिक पुराना है और इसमें पुरानी जानकारी हो सकती है।
+share:
+  twitter:
+    other: Twitter पर साझा करें
+  facebook:
+    other: Facebook पर साझा करें
+  line:
+    other: LINE पर साझा करें
+search:
+  placeholder:
+    other: लेख खोजें
+  noResults:
+    other: कोई परिणाम नहीं मिला।
+  readMore:
+    other: और पढ़ें >
+  ariaLabel:
+    other: लेख खोजें
+error404:
+  title:
+    other: ओह! आप रास्ता भटक गए।
+  message:
+    other: पेज नहीं मिला।<br />लेकिन आगे बढ़ते रहें, शायद आपको नया रास्ता मिले।
+  backHome:
+    other: होम पर वापस जाएं
+article:
+  next:
+    other: अगला लेख
+  previous:
+    other: पिछला लेख
+header:
+  languageSwitch:
+    ariaLabel:
+      other: भाषा बदलें

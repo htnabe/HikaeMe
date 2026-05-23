@@ -1,32 +1,126 @@
 ja:
   languageCode: "ja-JP"
   languageName: "日本語"
+  contentDir: "content/ja"
   weight: 1
+  params:
+    author:
+      career:
+        - year: "20xx"
+          title: "高校を卒業"
+        - year: "20yy"
+          title: "大学で情報工学を専攻"
+        - year: "20zz"
+          title: "Webエンジニアとして勤務"
 en:
   languageCode: "en-US"
   languageName: "English"
+  contentDir: "content/en"
   weight: 2
   params:
     author:
       career:
         - year: "20xx"
-          events:
-            - title: "Graduated High School"
-              description: "Competed at the prefectural tournament in a club activity. [Achievement](https://example.com)"
-            - title: "Enrolled in University"
-              description: "Major in Computer Science. [Official site](https://example.com)"
+          title: "Graduated from high school"
         - year: "20yy"
-          title: "Joined Company A"
-          description: "Worked as a frontend engineer. [Company site](https://example.com)"
+          title: "Studied computer science at university"
+        - year: "20zz"
+          title: "Worked as a web engineer"
+zh-cn:
+  languageCode: "zh-CN"
+  languageName: "简体中文"
+  contentDir: "content/zh-cn"
+  weight: 3
+  params:
+    author:
+      career:
+        - year: "20xx"
+          title: "高中毕业"
         - year: "20yy"
-          title: "Led Project B"
-          description: "Managed a large-scale project as team leader. [Project details](https://example.com)"
+          title: "大学主修计算机科学"
+        - year: "20zz"
+          title: "担任 Web 工程师"
+zh-tw:
+  languageCode: "zh-TW"
+  languageName: "繁體中文"
+  contentDir: "content/zh-tw"
+  weight: 4
+  params:
+    author:
+      career:
+        - year: "20xx"
+          title: "高中畢業"
         - year: "20yy"
-          title: "Published Technical Book"
-          description: "Published a book on web development. [Buy here](https://example.com)"
+          title: "大學主修資訊工程"
+        - year: "20zz"
+          title: "擔任 Web 工程師"
+ko:
+  languageCode: "ko-KR"
+  languageName: "한국어"
+  contentDir: "content/ko"
+  weight: 5
+  params:
+    author:
+      career:
+        - year: "20xx"
+          title: "고등학교 졸업"
         - year: "20yy"
-          title: "Conference Speaker"
-          description: "Gave a talk at a major domestic conference. [Details](https://example.com)"
+          title: "대학교에서 컴퓨터공학 전공"
+        - year: "20zz"
+          title: "웹 엔지니어로 근무"
+de:
+  languageCode: "de-DE"
+  languageName: "Deutsch"
+  contentDir: "content/de"
+  weight: 6
+  params:
+    author:
+      career:
+        - year: "20xx"
+          title: "Abitur abgeschlossen"
         - year: "20yy"
-          title: "Founded Startup"
-          description: "Engaged in product development leveraging AI technology. [Company site](https://example.com)"
+          title: "Informatik an der Universität studiert"
+        - year: "20zz"
+          title: "Als Webentwickler gearbeitet"
+fr:
+  languageCode: "fr-FR"
+  languageName: "Français"
+  contentDir: "content/fr"
+  weight: 7
+  params:
+    author:
+      career:
+        - year: "20xx"
+          title: "Diplôme du lycée"
+        - year: "20yy"
+          title: "Études en informatique à l'université"
+        - year: "20zz"
+          title: "Travail en tant qu'ingenieur web"
+hi:
+  languageCode: "hi-IN"
+  languageName: "हिन्दी"
+  contentDir: "content/hi"
+  weight: 8
+  params:
+    author:
+      career:
+        - year: "20xx"
+          title: "हाई स्कूल पूरा किया"
+        - year: "20yy"
+          title: "विश्वविद्यालय में कंप्यूटर विज्ञान पढ़ा"
+        - year: "20zz"
+          title: "वेब इंजीनियर के रूप में काम किया"
+es:
+  languageCode: "es-ES"
+  languageName: "Español"
+  contentDir: "content/es"
+  weight: 9
+  params:
+    author:
+      career:
+        - year: "20xx"
+          title: "Graduado de la escuela secundaria"
+        - year: "20yy"
+          title: "Estudió informática en la universidad"
+        - year: "20zz"
+          title: "Trabajo como ingeniero web"

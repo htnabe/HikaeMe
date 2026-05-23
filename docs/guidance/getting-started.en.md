@@ -214,16 +214,33 @@ languages:
         indexName: YOUR_EN_INDEX
 ```
 
-### Content file naming
+### Content organization by language
+
+When using many languages, organizing content by language directory is easier to
+maintain than filename suffixes.
+
+Add `contentDir` for each language in `languages` config:
+
+```yaml
+languages:
+  ja:
+    contentDir: content/ja
+  en:
+    contentDir: content/en
+```
 
 ```text
 content/
-  posts/
-    tech/
-      article1.md        # default language
-      article1.en.md     # English translation
-  about.md
-  about.en.md
+  ja/
+    posts/
+      tech/
+        article1.md
+    about.md
+  en/
+    posts/
+      tech/
+        article1.md
+    about.md
 ```
 
 ### Verifying the output

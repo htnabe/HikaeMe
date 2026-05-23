@@ -58,13 +58,13 @@
               {{ end }}
             {{ end }}
             {{ if .Site.Params.enableAlgolia }}
-              <li class="nav-item">
+              <li class="nav-item px-1">
                 {{ partial "search-modal.html" }}
               </li>
             {{ end }}
             {{ $allLanguages := .Site.Home.AllTranslations }}
             {{ if gt (len $allLanguages) 1 }}
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown px-1">
                 <button
                   class="nav-link dropdown-toggle hover-with-ul d-flex align-items-center border-0 bg-transparent"
                   type="button"
@@ -110,7 +110,7 @@
                 </ul>
               </li>
             {{ end }}
-            <li class="nav-item">
+            <li class="nav-item px-1">
               {{ partial "color-toggle-button.html" }}
             </li>
           </ul>
