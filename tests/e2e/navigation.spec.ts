@@ -51,4 +51,13 @@ test.describe("Navigation", () => {
     await page.getByTestId("language-option-en").click();
     await expect(page).toHaveURL(/\/en\/about\/?$/);
   });
+
+  test("language switcher falls back to language home when translation is missing", async ({
+    page,
+  }) => {
+    await page.goto("/posts/tech/choosing-fonts-for-the-web/");
+    await page.getByTestId("language-switcher-toggle").click();
+    await page.getByTestId("language-option-en").click();
+    await expect(page).toHaveURL(/\/en\/?$/);
+  });
 });

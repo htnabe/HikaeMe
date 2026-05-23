@@ -33,7 +33,7 @@
     "*.{js,jsx,ts,tsx}": "prettier --write"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.22.1"
   },
   "scripts": {
     "dev": "cd exampleSite && hugo server --gc --watch",
