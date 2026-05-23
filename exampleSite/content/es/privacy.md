@@ -9,14 +9,14 @@ thumbnail: ""
 postsPage: false
 ---
 
-## Proposito del uso de informacion personal
+## Propósito del uso de información personal
 
-Este blog usa informacion solo en la medida necesaria para operar y mejorar el sitio.
+Este blog usa información solo en la medida necesaria para operar y mejorar el sitio.
 
 ## Publicidad
 
-Este blog puede usar servicios de terceros para analitica o publicidad.
+Este blog puede usar servicios de terceros para analítica o publicidad.
 
 ## Descargo de responsabilidad
 
-No nos hacemos responsables por perdidas o danos causados por el contenido de este sitio.
+No nos hacemos responsables por pérdidas o daños causados por el contenido de este sitio.
