@@ -84,6 +84,16 @@ Here is a footnote example[^1].
 
 [^1]: This is the footnote text.
 
+## 14. Amazon Card (Shortcode Example)
+
+Use the `amazon` shortcode like this to render an Amazon card.
+
+```markdown
+{{</* amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB Memory / 512GB SSD" */>}}
+```
+
+{{<amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB Memory / 512GB SSD">}}
+
 ## Summary
 
 Markdown is flexible and practical. Learn the basics and you can create readable, structured documents quickly.

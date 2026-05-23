@@ -19,7 +19,7 @@ hugo mod get -u
 ## Issue: `npm install` fails
 
 Solution:
-1. Ensure Node.js is installed: `node --version` (must match the version specified in `package.json`, currently >=20.19.0).
+1. Ensure Node.js is installed: `node --version` (must match the version specified in `package.json`, currently >=22.22.1).
 2. Clear npm cache:
 
 ```bash

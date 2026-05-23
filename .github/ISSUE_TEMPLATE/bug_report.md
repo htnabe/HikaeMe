@@ -2,38 +2,23 @@
 name: Bug report
 about: Create a report to help us improve
 title: ""
-labels: ""
+labels: "bug"
 assignees: ""
 ---
 
-**Describe the bug** (required)
+**Describe the bug**
 A clear and concise description of what the bug is.
 
-**To Reproduce** (required)
-Steps to reproduce the behavior:
+**To Reproduce**
+Steps to reproduce the behavior, including relevant config snippets or content examples.
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-If you have screenshots, provide here.
-
-**Expected behavior** (optional)
+**Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Desktop (please complete the following information):** (optional)
+**Environment**
 
-- OS: [e.g. iOS]
-- Browser [e.g. chrome, safari]
-- Version [e.g. 22]
+- Hugo version: [e.g. 0.157.0]
+- OS / Browser: [e.g. macOS, Chrome 120]
 
-**Smartphone (please complete the following information):** (optional)
-
-- Device: [e.g. iPhone6]
-- OS: [e.g. iOS8.1]
-- Browser [e.g. stock browser, safari]
-- Version [e.g. 22]
-
-**Additional context** (optional)
-Add any other context about the problem here.
+**Additional context**
+Screenshots, logs, or any other context.

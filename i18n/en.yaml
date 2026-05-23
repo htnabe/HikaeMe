@@ -53,3 +53,7 @@ article:
     other: Next Article
   previous:
     other: Previous Article
+header:
+  languageSwitch:
+    ariaLabel:
+      other: Switch language

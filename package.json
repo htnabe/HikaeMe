@@ -14,26 +14,26 @@
     }
   },
   "dependencies": {
-    "@algolia/client-search": "^5.50.2",
-    "algoliasearch": "^5.50.2",
-    "instantsearch.js": "^4.93.0"
+    "@algolia/client-search": "^5.52.1",
+    "algoliasearch": "^5.52.1",
+    "instantsearch.js": "^4.97.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.59.1",
+    "@playwright/test": "^1.60.0",
     "husky": "^9.1.7",
-    "jsdom": "^29.0.2",
-    "lint-staged": "^16.4.0",
-    "npm-check-updates": "^21.0.2",
+    "jsdom": "^29.1.1",
+    "lint-staged": "^17.0.5",
+    "npm-check-updates": "^22.2.0",
     "prettier": "^3.8.3",
     "prettier-plugin-go-template": "^0.0.15",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.6"
   },
   "lint-staged": {
     "*.{html,css,scss}": "prettier --write",
     "*.{js,jsx,ts,tsx}": "prettier --write"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.22.1"
   },
   "scripts": {
     "dev": "cd exampleSite && hugo server --gc --watch",
@@ -43,5 +43,5 @@
     "test:e2e": "playwright test",
     "update": "ncu -u && npm install --ignore-scripts"
   },
-  "version": "1.3.0"
+  "version": "1.4.0"
 }

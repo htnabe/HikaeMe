@@ -1,0 +1,56 @@
+footer:
+  privacy:
+    other: 隱私政策與免責聲明
+  contact:
+    other: 聯絡方式
+sidebar:
+  categories:
+    other: 分類
+  author:
+    other: AUTHOR
+  support:
+    other: 支援
+pagination:
+  prev:
+    other: 上一頁
+  next:
+    other: 下一頁
+oldArticle:
+  created:
+    other: 建立
+  updated:
+    other: 更新
+  warning:
+    other: 本文自{{ .label }}起已超過{{ .years }}年，可能包含過時資訊。
+share:
+  twitter:
+    other: 分享到 Twitter
+  facebook:
+    other: 分享到 Facebook
+  line:
+    other: 分享到 LINE
+search:
+  placeholder:
+    other: 搜尋文章
+  noResults:
+    other: 找不到結果。
+  readMore:
+    other: 閱讀更多 >
+  ariaLabel:
+    other: 搜尋文章
+error404:
+  title:
+    other: 糟糕，你迷路了。
+  message:
+    other: 找不到頁面。<br />但只要繼續前進，也許會發現新的道路。
+  backHome:
+    other: 返回首頁
+article:
+  next:
+    other: 下一篇
+  previous:
+    other: 上一篇
+header:
+  languageSwitch:
+    ariaLabel:
+      other: 切換語言

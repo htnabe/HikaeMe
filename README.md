@@ -10,7 +10,16 @@ A simple theme that displays only the bare minimum of elements readers need.
 
 - [English](./docs/guidance/getting-started.en.md)
 - [日本語](./docs/guidance/getting-started.ja.md)
+- [Deutsch](./docs/guidance/getting-started.de.md)
+- [Español](./docs/guidance/getting-started.es.md)
+- [Français](./docs/guidance/getting-started.fr.md)
+- [हिन्दी](./docs/guidance/getting-started.hi.md)
+- [한국어](./docs/guidance/getting-started.ko.md)
+- [简体中文](./docs/guidance/getting-started.zh-cn.md)
+- [繁體中文](./docs/guidance/getting-started.zh-tw.md)
 - [Troubleshooting](./docs/guidance/troubleshooting.md)
+
+Note: Some newly added language guides are temporary English placeholders and are marked in each file.
 
 ### Develop (for contributors/developers/AI)
 
