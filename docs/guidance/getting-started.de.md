@@ -1,5 +1,7 @@
 # Getting Started (Deutsch)
 
+> Note: This locale-specific guide is currently an English placeholder. A full German translation will be added in a follow-up update.
+
 This guide explains how to set up a new Hugo site with the HikaeMe theme.
 
 ## Prerequisites

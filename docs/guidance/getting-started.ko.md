@@ -1,4 +1,6 @@
-# Getting Started (Korean)
+# Getting Started (한국어)
+
+> Note: This locale-specific guide is currently an English placeholder. A full Korean translation will be added in a follow-up update.
 
 This guide explains how to set up a new Hugo site with the HikaeMe theme.
 

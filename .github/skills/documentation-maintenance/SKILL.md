@@ -79,6 +79,8 @@ If uncertainty remains, ask focused clarification before editing.
 2. In guides, prefer links to shared examples over duplicated code blocks
 3. Keep edits minimal where possible, but allow section reorganization when readability improves
 4. Preserve bilingual parity for paired docs when applicable
+5. When adding locale-specific docs with untranslated bodies, add a clear placeholder note near the top to avoid misleading readers
+6. Use native language labels in locale document headings where practical (for example, `हिन्दी`, `한국어`, `简体中文`, `繁體中文`)
 
 ### Phase 4: Implementation
 
@@ -138,6 +140,13 @@ When setup snippets repeat in multiple guides:
 1. Move canonical snippets to `docs/guidance/assets/*`
 2. Link from each guide section to the canonical file
 3. Keep local guide text concise and task-oriented
+
+### Pattern D: Locale docs with placeholder content
+
+When adding language-specific guide files before full translation is ready:
+1. Keep heading language label consistent with native naming conventions
+2. Add a short note near the top that the body is currently an English placeholder
+3. Reflect this status in `README.md` documentation index if relevant
 
 ---
 

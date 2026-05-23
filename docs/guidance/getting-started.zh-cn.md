@@ -1,4 +1,6 @@
-# Getting Started (Simplified Chinese)
+# Getting Started (简体中文)
+
+> Note: This locale-specific guide is currently an English placeholder. A full Simplified Chinese translation will be added in a follow-up update.
 
 This guide explains how to set up a new Hugo site with the HikaeMe theme.
 
