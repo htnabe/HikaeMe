@@ -214,16 +214,33 @@ languages:
         indexName: YOUR_EN_INDEX
 ```
 
-### コンテンツファイルの命名規則
+### 言語別ディレクトリでのコンテンツ管理
+
+言語数が増える場合は、ファイル名サフィックス方式よりも言語別ディレクトリ方式
+の方が管理しやすくなります。
+
+`languages` の各言語に `contentDir` を設定します。
+
+```yaml
+languages:
+  ja:
+    contentDir: content/ja
+  en:
+    contentDir: content/en
+```
 
 ```text
 content/
-  posts/
-    tech/
-      article1.md        # 既定言語
-      article1.en.md     # 英語版
-  about.md
-  about.en.md
+  ja/
+    posts/
+      tech/
+        article1.md
+    about.md
+  en/
+    posts/
+      tech/
+        article1.md
+    about.md
 ```
 
 ### 出力の確認方法

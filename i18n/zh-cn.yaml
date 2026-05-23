@@ -1,0 +1,56 @@
+footer:
+  privacy:
+    other: 隐私政策与免责声明
+  contact:
+    other: 联系方式
+sidebar:
+  categories:
+    other: 分类
+  author:
+    other: AUTHOR
+  support:
+    other: 支持
+pagination:
+  prev:
+    other: 上一页
+  next:
+    other: 下一页
+oldArticle:
+  created:
+    other: 创建
+  updated:
+    other: 更新
+  warning:
+    other: 本文自{{ .label }}起已超过{{ .years }}年，可能包含过时信息。
+share:
+  twitter:
+    other: 分享到 Twitter
+  facebook:
+    other: 分享到 Facebook
+  line:
+    other: 分享到 LINE
+search:
+  placeholder:
+    other: 搜索文章
+  noResults:
+    other: 未找到结果。
+  readMore:
+    other: 阅读更多 >
+  ariaLabel:
+    other: 搜索文章
+error404:
+  title:
+    other: 哎呀，你迷路了。
+  message:
+    other: 页面未找到。<br />不过继续前进，也许会发现新的道路。
+  backHome:
+    other: 返回首页
+article:
+  next:
+    other: 下一篇
+  previous:
+    other: 上一篇
+header:
+  languageSwitch:
+    ariaLabel:
+      other: 切换语言
