@@ -14,7 +14,7 @@
     }
   },
   "dependencies": {
-    "@algolia/client-search": "^5.52.1",
+    "@algolia/client-search": "^5.53.0",
     "algoliasearch": "^5.52.1",
     "instantsearch.js": "^4.98.0"
   },
