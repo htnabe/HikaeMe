@@ -22,7 +22,7 @@
     "@playwright/test": "^1.60.0",
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
-    "lint-staged": "^17.0.5",
+    "lint-staged": "^17.0.7",
     "npm-check-updates": "^22.2.1",
     "prettier": "^3.8.3",
     "prettier-plugin-go-template": "^0.0.15",
