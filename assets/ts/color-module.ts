@@ -36,7 +36,9 @@ export const updateRadioButtons = (
     dark: root.getElementById("themeToggleMoon") as HTMLInputElement | null,
   };
   Object.entries(themeToggles).forEach(([key, toggle]) => {
-    if (toggle) toggle.checked = key === theme;
+    if (toggle) {
+      toggle.checked = key === theme;
+    }
   });
 };
 

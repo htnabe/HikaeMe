@@ -55,5 +55,8 @@
       </main>
     </div>
     {{ partial "footer.html" . }}
+    {{ if .Site.Params.enableAlgolia }}
+      {{ partial "search-modal.html" . }}
+    {{ end }}
   </body>
 </html>
