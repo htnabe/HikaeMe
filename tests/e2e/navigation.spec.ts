@@ -113,4 +113,46 @@ test.describe("Navigation", () => {
     await page.getByTestId("language-option-zh-cn").click();
     await expect(page).toHaveURL(/\/zh-cn\/about\/?$/);
   });
+
+  test.describe("Mobile navigation", () => {
+    test.use({ viewport: { width: 390, height: 844 } });
+
+    test("search from open drawer prioritizes modal or closes drawer", async ({
+      page,
+    }) => {
+      await page.goto("/");
+
+      const drawerToggle = page.locator("button.navbar-toggler");
+      await expect(drawerToggle).toBeVisible();
+      await drawerToggle.click();
+
+      const drawer = page.locator("#navbarOffcanvas");
+      await expect(drawer).toHaveClass(/show/);
+
+      const searchTrigger = drawer.locator(
+        '[data-bs-target="#globalSearchModal"]'
+      );
+      await expect(searchTrigger).toHaveCount(1);
+      await searchTrigger.click();
+      // await searchTrigger.evaluate((element) => {
+      //   (element as HTMLElement).click();
+      // });
+
+      const searchModal = page.locator("#globalSearchModal");
+      await expect(searchModal).toBeVisible();
+      await expect(searchModal.locator("#searchbox")).toBeVisible();
+
+      const drawerStillOpen = await drawer.evaluate((element) =>
+        element.classList.contains("show")
+      );
+
+      if (!drawerStillOpen) {
+        await expect(drawer).not.toHaveClass(/show/);
+        return;
+      }
+
+      await page.keyboard.press("Escape");
+      await expect(drawer).not.toHaveClass(/show/);
+    });
+  });
 });
