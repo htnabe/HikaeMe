@@ -12,7 +12,7 @@ A simple theme that displays only the bare minimum of elements readers need.
 - [日本語](./docs/guidance/getting-started.ja.md)
 - [Troubleshooting](./docs/guidance/troubleshooting.md)
 
-Note: Some newly added language guides are temporary English placeholders and are marked in each file.
+Note: Guidance documents are currently available in English and Japanese.
 
 ### Develop (for contributors/developers/AI)
 
