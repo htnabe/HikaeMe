@@ -8,5 +8,3 @@ enableGitInfo: true
 enableRobotsTXT: true
 timeZone: "Japan"
 languageCode: "ja-JP"
-theme: "HikaeMe"
-themesdir: "../.."

@@ -15,18 +15,25 @@
   },
   "dependencies": {
     "@algolia/client-search": "^5.53.0",
+    "@popperjs/core": "^2.11.8",
     "algoliasearch": "^5.53.0",
-    "instantsearch.js": "^4.99.0"
+    "bootstrap": "^5.3.8",
+    "instantsearch.js": "^4.101.0"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
     "@playwright/test": "^1.60.0",
+    "@types/bootstrap": "^5.2.11",
+    "autoprefixer": "^10.5.0",
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
-    "lint-staged": "^17.0.5",
-    "npm-check-updates": "^22.2.1",
+    "lint-staged": "^17.0.7",
+    "npm-check-updates": "^22.2.3",
+    "postcss": "^8.5.15",
+    "postcss-cli": "^11.0.1",
     "prettier": "^3.8.3",
     "prettier-plugin-go-template": "^0.0.15",
-    "vitest": "^4.1.7"
+    "vitest": "^4.1.8"
   },
   "lint-staged": {
     "*.{html,css,scss}": "prettier --write",
@@ -36,7 +43,8 @@
     "node": ">=22.22.1"
   },
   "scripts": {
-    "dev": "cd exampleSite && hugo server --gc --watch",
+    "dev": "cd exampleSite && hugo serve --gc --watch",
+    "prod": "cd exampleSite && hugo serve --gc --watch --environment production",
     "format": "prettier --write .",
     "prepare": "husky",
     "test": "vitest run",
