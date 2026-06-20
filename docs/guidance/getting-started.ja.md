@@ -30,6 +30,19 @@ npm --version
 gcc --version
 ```
 
+## バージョニング
+
+HikaeMe は Go module のセマンティックインポートバージョニングに従います。
+
+- v1.x.x では `github.com/htnabe/HikaeMe` を使います
+- v2.x.x 以降では `github.com/htnabe/HikaeMe/v2` を使います
+
+v2 以降では、リポジトリ直下の `go.mod` に次の宣言が必要です。
+
+```go
+module github.com/htnabe/HikaeMe/v2
+```
+
 ## セットアップ手順
 
 ### Hugo サイトを新規作成
@@ -55,15 +68,16 @@ hugo mod init github.com/yourusername/my-blog
 ```yaml
 module:
   imports:
-    - path: "github.com/htnabe/HikaeMe"
+    - path: "github.com/htnabe/HikaeMe/v2"
 ```
 
 設定を分割している場合は、同じ内容を `config/_default/module.yaml` に配置してください。
+v1.x.x を使う場合は、代わりに `github.com/htnabe/HikaeMe` を指定してください。
 
 ### 依存関係を取得
 
 ```bash
-hugo mod get -u github.com/htnabe/HikaeMe
+hugo mod get -u github.com/htnabe/HikaeMe/v2
 hugo mod npm pack
 npm install
 ```
@@ -105,7 +119,7 @@ locale: "ja-JP"
 
 module:
   imports:
-    - path: "github.com/htnabe/HikaeMe"
+    - path: "github.com/htnabe/HikaeMe/v2"
 
 params:
   author: "Your Name"

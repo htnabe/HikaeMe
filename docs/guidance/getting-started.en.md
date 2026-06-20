@@ -30,6 +30,19 @@ npm --version
 gcc --version
 ```
 
+## Versioning
+
+HikaeMe follows Go module semantic import versioning:
+
+- Use `github.com/htnabe/HikaeMe` for v1.x.x releases
+- Use `github.com/htnabe/HikaeMe/v2` for v2.x.x and later releases
+
+For v2 and later, the repository root `go.mod` must declare:
+
+```go
+module github.com/htnabe/HikaeMe/v2
+```
+
 ## Setup Steps
 
 ### Create a New Hugo Site
@@ -55,15 +68,16 @@ Add the module import to your site configuration. For a single-file setup, edit 
 ```yaml
 module:
   imports:
-    - path: "github.com/htnabe/HikaeMe"
+    - path: "github.com/htnabe/HikaeMe/v2"
 ```
 
 If you use a split configuration directory, place the same block in `config/_default/module.yaml`.
+If you are staying on v1.x.x, use `github.com/htnabe/HikaeMe` instead.
 
 ### Download Theme Dependencies
 
 ```bash
-hugo mod get -u github.com/htnabe/HikaeMe
+hugo mod get -u github.com/htnabe/HikaeMe/v2
 hugo mod npm pack
 npm install
 ```
@@ -105,7 +119,7 @@ locale: "ja-JP"
 
 module:
   imports:
-    - path: "github.com/htnabe/HikaeMe"
+    - path: "github.com/htnabe/HikaeMe/v2"
 
 params:
   author: "Your Name"
