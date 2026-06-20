@@ -6,7 +6,7 @@
 
 以下のツールを事前に用意してください。
 
-- [Hugo](https://gohugo.io/installation/)
+- [Hugo](https://gohugo.io/installation/)（0.160.0 以上）
 - [Go](https://golang.org/doc/install)（Hugo Modules に必要）
 - [Git](https://git-scm.com/)
 - [Node.js と npm](https://nodejs.org/)
@@ -101,7 +101,7 @@ hugo server -D
 ```yaml
 title: "My Blog"
 baseURL: "https://example.com/"
-languageCode: "ja"
+locale: "ja-JP"
 
 module:
   imports:
@@ -131,12 +131,12 @@ defaultContentLanguageInSubdir: false
 
 languages:
   ja:
-    languageCode: "ja-JP"
-    languageName: "日本語"
+    locale: "ja-JP"
+    label: "日本語"
     weight: 1
   en:
-    languageCode: "en-US"
-    languageName: "English"
+    locale: "en-US"
+    label: "English"
     weight: 2
 ```
 

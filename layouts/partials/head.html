@@ -99,7 +99,9 @@
       "searchReadMore" (T "search.readMore"))
     }}
 
-    {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsCommonOpt | resources.Minify }}
+    {{ $langTargetPath := printf "ts/algolia.%s.js" $.Lang }}
+    {{ $tsLangOpt := merge $tsCommonOpt (dict "targetPath" $langTargetPath) }}
+    {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsLangOpt | resources.Minify }}
     <script
       defer
       type="text/javascript"

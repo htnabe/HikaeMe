@@ -6,7 +6,7 @@ This guide explains how to set up a new Hugo site with the HikaeMe theme.
 
 Prepare the following tools:
 
-- [Hugo](https://gohugo.io/installation/)
+- [Hugo](https://gohugo.io/installation/) (0.160.0 or newer)
 - [Go](https://golang.org/doc/install) (required for Hugo modules)
 - [Git](https://git-scm.com/)
 - [Node.js and npm](https://nodejs.org/)
@@ -101,7 +101,7 @@ Open `http://localhost:1313` in your browser.
 ```yaml
 title: "My Blog"
 baseURL: "https://example.com/"
-languageCode: "ja"
+locale: "ja-JP"
 
 module:
   imports:
@@ -131,12 +131,12 @@ defaultContentLanguageInSubdir: false
 
 languages:
   ja:
-    languageCode: "ja-JP"
-    languageName: "Japanese"
+    locale: "ja-JP"
+    label: "Japanese"
     weight: 1
   en:
-    languageCode: "en-US"
-    languageName: "English"
+    locale: "en-US"
+    label: "English"
     weight: 2
 ```
 
