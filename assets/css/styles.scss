@@ -11,6 +11,10 @@
 @use "./_variables" as v;
 @use "sass:map";
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family:
     /* macOS / iOS */
