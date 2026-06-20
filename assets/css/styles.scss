@@ -1,3 +1,4 @@
+@use "bootstrap/scss/bootstrap.scss";
 @use "./widgets/toc";
 @use "./widgets/author";
 @use "./utils";
@@ -9,6 +10,10 @@
 @use "./widgets/timeline";
 @use "./_variables" as v;
 @use "sass:map";
+
+html {
+  scrollbar-gutter: stable;
+}
 
 body {
   font-family:

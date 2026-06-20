@@ -1,5 +1,5 @@
 <div class="container-xl">
-  <nav class="navbar me-auto navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a
         class="navbar-brand d-flex align-items-center"
@@ -22,20 +22,38 @@
           {{ .Site.Title }}
         </p>
       </a>
-      <div class="align-self-center align-items-center">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarToggler"
-          aria-controls="navbarToggler"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarToggler">
-          <ul class="navbar-nav d-flex align-items-center">
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#navbarOffcanvas"
+        aria-controls="navbarOffcanvas"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="offcanvas offcanvas-end offcanvas-lg"
+        tabindex="-1"
+        id="navbarOffcanvas"
+        aria-labelledby="navbarOffcanvasLabel"
+      >
+        <div class="offcanvas-header d-lg-none">
+          <h5 class="offcanvas-title" id="navbarOffcanvasLabel">
+            {{ .Site.Title }}
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto d-flex align-items-lg-center">
             {{ with .Site.Menus.main }}
               {{ range . }}
                 <li class="nav-item px-1">
@@ -49,19 +67,13 @@
                     </a>
                   {{ else }}
                     <a class="nav-link hover-with-ul" href="{{ .URL }}">
-                      <span class="fs-6 m-0 fw-semibold">
-                        {{ .Name }}
-                      </span>
+                      <span class="fs-6 m-0 fw-semibold">{{ .Name }}</span>
                     </a>
                   {{ end }}
                 </li>
               {{ end }}
             {{ end }}
-            {{ if .Site.Params.enableAlgolia }}
-              <li class="nav-item px-1">
-                {{ partial "search-modal.html" }}
-              </li>
-            {{ end }}
+
             {{ $allLanguages := .Site.Home.AllTranslations }}
             {{ if gt (len $allLanguages) 1 }}
               <li class="nav-item dropdown px-1">
@@ -75,7 +87,7 @@
                 >
                   <span class="fs-6 m-0 fw-semibold">
                     <i class="bi bi-translate"></i>
-                    {{ .Site.Language.LanguageName }}
+                    {{ .Site.Language.Label | default .Site.Language.Lang }}
                   </span>
                 </button>
                 <ul
@@ -97,17 +109,30 @@
                           active
                         {{ end }}"
                         href="{{ $targetURL }}"
-                        hreflang="{{ $langHome.Language.LanguageCode | default $langHome.Language.Lang }}"
-                        lang="{{ $langHome.Language.LanguageCode | default $langHome.Language.Lang }}"
+                        hreflang="{{ $langHome.Language.Locale | default $langHome.Language.Lang }}"
+                        lang="{{ $langHome.Language.Locale | default $langHome.Language.Lang }}"
                         data-testid="language-option-{{ $langHome.Language.Lang }}"
                       >
                         <span>
-                          {{ $langHome.Language.LanguageName | default (upper $langHome.Language.Lang) }}
+                          {{ $langHome.Language.Label | default (upper $langHome.Language.Lang) }}
                         </span>
                       </a>
                     </li>
                   {{ end }}
                 </ul>
+              </li>
+            {{ end }}
+            {{ if .Site.Params.enableAlgolia }}
+              <li class="nav-item px-1">
+                <a
+                  href="#"
+                  class="nav-link"
+                  data-bs-toggle="modal"
+                  data-bs-target="#globalSearchModal"
+                  aria-label="{{ T "search.ariaLabel" }}"
+                >
+                  <i class="bi bi-search"></i>
+                </a>
               </li>
             {{ end }}
             <li class="nav-item px-1">

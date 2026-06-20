@@ -1,26 +1,17 @@
-<!-- Icon trigger modal -->
-<a
-  href="#"
-  class="nav-link"
-  data-bs-toggle="modal"
-  data-bs-target="#searchModal"
-  aria-label="{{ T "search.ariaLabel" }}"
->
-  <i class="bi bi-search"></i>
-</a>
-
 <!-- Modal for search-bar -->
-{{/* TODO: manage html ids with some external files */}}
 <div
   class="modal fade"
-  id="searchModal"
+  id="globalSearchModal"
   tabindex="-1"
-  aria-labelledby="searchModalLabel"
+  aria-labelledby="globalSearchModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        <h5 class="modal-title visually-hidden" id="globalSearchModalLabel">
+          {{ T "search.ariaLabel" }}
+        </h5>
         <section id="searchbox" class="w-100"></section>
       </div>
       <div class="modal-body overflow-y-auto" id="hits"></div>

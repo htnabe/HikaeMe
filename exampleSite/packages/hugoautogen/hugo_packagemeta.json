@@ -1,0 +1,27 @@
+{
+  "sum": "3fbc584a26c23634",
+  "dependencySources": {
+    "dependencies": {
+      "@algolia/client-search": "../../../HikaeMe",
+      "@popperjs/core": "../../../HikaeMe",
+      "algoliasearch": "../../../HikaeMe",
+      "bootstrap": "../../../HikaeMe",
+      "instantsearch.js": "../../../HikaeMe"
+    },
+    "devDependencies": {
+      "@fullhuman/postcss-purgecss": "../../../HikaeMe",
+      "@playwright/test": "../../../HikaeMe",
+      "@types/bootstrap": "../../../HikaeMe",
+      "autoprefixer": "../../../HikaeMe",
+      "husky": "../../../HikaeMe",
+      "jsdom": "../../../HikaeMe",
+      "lint-staged": "../../../HikaeMe",
+      "npm-check-updates": "../../../HikaeMe",
+      "postcss": "../../../HikaeMe",
+      "postcss-cli": "../../../HikaeMe",
+      "prettier": "../../../HikaeMe",
+      "prettier-plugin-go-template": "../../../HikaeMe",
+      "vitest": "../../../HikaeMe"
+    }
+  }
+}

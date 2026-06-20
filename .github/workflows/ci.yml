@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: changes
     env:
-      HUGO_VERSION: 0.157.0
+      HUGO_VERSION: 0.160.0
       DART_SASS_VERSION: 1.97.3
       HUSKY: 0
 
@@ -152,7 +152,7 @@ jobs:
 
       - name: Install Hugo and Dart Sass
         env:
-          HUGO_VERSION: 0.157.0
+          HUGO_VERSION: 0.160.0
           DART_SASS_VERSION: 1.97.3
         run: |
           mkdir -p "${HOME}/.local"
