@@ -1,6 +1,6 @@
 ja:
-  languageCode: "ja-JP"
-  languageName: "日本語"
+  locale: "ja-JP"
+  label: "日本語"
   contentDir: "content/ja"
   weight: 1
   params:
@@ -13,8 +13,8 @@ ja:
         - year: "20zz"
           title: "Webエンジニアとして勤務"
 en:
-  languageCode: "en-US"
-  languageName: "English"
+  locale: "en-US"
+  label: "English"
   contentDir: "content/en"
   weight: 2
   params:
@@ -27,8 +27,8 @@ en:
         - year: "20zz"
           title: "Worked as a web engineer"
 zh-cn:
-  languageCode: "zh-CN"
-  languageName: "简体中文"
+  locale: "zh-CN"
+  label: "简体中文"
   contentDir: "content/zh-cn"
   weight: 3
   params:
@@ -41,8 +41,8 @@ zh-cn:
         - year: "20zz"
           title: "担任 Web 工程师"
 zh-tw:
-  languageCode: "zh-TW"
-  languageName: "繁體中文"
+  locale: "zh-TW"
+  label: "繁體中文"
   contentDir: "content/zh-tw"
   weight: 4
   params:
@@ -55,8 +55,8 @@ zh-tw:
         - year: "20zz"
           title: "擔任 Web 工程師"
 ko:
-  languageCode: "ko-KR"
-  languageName: "한국어"
+  locale: "ko-KR"
+  label: "한국어"
   contentDir: "content/ko"
   weight: 5
   params:
@@ -69,8 +69,8 @@ ko:
         - year: "20zz"
           title: "웹 엔지니어로 근무"
 de:
-  languageCode: "de-DE"
-  languageName: "Deutsch"
+  locale: "de-DE"
+  label: "Deutsch"
   contentDir: "content/de"
   weight: 6
   params:
@@ -83,8 +83,8 @@ de:
         - year: "20zz"
           title: "Als Webentwickler gearbeitet"
 fr:
-  languageCode: "fr-FR"
-  languageName: "Français"
+  locale: "fr-FR"
+  label: "Français"
   contentDir: "content/fr"
   weight: 7
   params:
@@ -97,8 +97,8 @@ fr:
         - year: "20zz"
           title: "Travail en tant qu'ingénieur web"
 hi:
-  languageCode: "hi-IN"
-  languageName: "हिन्दी"
+  locale: "hi-IN"
+  label: "हिन्दी"
   contentDir: "content/hi"
   weight: 8
   params:
@@ -111,8 +111,8 @@ hi:
         - year: "20zz"
           title: "वेब इंजीनियर के रूप में काम किया"
 es:
-  languageCode: "es-ES"
-  languageName: "Español"
+  locale: "es-ES"
+  label: "Español"
   contentDir: "content/es"
   weight: 9
   params:

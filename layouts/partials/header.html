@@ -87,7 +87,7 @@
                 >
                   <span class="fs-6 m-0 fw-semibold">
                     <i class="bi bi-translate"></i>
-                    {{ .Site.Language.LanguageName }}
+                    {{ .Site.Language.Label | default .Site.Language.Lang }}
                   </span>
                 </button>
                 <ul
@@ -109,12 +109,12 @@
                           active
                         {{ end }}"
                         href="{{ $targetURL }}"
-                        hreflang="{{ $langHome.Language.LanguageCode | default $langHome.Language.Lang }}"
-                        lang="{{ $langHome.Language.LanguageCode | default $langHome.Language.Lang }}"
+                        hreflang="{{ $langHome.Language.Locale | default $langHome.Language.Lang }}"
+                        lang="{{ $langHome.Language.Locale | default $langHome.Language.Lang }}"
                         data-testid="language-option-{{ $langHome.Language.Lang }}"
                       >
                         <span>
-                          {{ $langHome.Language.LanguageName | default (upper $langHome.Language.Lang) }}
+                          {{ $langHome.Language.Label | default (upper $langHome.Language.Lang) }}
                         </span>
                       </a>
                     </li>
