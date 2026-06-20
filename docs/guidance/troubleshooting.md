@@ -6,6 +6,8 @@ This page collects common setup and development issues for HikaeMe.
 
 Solution:
 1. Ensure your site configuration has the correct module import path.
+	- v1.x.x: `github.com/htnabe/HikaeMe`
+	- v2.x.x and later: `github.com/htnabe/HikaeMe/v2`
 2. If you use split config files, check `config/_default/module.yaml` instead of a single `hugo.yaml`.
 3. Try clearing the cache:
 
