@@ -18,7 +18,7 @@
     "@popperjs/core": "^2.11.8",
     "algoliasearch": "^5.53.0",
     "bootstrap": "^5.3.8",
-    "instantsearch.js": "^4.101.0"
+    "instantsearch.js": "^4.101.1"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
