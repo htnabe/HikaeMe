@@ -17,8 +17,11 @@ These instructions define how AI coding assistants should work in this repositor
 - When reviewing changes (including pull requests), read `.github/prompts/review.prompt.md` first and follow its checklist and output format.
 - When you need to understand folder or file placement, read `docs/develop/project-structure.md` first and follow its structure guidance.
 - Direct merges to `main` and `dev` are not allowed; merge only through Pull Requests.
-- Release and tag work must be done on a branch derived from `dev`, then submitted as a Pull Request targeting `dev`.
-- Release operations must use tags in `vX.Y.Z` format, and `package.json` version must be updated to `X.Y.Z` before tagging.
+- Keep existing release tags as-is. Do not delete, move, or recreate published tags.
+- Continue development in the `v0.x.x` series. Breaking changes are allowed while pre-1.0.
+- Keep `v0` to avoid the Go Modules `/v2` import path issue.
+- Run `npm version`, create git tags, and publish GitHub Releases on `main` after the final PR to `main` is merged.
+- Release operations must use tags in `v0.X.Y` format, and `package.json` version must be updated to `0.X.Y` before tagging.
 
 ## Hugo / Template Guidelines
 - Prefer Hugo built-in functions and existing partial structure.

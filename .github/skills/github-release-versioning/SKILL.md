@@ -1,7 +1,7 @@
 ---
 name: github-release-versioning
-description: "Release workflow for publishing a new GitHub version. Use when updating package.json version, creating a vX.Y.Z tag, and preparing a Pull Request to dev for release."
-argument-hint: "Target version, for example v1.2.5"
+description: "Release workflow for publishing a new GitHub version. Use when updating package.json via npm version, creating a vX.Y.Z tag, and creating a GitHub Release from main."
+argument-hint: "Target version, for example v0.3.0"
 ---
 
 # GitHub Release Versioning
@@ -17,47 +17,51 @@ argument-hint: "Target version, for example v1.2.5"
 ## Repository Governance
 - Direct merges to main and dev are not allowed.
 - Merge changes to main and dev only through Pull Requests.
-- Release and tag work must be done on a branch derived from dev, then submitted as a Pull Request targeting dev.
+- Keep existing release tags as-is. Do not delete, move, or recreate published tags.
+- Perform `npm version`, git tagging, and GitHub Release creation on `main` after the final PR to `main` is merged.
+
+## Versioning Policy (Current Series)
+- Continue development in the `v0.x.x` series.
+- Breaking changes are allowed while remaining in `v0.x.x` (SemVer-compatible pre-1.0 behavior).
+- Follow Hugo-style operational approach for pre-1.0 releases.
+- Keeping `v0` avoids the `/v2` import path issue in Go Modules.
 
 ## Inputs
-- targetVersion: required, must follow vX.Y.Z format (e.g., v1.2.3).
-- releaseBranch: optional, defaults to chore/release-vX-Y-Z derived from targetVersion (e.g., chore/release-v1-2-3).
+- targetVersion: required, must follow v0.X.Y format for the current policy (e.g., v0.3.0).
 
 ## Decision Rules
-1. Validate targetVersion with pattern ^v[0-9]+\.[0-9]+\.[0-9]+$.
+1. Validate targetVersion with pattern ^v0\.[0-9]+\.[0-9]+$.
 2. Abort if the working tree is not clean.
-3. Abort if current branch is main or dev.
-4. Abort if the release branch is not derived from dev.
-5. Abort if target tag already exists locally or on remote.
-6. Derive bareVersion by removing the leading `v` from targetVersion.
+3. Abort if current branch is not main.
+4. Abort if target tag already exists locally or on remote.
+5. Derive bareVersion by removing the leading `v` from targetVersion.
 
 ## Procedure
-1. Create a release branch from dev.
-2. Derive bareVersion (X.Y.Z) from targetVersion (vX.Y.Z).
-3. Run validation checks required by repository policy.
-4. Run `npm version "${bareVersion}" --tag-version-prefix v -m "chore(release): v%s"`.
-5. Confirm `package.json` and `package-lock.json` are updated and git tag `vX.Y.Z` is created by `npm version`.
-6. Push release branch and tag.
-7. Open a Pull Request with base dev and head release branch.
-8. After PR is merged, create a GitHub Release for vX.Y.Z.
+1. Merge the final release content to `main` through Pull Request workflow.
+2. Check out and update local `main`.
+3. Derive bareVersion (X.Y.Z) from targetVersion (vX.Y.Z).
+4. Run validation checks required by repository policy.
+5. Run `npm version "${bareVersion}" --tag-version-prefix v -m "chore(release): v%s"` on `main`.
+6. Confirm `package.json` and `package-lock.json` are updated and git tag `vX.Y.Z` is created by `npm version`.
+7. Push `main` and tag.
+8. Create a GitHub Release for vX.Y.Z.
 
 ## Validation Checklist
 - package.json version matches targetVersion without leading v.
 - package-lock.json version matches package.json.
 - Tag name matches targetVersion.
 - Release commit message follows `chore(release): vX.Y.Z`.
-- Branch and tag are pushed successfully.
-- Pull Request to dev is open or merged.
+- `main` and tag are pushed successfully.
 - GitHub Release exists for targetVersion.
 
 ## Failure Handling
-- Invalid targetVersion: stop and request a valid vX.Y.Z value.
+- Invalid targetVersion: stop and request a valid v0.X.Y value.
 - Dirty working tree: stop and ask to commit or stash changes.
 - Existing tag: stop and bump to the next version.
-- Wrong branch origin: recreate branch from dev.
+- Wrong branch: switch to updated `main` and retry.
 - Failed push or release creation: stop, report error, and retry from the failed step.
 
 ## Example Prompts
-- Run release workflow for v1.2.5.
-- Run minor release workflow for v1.3.0 using npm version.
-- Update package.json and create tag v2.0.0, then push and draft release.
+- Run release workflow for v0.3.0.
+- Run patch release workflow for v0.3.1 using npm version on main.
+- Update package.json on main and create tag v0.4.0, then push and draft release.

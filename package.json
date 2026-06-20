@@ -51,5 +51,5 @@
     "test:e2e": "playwright test",
     "update": "ncu -u && npm install --ignore-scripts"
   },
-  "version": "2.0.0"
+  "version": "0.3.0"
 }
