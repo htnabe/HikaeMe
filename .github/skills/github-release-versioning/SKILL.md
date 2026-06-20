@@ -11,20 +11,9 @@ argument-hint: "Target version, for example v0.3.0"
 - Keep package version, git tag, and GitHub Release consistent.
 - Use `npm version` to update `package.json` and create the release tag in one operation.
 
-## Language Rule
-- Write all skill outputs, commit messages, Pull Request descriptions, and release notes in English.
-
-## Repository Governance
-- Direct merges to main and dev are not allowed.
-- Merge changes to main and dev only through Pull Requests.
-- Keep existing release tags as-is. Do not delete, move, or recreate published tags.
-- Perform `npm version`, git tagging, and GitHub Release creation on `main` after the final PR to `main` is merged.
-
-## Versioning Policy (Current Series)
-- Continue development in the `v0.x.x` series.
-- Breaking changes are allowed while remaining in `v0.x.x` (SemVer-compatible pre-1.0 behavior).
-- Follow Hugo-style operational approach for pre-1.0 releases.
-- Keeping `v0` avoids the `/v2` import path issue in Go Modules.
+## Canonical Policy Source
+- Follow repository-wide release policy in `.github/copilot-instructions.md`.
+- This skill focuses only on executable release steps and checks.
 
 ## Inputs
 - targetVersion: required, must follow v0.X.Y format for the current policy (e.g., v0.3.0).
@@ -60,6 +49,9 @@ argument-hint: "Target version, for example v0.3.0"
 - Existing tag: stop and bump to the next version.
 - Wrong branch: switch to updated `main` and retry.
 - Failed push or release creation: stop, report error, and retry from the failed step.
+
+## References
+- `.github/copilot-instructions.md`
 
 ## Example Prompts
 - Run release workflow for v0.3.0.
