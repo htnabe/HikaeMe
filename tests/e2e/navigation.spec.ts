@@ -117,6 +117,36 @@ test.describe("Navigation", () => {
   test.describe("Mobile navigation", () => {
     test.use({ viewport: { width: 390, height: 844 } });
 
+    test("drawer shows backdrop and closes via button and backdrop tap", async ({
+      page,
+    }) => {
+      await page.goto("/");
+
+      const drawerToggle = page.locator("button.navbar-toggler");
+      const drawer = page.locator("#navbarOffcanvas");
+
+      await expect(drawerToggle).toBeVisible();
+      await drawerToggle.click();
+      await expect(drawer).toHaveClass(/show/);
+
+      let backdrop = page.locator(".offcanvas-backdrop");
+      await expect(backdrop).toBeVisible();
+
+      await drawer.locator("button.btn-close").click();
+      await expect(drawer).not.toHaveClass(/show/);
+      await expect(page.locator(".offcanvas-backdrop")).toHaveCount(0);
+
+      await drawerToggle.click();
+      await expect(drawer).toHaveClass(/show/);
+
+      backdrop = page.locator(".offcanvas-backdrop");
+      await expect(backdrop).toBeVisible();
+      await backdrop.click();
+
+      await expect(drawer).not.toHaveClass(/show/);
+      await expect(page.locator(".offcanvas-backdrop")).toHaveCount(0);
+    });
+
     test("search from open drawer prioritizes modal or closes drawer", async ({
       page,
     }) => {
