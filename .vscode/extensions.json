@@ -1,7 +1,3 @@
 {
-  "recommendations": [
-    "esbenp.prettier-vscode",
-    "redhat.vscode-yaml",
-    "yzhang.markdown-all-in-one"
-  ]
+  "recommendations": ["esbenp.prettier-vscode", "redhat.vscode-yaml", "yzhang.markdown-all-in-one"]
 }

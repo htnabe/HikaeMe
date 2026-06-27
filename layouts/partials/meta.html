@@ -3,21 +3,9 @@
 <meta name="msnbot" content="noarchive" />
 <meta name="pinterest" content="nopin" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link
-  rel="dns-prefetch preconnect"
-  href="//fonts.googleapis.com/"
-  crossorigin
-/>
-<link
-  rel="dns-prefetch preconnect"
-  href="https://cdn.jsdelivr.net/"
-  crossorigin
-/>
-<link
-  rel="dns-prefetch preconnect"
-  href="https://cdnjs.cloudflare.com/"
-  crossorigin
-/>
+<link rel="dns-prefetch preconnect" href="//fonts.googleapis.com/" crossorigin />
+<link rel="dns-prefetch preconnect" href="https://cdn.jsdelivr.net/" crossorigin />
+<link rel="dns-prefetch preconnect" href="https://cdnjs.cloudflare.com/" crossorigin />
 {{ with .Site.Params.contact }}
   <meta name="contact" content="{{ . }}" />
 {{ end }}
@@ -82,10 +70,7 @@
 />
 
 {{- if .IsPage -}}
-  <meta
-    property="og:description"
-    content="{{ .Scratch.Get $shortDescription }}"
-  />
+  <meta property="og:description" content="{{ .Scratch.Get $shortDescription }}" />
 
   <meta property="article:section" content="{{ .Section | title }}" />
   {{- range .Params.tags -}}
@@ -132,10 +117,7 @@
 <meta name="twitter:url" content="{{ .Permalink }}" />
 <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}" />
 {{- if .IsPage -}}
-  <meta
-    name="twitter:description"
-    content="{{ .Scratch.Get $shortDescription }}"
-  />
+  <meta name="twitter:description" content="{{ .Scratch.Get $shortDescription }}" />
 {{ else }}
   <meta name="twitter:description" content="{{ .Scratch.Get $description }}" />
 {{ end }}

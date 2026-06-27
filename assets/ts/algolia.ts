@@ -1,18 +1,10 @@
 import instantsearch from "instantsearch.js";
-import {
-  configure,
-  hits,
-  poweredBy,
-  searchBox,
-} from "instantsearch.js/es/widgets";
+import { configure, hits, poweredBy, searchBox } from "instantsearch.js/es/widgets";
 // @ts-ignore
 import params from "@params";
 import { algoliasearch, SearchClient } from "algoliasearch";
 
-const algoliaClient: SearchClient = algoliasearch(
-  params.appId,
-  params.algoliaSearchApiKey
-);
+const algoliaClient: SearchClient = algoliasearch(params.appId, params.algoliaSearchApiKey);
 
 // initialize instantSearch
 // not send requests when the query is empty
@@ -63,9 +55,7 @@ search.addWidgets([
     container: "#hits",
     templates: {
       empty: ({}, { html }) => {
-        return html`<div>
-          ${params.searchNoResults || "No results have been found."}
-        </div>`;
+        return html`<div>${params.searchNoResults || "No results have been found."}</div>`;
       },
       item: (hit, { html, components, sendEvent }) => {
         return html`
@@ -77,9 +67,7 @@ search.addWidgets([
                   <i class="bi bi-clock me-1"></i>
                   ${hit.date}
                 </time>
-                <a href="${hit.permalink}"
-                  >${params.searchReadMore || "Read More >"}</a
-                >
+                <a href="${hit.permalink}">${params.searchReadMore || "Read More >"}</a>
               </p>
             </div>
           </div>

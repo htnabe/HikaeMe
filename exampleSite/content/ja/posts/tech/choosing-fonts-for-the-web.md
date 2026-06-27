@@ -18,19 +18,25 @@ thumbnail: ""
 
 ```css
 font-family:
-  "Hiragino Sans", "Hiragino Kaku Gothic ProN", /* macOS / iOS */
-  "Yu Gothic UI", "Yu Gothic", "Meiryo",         /* Windows */
-  "Noto Sans CJK JP",                            /* Linux / Android */
-  system-ui, -apple-system,
+  "Hiragino Sans",
+  "Hiragino Kaku Gothic ProN",
+  /* macOS / iOS */ "Yu Gothic UI",
+  "Yu Gothic",
+  "Meiryo",
+  /* Windows */ "Noto Sans CJK JP",
+  /* Linux / Android */ system-ui,
+  -apple-system,
   sans-serif;
 ```
 
 **メリット:**
+
 - 外部リクエストが不要
 - すぐに利用できる
 - OSの見た目になじみやすい
 
 **デメリット:**
+
 - デザイン上の個性を出しにくい
 - プラットフォームごとに見え方が変わる
 
@@ -49,11 +55,13 @@ Google Fontsには多数の無料フォントファミリーがあり、HTMLの`
 `display=swap`を指定すると、Webフォント読み込み中はシステムフォントで表示されるため、文字が見えなくなる時間を減らせます。
 
 **メリット:**
+
 - 選択肢が非常に多い
 - 無料で使える
 - CDN配信で比較的高速
 
 **デメリット:**
+
 - 外部ネットワークへの依存が発生する
 - リクエスト先がGoogleになるため、プライバシー面の配慮が必要
 - 設定次第ではFOUTが発生する
@@ -62,11 +70,11 @@ Google Fontsには多数の無料フォントファミリーがあり、HTMLの`
 
 日本語と英語を併用するサイトでは、両方の文字を自然に表示できるフォント選びが重要です。
 
-| 用途 | 推奨フォント | 補足 |
-|---|---|---|
-| 本文（英字） | Noto Sans | クセが少なく読みやすい |
-| 本文（日本語） | Noto Sans JP | Noto Sansと組み合わせやすい |
-| 見出し・装飾 | Orbitron, Raleway | 主に英字向け |
+| 用途           | 推奨フォント      | 補足                        |
+| -------------- | ----------------- | --------------------------- |
+| 本文（英字）   | Noto Sans         | クセが少なく読みやすい      |
+| 本文（日本語） | Noto Sans JP      | Noto Sansと組み合わせやすい |
+| 見出し・装飾   | Orbitron, Raleway | 主に英字向け                |
 
 Noto Sans JPは日本語と英字の両方をカバーしやすく、表示の一貫性を取りやすい定番候補です。
 
@@ -114,10 +122,10 @@ body {
 
 ```css
 font-family:
-  "Noto Sans JP",   /* preferred */
-  "Hiragino Sans",  /* macOS fallback */
-  "Yu Gothic UI",   /* Windows fallback */
-  sans-serif;       /* last resort */
+  "Noto Sans JP",
+  /* preferred */ "Hiragino Sans",
+  /* macOS fallback */ "Yu Gothic UI",
+  /* Windows fallback */ sans-serif; /* last resort */
 ```
 
 ## まとめ

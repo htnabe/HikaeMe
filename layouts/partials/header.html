@@ -1,10 +1,7 @@
 <div class="container-xl">
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a
-        class="navbar-brand d-flex align-items-center"
-        href="{{ .Site.Home.RelPermalink }}"
-      >
+      <a class="navbar-brand d-flex align-items-center" href="{{ .Site.Home.RelPermalink }}">
         {{ with .Site.Params.logoImageUrl }}
           <img
             src="{{ . | absURL }}"
@@ -58,11 +55,7 @@
               {{ range . }}
                 <li class="nav-item px-1">
                   {{ if $.IsMenuCurrent .Menu . }}
-                    <a
-                      class="nav-link hover-with-ul active"
-                      aria-current="page"
-                      href="{{ .URL }}"
-                    >
+                    <a class="nav-link hover-with-ul active" aria-current="page" href="{{ .URL }}">
                       <span class="fs-6 m-0 fw-semibold">{{ .Name }}</span>
                     </a>
                   {{ else }}

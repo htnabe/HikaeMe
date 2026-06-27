@@ -10,12 +10,14 @@ description: "Workflow skill for proactively updating stale docs and fixing docs
 This skill standardizes how to keep repository documentation accurate when command usage, setup steps, or file placement changes over time.
 
 **Primary goals:**
+
 - Detect stale command examples and outdated explanations
 - Update references when docs files/folders move
 - Keep `README.md`, `docs/**`, `.github` guidance, and guidance assets aligned
 - Prefer minimal, surgical edits; only reorganize structure when necessary to resolve path/layout drift or duplicated/conflicting instructions
 
 **Scope:**
+
 - `README.md`
 - `docs/**`
 - `.github/copilot-instructions.md`
@@ -27,6 +29,7 @@ This skill standardizes how to keep repository documentation accurate when comma
 ## Trigger Timing
 
 Run this workflow when any of the following happens:
+
 1. PR creation or PR update
 2. Commands in setup/build/test flow changed
 3. Documentation file/folder placement changed
@@ -41,6 +44,7 @@ Run this workflow when any of the following happens:
 **Objective:** Find where docs are stale or paths are invalid.
 
 **Checks:**
+
 1. Compare documented commands with current executable sources:
    - `package.json` scripts
    - `.devcontainer/postCreateCommand.sh`
@@ -50,6 +54,7 @@ Run this workflow when any of the following happens:
 4. Identify duplicated instructions that should point to a shared source file
 
 **Output format:**
+
 ```
 Drift Report
 - Command drift: [file + section + expected command]
@@ -62,9 +67,11 @@ Drift Report
 **Objective:** Confirm update boundaries before editing.
 
 **Default inclusion:**
+
 - `README.md`, `docs/**`, `.github` guidance docs, guidance assets
 
 **Default exclusion:**
+
 - Runtime source code behavior changes
 - Dependency upgrades unrelated to doc accuracy
 
@@ -75,6 +82,7 @@ If uncertainty remains, ask focused clarification before editing.
 **Objective:** Decide how to update docs safely and consistently.
 
 **Rules:**
+
 1. Prefer a single source of truth for examples (such as `docs/guidance/assets/*`)
 2. In guides, prefer links to shared examples over duplicated code blocks
 3. Keep edits minimal where possible, but allow section reorganization when readability improves
@@ -87,6 +95,7 @@ If uncertainty remains, ask focused clarification before editing.
 **Objective:** Apply changes and keep references coherent.
 
 **Execution checklist:**
+
 1. Update stale command text and explanations
 2. Rewrite outdated file links using valid relative paths
 3. Move or add example files when needed (`docs/guidance/assets/**`)
@@ -98,6 +107,7 @@ If uncertainty remains, ask focused clarification before editing.
 **Objective:** Confirm documentation is internally consistent.
 
 **Validation checklist:**
+
 1. Run production build check when docs mention Hugo workflows:
    ```bash
    cd exampleSite && hugo --gc --minify
@@ -111,6 +121,7 @@ If uncertainty remains, ask focused clarification before editing.
 **Objective:** Present changes with clear reasoning.
 
 Include in PR description:
+
 1. What drift was detected (commands/paths/structure)
 2. Which files were updated and why
 3. Whether sections were reorganized and rationale
@@ -123,6 +134,7 @@ Include in PR description:
 ### Pattern A: Command usage drift
 
 When a documented command differs from actual workflow:
+
 1. Update command in docs
 2. Update explanation text that depends on the old command
 3. Update troubleshooting guidance if symptoms changed
@@ -130,6 +142,7 @@ When a documented command differs from actual workflow:
 ### Pattern B: File placement drift
 
 When docs path changes:
+
 1. Move/rename docs file
 2. Update all inbound references
 3. Update contributor guidance that cites old paths
@@ -137,6 +150,7 @@ When docs path changes:
 ### Pattern C: Shared setup examples
 
 When setup snippets repeat in multiple guides:
+
 1. Move canonical snippets to `docs/guidance/assets/*`
 2. Link from each guide section to the canonical file
 3. Keep local guide text concise and task-oriented
@@ -144,6 +158,7 @@ When setup snippets repeat in multiple guides:
 ### Pattern D: Locale docs with placeholder content
 
 When adding language-specific guide files before full translation is ready:
+
 1. Keep heading language label consistent with native naming conventions
 2. Add a short note near the top that the body is currently an English placeholder
 3. Reflect this status in `README.md` documentation index if relevant

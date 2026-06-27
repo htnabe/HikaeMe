@@ -16,21 +16,14 @@ export const getStoredTheme = (): Theme | null => {
   return null;
 };
 
-export const setStoredTheme = (theme: Theme): void =>
-  localStorage.setItem(storageKey, theme);
+export const setStoredTheme = (theme: Theme): void => localStorage.setItem(storageKey, theme);
 
-export const getPreferredTheme = (
-  storedTheme: Theme | null,
-  prefersDark: boolean
-): Theme => {
+export const getPreferredTheme = (storedTheme: Theme | null, prefersDark: boolean): Theme => {
   if (storedTheme) return storedTheme;
   return prefersDark ? "dark" : "light";
 };
 
-export const updateRadioButtons = (
-  theme: Theme,
-  root: Document = document
-): void => {
+export const updateRadioButtons = (theme: Theme, root: Document = document): void => {
   const themeToggles = {
     light: root.getElementById("themeToggleSun") as HTMLInputElement | null,
     dark: root.getElementById("themeToggleMoon") as HTMLInputElement | null,
@@ -48,10 +41,7 @@ export const setTheme = (theme: Theme, root: Document = document): void => {
 };
 
 /** Persists the selected theme and applies it to the document. */
-export const handleThemeChange = (
-  theme: Theme,
-  root: Document = document
-): void => {
+export const handleThemeChange = (theme: Theme, root: Document = document): void => {
   setStoredTheme(theme);
   setTheme(theme, root);
 };
@@ -67,12 +57,8 @@ export const handleThemeChange = (
   document.addEventListener("DOMContentLoaded", () => {
     // map of theme names to their corresponding toggle elements
     const themeToggles = {
-      light: document.getElementById(
-        "themeToggleSun"
-      ) as HTMLInputElement | null,
-      dark: document.getElementById(
-        "themeToggleMoon"
-      ) as HTMLInputElement | null,
+      light: document.getElementById("themeToggleSun") as HTMLInputElement | null,
+      dark: document.getElementById("themeToggleMoon") as HTMLInputElement | null,
     };
 
     // Apply the corresponding theme when each toggle is selected
@@ -85,7 +71,6 @@ export const handleThemeChange = (
 
   darkModeMediaQuery.addEventListener("change", () => {
     const storedTheme = getStoredTheme();
-    if (!storedTheme)
-      setTheme(getPreferredTheme(null, darkModeMediaQuery.matches));
+    if (!storedTheme) setTheme(getPreferredTheme(null, darkModeMediaQuery.matches));
   });
 })();

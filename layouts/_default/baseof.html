@@ -22,10 +22,7 @@
 {{- "-->" | safeHTML -}}
 
 
-<html
-  lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}"
-  data-bs-theme="auto"
->
+<html lang="{{ .Site.Language.Locale | default .Site.Language.Lang }}" data-bs-theme="auto">
   <head>
     {{ partial "head.html" . }}
     {{ if templates.Exists "partials/custom-head.html" }}

@@ -5,9 +5,10 @@ This page collects common setup and development issues for HikaeMe.
 ## Issue: `hugo mod get -u` fails with "module not found"
 
 Solution:
+
 1. Ensure your site configuration has the correct module import path.
-	- v1.x.x: `github.com/htnabe/HikaeMe`
-	- v2.x.x and later: `github.com/htnabe/HikaeMe/v2`
+   - v1.x.x: `github.com/htnabe/HikaeMe`
+   - v2.x.x and later: `github.com/htnabe/HikaeMe/v2`
 2. If you use split config files, check `config/_default/module.yaml` instead of a single `hugo.yaml`.
 3. Try clearing the cache:
 
@@ -21,6 +22,7 @@ hugo mod get -u
 ## Issue: `npm install` fails
 
 Solution:
+
 1. Ensure Node.js is installed: `node --version` (must match the version specified in `package.json`, currently >=22.22.1).
 2. Clear npm cache:
 
@@ -38,6 +40,7 @@ ls package.json
 ## Issue: `hugo server` shows blank page or missing theme files
 
 Solution:
+
 1. Verify module is downloaded:
 
 ```bash
