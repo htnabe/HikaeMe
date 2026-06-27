@@ -10,6 +10,7 @@ description: "Workflow skill for feature and documentation additions. Use when: 
 This skill automates the planning and initialization phase for feature and documentation additions to the HikaeMe Hugo theme project. It ensures clarity, traceability, and consistency before implementation work begins.
 
 **Scope:**
+
 - ✅ Request analysis and scope clarification
 - ✅ Structured TODO list generation
 - ✅ Conventional Commits branch creation (feat/, docs/, fix/)
@@ -25,6 +26,7 @@ This skill automates the planning and initialization phase for feature and docum
 **Objective:** Parse the user's feature/documentation request and establish initial scope.
 
 **Actions:**
+
 1. Identify the type of request:
    - **Feature**: New functionality, UI enhancement, or behavior change
    - **Documentation**: New guide, API doc, or architecture explanation
@@ -32,15 +34,17 @@ This skill automates the planning and initialization phase for feature and docum
 2. Extract core elements:
    - Feature/documentation name
    - Scope (which components: layouts, assets, exampleSite, etc.)
-  - Affected areas (reference `docs/develop/project-structure.md` for file placement guidance)
-   - Dependencies or related features (if any)
+
+- Affected areas (reference `docs/develop/project-structure.md` for file placement guidance)
+- Dependencies or related features (if any)
 
 **Example Analysis Output:**
+
 ```
 Request Type: Feature
 Name: Search Result Highlighting
 Scope: Frontend UI + Search Modal Partial
-Affected Areas: 
+Affected Areas:
   - assets/ts/algolia.ts (script logic)
   - assets/css/widgets/algolia.scss (styling)
   - layouts/partials/search-modal.html (template)
@@ -53,6 +57,7 @@ Affected Areas:
 **Objective:** Ask focused questions to resolve ambiguities and establish acceptance criteria.
 
 **Questions to ask (only if ambiguous):**
+
 1. **Scope Clarity**: Does this feature affect other components (e.g., mobile responsiveness, accessibility)?
 2. **Testing Strategy**: Should this include unit tests, E2E tests (Playwright), or both?
 3. **Breaking Changes**: Will this modify existing APIs or Hugo parameters? (Important for theme users)
@@ -61,6 +66,7 @@ Affected Areas:
 **Goal:** Get explicit agreement on scope boundaries before proceeding to planning.
 
 **Example Clarification:**
+
 ```
 User Request: "Implement automatic theme color switching based on system preference"
 
@@ -84,6 +90,7 @@ User Responses:
 **Objective:** Generate a detailed, structured TODO list that guides implementation.
 
 **Actions:**
+
 1. Reference the project structure (`docs/develop/project-structure.md`) for file placement
 2. Break the feature into discrete, reviewable tasks
 3. Flag dependencies and review gates
@@ -103,7 +110,7 @@ User Responses:
   - Related files: `path/to/file.ts`, `path/to/style.scss`
   - Dependencies: [List other tasks this depends on]
   - Acceptance: [Brief success criteria]
-  
+
 - [ ] Task 2: [Specific, actionable item]
   - Acceptance: [Brief success criteria]
 
@@ -135,7 +142,7 @@ User Responses:
 - [ ] Task 1: Create Hugo partial for word count calculation
   - File: layouts/partials/reading-time.html
   - Acceptance: Partial accepts content string, returns minutes
-  
+
 - [ ] Task 2: Integrate partial into article layout
   - File: layouts/_default/single.html
   - Acceptance: Reading time displays below article title
@@ -159,6 +166,7 @@ User Responses:
 **Objective:** Present the complete plan to the user for approval before any git/filesystem operations.
 
 **Actions:**
+
 1. Display the branch name (Conventional Commits format)
 2. Show the TODO list
 3. Ask for explicit approval: "Proceed with these tasks and create the branch?"
@@ -197,19 +205,21 @@ User Responses:
 **Actions:**
 
 1. **Create Git Branch** (after user approval)
+
    ```bash
    git checkout -b feat/feature-name
    ```
    - Branch naming follows `feat/`, `docs/`, `fix/` prefixes (Conventional Commits)
 
 2. **Display Completion**
+
    ```
    ✅ **Ready to Implement**
-   
+
    - Branch: `feat/feature-name` ✓ Created
    - TODO List: Saved in this conversation
    - Next Steps: Begin implementation following the TODO list above
-   
+
    💡 **Tips:**
    - Reference this TODO list frequently during implementation
    - Update the list as tasks are completed
@@ -224,11 +234,13 @@ User Responses:
 ### Referencing Existing Documentation
 
 **During Analysis & Planning, cite:**
+
 - `docs/develop/project-structure.md` — for file placement rules
 - `.github/copilot-instructions.md` — for Validation Checklist, PR guidelines, dependency policies
 - `theme.toml` & `README.md` — for theme scope and user-facing features
 
 **Example Citation:**
+
 ```
 Per docs/develop/project-structure.md:
 - Global style changes → assets/css/
@@ -240,6 +252,7 @@ Per docs/develop/project-structure.md:
 ### Hugo Build & Validation
 
 Include in Phase 3 TODO:
+
 ```bash
 # Production build (per copilot-instructions.md Validation Checklist)
 cd exampleSite && hugo --gc --minify
@@ -255,12 +268,14 @@ npm run dev  # then verify behavior in http://localhost:1313
 This skill responds to feature/documentation requests in **both Japanese and English**:
 
 **Japanese Triggers:**
+
 - 「○○の機能を実装して」
 - 「○○についてドキュメント追加して」
 - 「○○を改善して」
 - 「バグ修正：○○」
 
 **English Triggers:**
+
 - "Implement [feature]"
 - "Add documentation for [topic]"
 - "Improve [feature]"

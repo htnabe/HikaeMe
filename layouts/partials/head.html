@@ -61,9 +61,7 @@
       if (storedTheme) {
         return storedTheme;
       }
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     };
     var theme = getPreferredTheme();
     document.documentElement.setAttribute("data-bs-theme", theme);
@@ -102,11 +100,7 @@
     {{ $langTargetPath := printf "ts/algolia.%s.js" $.Lang }}
     {{ $tsLangOpt := merge $tsCommonOpt (dict "targetPath" $langTargetPath) }}
     {{ $compiledJs := resources.Get "ts/algolia.ts" | js.Build $tsLangOpt | resources.Minify }}
-    <script
-      defer
-      type="text/javascript"
-      src="{{ $compiledJs.RelPermalink }}"
-    ></script>
+    <script defer type="text/javascript" src="{{ $compiledJs.RelPermalink }}"></script>
   {{ end }}
 {{ end }}
 

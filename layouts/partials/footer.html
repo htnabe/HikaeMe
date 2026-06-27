@@ -17,9 +17,7 @@
       {{ $url := .Site.Params.contactUrl }}
       {{ if $url }}
         |
-        <a href="{{ $url | safeURL }}" target="_blank" rel="noreferrer"
-          >{{ T "footer.contact" }}</a
-        >
+        <a href="{{ $url | safeURL }}" target="_blank" rel="noreferrer">{{ T "footer.contact" }}</a>
       {{ end }}
     </p>
   </div>

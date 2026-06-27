@@ -20,7 +20,7 @@ Absaetze werden durch Leerzeilen getrennt. Fuer einen erzwungenen Umbruch nutze 
 
 ## 3. Hervorhebung
 
-Mit *kursiv* und **fett** lassen sich wichtige Stellen betonen.
+Mit _kursiv_ und **fett** lassen sich wichtige Stellen betonen.
 
 ## 4. Listen
 

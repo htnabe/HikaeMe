@@ -6,9 +6,7 @@
         <div class="timeline-item">
           <div class="timeline-content card shadow-sm">
             <div class="card-body">
-              <span class="timeline-year badge bg-primary"
-                >{{ $item.year }}</span
-              >
+              <span class="timeline-year badge bg-primary">{{ $item.year }}</span>
               {{ if $item.events }}
                 <ul class="timeline-events list-unstyled mt-2 mb-0">
                   {{ range $event := $item.events }}

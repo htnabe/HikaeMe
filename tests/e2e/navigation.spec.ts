@@ -10,9 +10,7 @@ test.describe("Navigation", () => {
     );
   };
 
-  test("clicking the navbar brand navigates to the home page", async ({
-    page,
-  }) => {
+  test("clicking the navbar brand navigates to the home page", async ({ page }) => {
     await page.goto("/about");
     await page.locator(".navbar-brand").click();
     await expect(page).toHaveURL("/");
@@ -27,9 +25,7 @@ test.describe("Navigation", () => {
     await expect(page.locator("article")).toBeVisible();
   });
 
-  test("article page has a heading, body content, and footer", async ({
-    page,
-  }) => {
+  test("article page has a heading, body content, and footer", async ({ page }) => {
     await page.goto("/");
     await page.locator("article.li a").first().click();
     const article = page.locator("article");
@@ -38,9 +34,7 @@ test.describe("Navigation", () => {
     await expect(article.locator("footer.article-footer")).toBeVisible();
   });
 
-  test("language switcher dropdown shows all configured languages", async ({
-    page,
-  }) => {
+  test("language switcher dropdown shows all configured languages", async ({ page }) => {
     await page.goto("/about/");
     const toggle = page.getByTestId("language-switcher-toggle");
     await expect(toggle).toBeVisible();
@@ -51,9 +45,7 @@ test.describe("Navigation", () => {
     expect(menuItemCount).toBeGreaterThan(1);
 
     const optionIds = await menuItems.evaluateAll((elements) =>
-      elements
-        .map((element) => element.getAttribute("data-testid") ?? "")
-        .filter(Boolean)
+      elements.map((element) => element.getAttribute("data-testid") ?? "").filter(Boolean)
     );
 
     const actualLanguageCodes = optionIds.map((optionId) =>
@@ -87,9 +79,7 @@ test.describe("Navigation", () => {
     }
   });
 
-  test("language switcher navigates to the selected language page", async ({
-    page,
-  }) => {
+  test("language switcher navigates to the selected language page", async ({ page }) => {
     await page.goto("/about/");
     await page.getByTestId("language-switcher-toggle").click();
     await page.getByTestId("language-option-en").click();
@@ -105,9 +95,7 @@ test.describe("Navigation", () => {
     await expect(page).toHaveURL(/\/en\/?$/);
   });
 
-  test("language switcher navigates to simplified chinese page", async ({
-    page,
-  }) => {
+  test("language switcher navigates to simplified chinese page", async ({ page }) => {
     await page.goto("/about/");
     await page.getByTestId("language-switcher-toggle").click();
     await page.getByTestId("language-option-zh-cn").click();
@@ -117,9 +105,7 @@ test.describe("Navigation", () => {
   test.describe("Mobile navigation", () => {
     test.use({ viewport: { width: 390, height: 844 } });
 
-    test("drawer shows backdrop and closes via button and backdrop tap", async ({
-      page,
-    }) => {
+    test("drawer shows backdrop and closes via button and backdrop tap", async ({ page }) => {
       await page.goto("/");
 
       const drawerToggle = page.locator("button.navbar-toggler");
@@ -147,9 +133,7 @@ test.describe("Navigation", () => {
       await expect(page.locator(".offcanvas-backdrop")).toHaveCount(0);
     });
 
-    test("search from open drawer prioritizes modal or closes drawer", async ({
-      page,
-    }) => {
+    test("search from open drawer prioritizes modal or closes drawer", async ({ page }) => {
       await page.goto("/");
 
       const drawerToggle = page.locator("button.navbar-toggler");
@@ -159,9 +143,7 @@ test.describe("Navigation", () => {
       const drawer = page.locator("#navbarOffcanvas");
       await expect(drawer).toHaveClass(/show/);
 
-      const searchTrigger = drawer.locator(
-        '[data-bs-target="#globalSearchModal"]'
-      );
+      const searchTrigger = drawer.locator('[data-bs-target="#globalSearchModal"]');
       await expect(searchTrigger).toHaveCount(1);
       await searchTrigger.click();
       // await searchTrigger.evaluate((element) => {

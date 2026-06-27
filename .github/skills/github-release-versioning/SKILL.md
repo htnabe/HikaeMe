@@ -7,18 +7,22 @@ argument-hint: "Target version, for example v0.3.0"
 # GitHub Release Versioning
 
 ## Purpose
+
 - Standardize release preparation and publication for this repository.
 - Keep package version, git tag, and GitHub Release consistent.
 - Use `npm version` to update `package.json` and create the release tag in one operation.
 
 ## Canonical Policy Source
+
 - Follow repository-wide release policy in `.github/copilot-instructions.md`.
 - This skill focuses only on executable release steps and checks.
 
 ## Inputs
+
 - targetVersion: required, must follow v0.X.Y format for the current policy (e.g., v0.3.0).
 
 ## Decision Rules
+
 1. Validate targetVersion with pattern ^v0\.[0-9]+\.[0-9]+$.
 2. Abort if the working tree is not clean.
 3. Abort if current branch is not main.
@@ -26,6 +30,7 @@ argument-hint: "Target version, for example v0.3.0"
 5. Derive bareVersion by removing the leading `v` from targetVersion.
 
 ## Procedure
+
 1. Merge the final release content to `main` through Pull Request workflow.
 2. Check out and update local `main`.
 3. Derive bareVersion (X.Y.Z) from targetVersion (vX.Y.Z).
@@ -36,6 +41,7 @@ argument-hint: "Target version, for example v0.3.0"
 8. Create a GitHub Release for vX.Y.Z.
 
 ## Validation Checklist
+
 - package.json version matches targetVersion without leading v.
 - package-lock.json version matches package.json.
 - Tag name matches targetVersion.
@@ -44,6 +50,7 @@ argument-hint: "Target version, for example v0.3.0"
 - GitHub Release exists for targetVersion.
 
 ## Failure Handling
+
 - Invalid targetVersion: stop and request a valid v0.X.Y value.
 - Dirty working tree: stop and ask to commit or stash changes.
 - Existing tag: stop and bump to the next version.
@@ -51,9 +58,11 @@ argument-hint: "Target version, for example v0.3.0"
 - Failed push or release creation: stop, report error, and retry from the failed step.
 
 ## References
+
 - `.github/copilot-instructions.md`
 
 ## Example Prompts
+
 - Run release workflow for v0.3.0.
 - Run patch release workflow for v0.3.1 using npm version on main.
 - Update package.json on main and create tag v0.4.0, then push and draft release.

@@ -16,8 +16,12 @@ Systemschriften sind bereits auf dem Geraet installiert. Dadurch entfallen zusae
 
 ```css
 font-family:
-  "Hiragino Sans", "Yu Gothic UI", "Meiryo",
-  "Noto Sans CJK JP", system-ui, -apple-system,
+  "Hiragino Sans",
+  "Yu Gothic UI",
+  "Meiryo",
+  "Noto Sans CJK JP",
+  system-ui,
+  -apple-system,
   sans-serif;
 ```
 
@@ -26,7 +30,11 @@ font-family:
 Google Fonts bietet viele Schriftfamilien und laesst sich per `<link>` einbinden:
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="preload stylesheet" as="style" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+  rel="preload stylesheet"
+  as="style"
+/>
 ```
 
 `display=swap` sorgt dafuer, dass Text waehrend des Ladens sichtbar bleibt.

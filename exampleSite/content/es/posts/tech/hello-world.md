@@ -20,7 +20,7 @@ Separa parrafos con una linea en blanco. Para forzar un salto, agrega dos espaci
 
 ## 3. Enfasis
 
-Usa *cursiva* y **negrita** para resaltar texto.
+Usa _cursiva_ y **negrita** para resaltar texto.
 
 ## 4. Listas
 

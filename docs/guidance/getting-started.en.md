@@ -126,7 +126,7 @@ params:
   description: "My personal blog"
 ```
 
-This guide uses a single `hugo.yaml` for brevity. If you prefer to split your configuration into multiple files, see [exampleSite/config/_default/](../../exampleSite/config/_default/) for a working example.
+This guide uses a single `hugo.yaml` for brevity. If you prefer to split your configuration into multiple files, see [exampleSite/config/\_default/](../../exampleSite/config/_default/) for a working example.
 
 ## Multilingual Setup
 
@@ -162,10 +162,10 @@ Hugo will fall back to global configuration values for keys not defined inside a
 
 Algolia JSON is generated at the **home** kind. Its output path depends on `defaultContentLanguageInSubdir`:
 
-| `defaultContentLanguageInSubdir` | Default language | Other languages |
-|---|---|---|
-| `false` (default) | `/algolia.json` | `/en/algolia.json` |
-| `true` | `/<defaultLang>/algolia.json` | `/en/algolia.json` |
+| `defaultContentLanguageInSubdir` | Default language              | Other languages    |
+| -------------------------------- | ----------------------------- | ------------------ |
+| `false` (default)                | `/algolia.json`               | `/en/algolia.json` |
+| `true`                           | `/<defaultLang>/algolia.json` | `/en/algolia.json` |
 
 With `false`, the root `/algolia.json` is the default-language index. This is expected Hugo behavior, not a bug. In this documentation's sample config, `defaultContentLanguage: "ja"`, so with `true` the default-language output path becomes `/ja/algolia.json`.
 

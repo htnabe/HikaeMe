@@ -20,7 +20,7 @@ Separez les paragraphes avec une ligne vide. Pour forcer un retour, ajoutez deux
 
 ## 3. Mise en valeur
 
-Utilisez *italique* et **gras** pour souligner des mots importants.
+Utilisez _italique_ et **gras** pour souligner des mots importants.
 
 ## 4. Listes
 
