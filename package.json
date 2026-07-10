@@ -14,7 +14,7 @@
     }
   },
   "dependencies": {
-    "@algolia/client-search": "^5.55.0",
+    "@algolia/client-search": "^5.55.1",
     "@popperjs/core": "^2.11.8",
     "algoliasearch": "^5.55.0",
     "bootstrap": "^5.3.8",
