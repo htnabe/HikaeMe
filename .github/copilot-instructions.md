@@ -31,6 +31,7 @@ These instructions define how AI coding assistants should work in this repositor
 - Reuse existing partials under `layouts/partials/` instead of duplicating markup.
 - Keep theme behavior configurable via site params where applicable.
 - Avoid hard-coded environment-specific values.
+- For `js.Build` options, pass typed values (e.g. `"minify"` must be `true`/`false` as a bool, not a string). Hugo currently weak-casts string booleans, but do not rely on that behavior.
 
 ## Frontend Asset Guidelines
 

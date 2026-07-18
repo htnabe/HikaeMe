@@ -6,19 +6,22 @@ labels: "bug"
 assignees: ""
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## Describe the bug
+<!-- A clear and concise description of what the bug is. -->
 
-**To Reproduce**
-Steps to reproduce the behavior, including relevant config snippets or content examples.
+### Expected behavior
+<!-- A clear and concise description of what you expected to happen. -->
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+### To Reproduce
+<!-- Steps to reproduce the behavior, including relevant config snippets or content examples. -->
 
-**Environment**
+## Environment
 
+<!--
 - Hugo version: [e.g. 0.157.0]
 - OS / Browser: [e.g. macOS, Chrome 120]
+ -->
 
-**Additional context**
-Screenshots, logs, or any other context.
+## Additional context
+
+<!-- Screenshots, logs, or any other context. -->
