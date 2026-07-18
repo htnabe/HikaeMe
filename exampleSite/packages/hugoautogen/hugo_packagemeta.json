@@ -1,5 +1,5 @@
 {
-  "sum": "3fbc584a26c23634",
+  "sum": "3ec05e09fe31b46c",
   "dependencySources": {
     "dependencies": {
       "@algolia/client-search": "../../../HikaeMe",
@@ -10,6 +10,7 @@
     },
     "devDependencies": {
       "@fullhuman/postcss-purgecss": "../../../HikaeMe",
+      "@htnabe/prettier-plugin-go-template": "../../../HikaeMe",
       "@playwright/test": "../../../HikaeMe",
       "@types/bootstrap": "../../../HikaeMe",
       "autoprefixer": "../../../HikaeMe",
@@ -20,7 +21,6 @@
       "postcss": "../../../HikaeMe",
       "postcss-cli": "../../../HikaeMe",
       "prettier": "../../../HikaeMe",
-      "prettier-plugin-go-template": "../../../HikaeMe",
       "vitest": "../../../HikaeMe"
     }
   }

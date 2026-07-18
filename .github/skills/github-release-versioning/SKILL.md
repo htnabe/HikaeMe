@@ -1,7 +1,7 @@
 ---
 name: github-release-versioning
 description: "Release workflow for publishing a new GitHub version. Use when updating package.json via npm version, creating a vX.Y.Z tag, and creating a GitHub Release from main."
-argument-hint: "Target version, for example v0.3.0"
+argument-hint: "Target version, for example v2.0.2"
 ---
 
 # GitHub Release Versioning
@@ -19,11 +19,11 @@ argument-hint: "Target version, for example v0.3.0"
 
 ## Inputs
 
-- targetVersion: required, must follow v0.X.Y format for the current policy (e.g., v0.3.0).
+- targetVersion: required, must follow vX.Y.Z format (e.g., v2.0.2).
 
 ## Decision Rules
 
-1. Validate targetVersion with pattern ^v0\.[0-9]+\.[0-9]+$.
+1. Validate targetVersion with pattern ^v[0-9]+\.[0-9]+\.[0-9]+$.
 2. Abort if the working tree is not clean.
 3. Abort if current branch is not main.
 4. Abort if target tag already exists locally or on remote.
@@ -51,7 +51,7 @@ argument-hint: "Target version, for example v0.3.0"
 
 ## Failure Handling
 
-- Invalid targetVersion: stop and request a valid v0.X.Y value.
+- Invalid targetVersion: stop and request a valid vX.Y.Z value.
 - Dirty working tree: stop and ask to commit or stash changes.
 - Existing tag: stop and bump to the next version.
 - Wrong branch: switch to updated `main` and retry.
@@ -63,6 +63,6 @@ argument-hint: "Target version, for example v0.3.0"
 
 ## Example Prompts
 
-- Run release workflow for v0.3.0.
-- Run patch release workflow for v0.3.1 using npm version on main.
-- Update package.json on main and create tag v0.4.0, then push and draft release.
+- Run release workflow for v2.0.2.
+- Run patch release workflow for v2.0.3 using npm version on main.
+- Update package.json on main and create tag v2.1.0, then push and draft release.

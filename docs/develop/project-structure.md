@@ -44,8 +44,8 @@ Use it as the first reference when you need to understand where to add or modify
   - Node dependencies and scripts used for development tasks.
 - `package-lock.json`
   - Exact resolved dependency versions.
-- `package.hugo.json`
-  - Hugo-related package snapshot/compatibility reference.
+- `exampleSite/packages/hugoautogen/package.json`
+  - Hugo-generated npm dependency snapshot created by `hugo mod npm pack`.
 - `go.mod`
   - Go module declaration (used by Hugo module workflows).
 - `README.md`

@@ -1,7 +1,7 @@
 name = "HikaeMe"
 license = "MIT"
 licenselink = "https://github.com/htnabe/HikaeMe/blob/main/LICENSE"
-description = "Theme for blogers using Bootstrap"
+description = "Theme for bloggers using Bootstrap"
 
 # The home page of the theme, where the source can be found.
 homepage = "https://github.com/htnabe/HikaeMe"
