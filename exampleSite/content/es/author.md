@@ -18,9 +18,7 @@ Soy Hoge.
 
 ## Habilidades
 
-- HTML
-- CSS
-- ...
+{{< skill-set-chart >}}
 
 ## Pasatiempos
 

@@ -22,6 +22,9 @@ author:
   thumbnailUrl:
   name:
   comment:
+  skills:
+    maxYears: # Optional, upper limit for the years-of-experience axis
+    groups: # Optional, skill groups with items containing name, years, and purpose
   sns:
     github:
       icon:

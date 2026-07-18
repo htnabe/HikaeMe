@@ -128,6 +128,39 @@ params:
 
 This guide uses a single `hugo.yaml` for brevity. If you prefer to split your configuration into multiple files, see [exampleSite/config/\_default/](../../exampleSite/config/_default/) for a working example.
 
+## Skill Set Chart
+
+Use the `skill-set-chart` shortcode to show skills as Bootstrap progress bars. Configure the data under `params.author.skills`, then place the shortcode in a content page such as your author page.
+
+```yaml
+params:
+  author:
+    skills:
+      maxYears: 8
+      groups:
+        - name: "Programming Languages"
+          items:
+            - name: "TypeScript"
+              years: 5
+              purpose: "work and hobby"
+            - name: "Python"
+              years: 6.3
+              purpose: "hobby"
+        - name: "Libraries / Frameworks"
+          items:
+            - name: "Bootstrap"
+              years: 4.5
+              purpose: "work and hobby"
+```
+
+```markdown
+## Skill Set
+
+{{< skill-set-chart >}}
+```
+
+`maxYears` controls the full width of the chart. Each skill's `years` value may be an integer or decimal value, and `purpose` is shown in the tooltip.
+
 ## Multilingual Setup
 
 HikaeMe supports Hugo multilingual sites.

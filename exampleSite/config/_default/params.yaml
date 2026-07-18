@@ -52,6 +52,36 @@ author:
     - year: "20yy"
       title: "スタートアップ立ち上げ"
       description: "AI技術を活用したプロダクト開発に従事。[企業サイト](https://example.com)"
+  skills:
+    maxYears: 8
+    groups:
+      - name: "Programming Languages"
+        items:
+          - name: "TypeScript"
+            years: 5
+            purpose: "work and hobby"
+          - name: "Go"
+            years: 4
+            purpose: "work"
+          - name: "Python"
+            years: 6.3
+            purpose: "hobby"
+      - name: "Libraries / Frameworks"
+        items:
+          - name: "React"
+            years: 5
+            purpose: "work"
+          - name: "Bootstrap"
+            years: 4.5
+            purpose: "work and hobby"
+          - name: "Hugo"
+            years: 3
+            purpose: "hobby"
+      - name: "Qualifications"
+        items:
+          - name: "AWS SAA"
+            years: 2
+            purpose: "work"
   sns:
     github:
       icon: "bi bi-github"

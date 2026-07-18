@@ -18,9 +18,7 @@ authorSection: true
 
 ## スキルセット
 
-- HTML
-- CSS
-- ...
+{{< skill-set-chart >}}
 
 ## 趣味
 

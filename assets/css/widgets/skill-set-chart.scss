@@ -1,0 +1,71 @@
+@use "../_variables" as v;
+
+.skill-chart {
+  .card-body {
+    padding: 1.25rem;
+  }
+}
+
+.skill-chart-scroll {
+  overflow-x: auto;
+  width: 100%;
+  padding-bottom: 0.25rem;
+}
+
+.skill-chart-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) repeat(var(--skill-year-count), minmax(3.5rem, 1fr));
+  gap: 0.5rem;
+  min-width: max-content;
+}
+
+.skill-chart-group + .skill-chart-group {
+  margin-top: 1.5rem;
+}
+
+.skill-chart-group-title {
+  letter-spacing: 0.08em;
+}
+
+.skill-chart-rows {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.skill-chart-row {
+  align-items: center;
+}
+
+.skill-chart-label {
+  overflow-wrap: anywhere;
+}
+
+.skill-chart-track {
+  grid-column: 2 / -1;
+  height: auto;
+  min-height: 2rem;
+  padding: 0.25rem;
+}
+
+.skill-chart-bar {
+  min-width: 2.5rem;
+  padding: 0.25rem 0.75rem;
+  cursor: help;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition:
+    opacity v.$transition-duration v.$transition-timing,
+    transform v.$transition-duration v.$transition-timing;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+}
+
+.skill-chart-bar-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
