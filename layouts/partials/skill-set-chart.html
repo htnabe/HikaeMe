@@ -31,6 +31,7 @@
                   {{ end }}
                   {{ $barWidth := div (mul $barYears 100.0) $maxYearsFloat }}
                   {{ $purpose := $skill.purpose | default "general" }}
+                  {{ $yearsLabel := T "skillSet.years" (dict "years" $years) }}
                   <div class="skill-chart-row">
                     <div class="skill-chart-label fw-semibold">{{ $skill.name }}</div>
                     <div class="skill-chart-track progress">
@@ -39,14 +40,14 @@
                         style="width: {{ $barWidth }}%;"
                         tabindex="0"
                         role="progressbar"
-                        aria-label="{{ $skill.name }}: {{ $years }} years, {{ $purpose }}"
+                        aria-label="{{ $skill.name }}: {{ $yearsLabel }}, {{ $purpose }}"
                         aria-valuenow="{{ $years }}"
                         aria-valuemin="0"
                         aria-valuemax="{{ $maxYears }}"
                         data-bs-toggle="tooltip"
                         data-bs-title="Purpose: {{ $purpose }}"
                       >
-                        <span class="skill-chart-bar-label">{{ $years }} years</span>
+                        <span class="skill-chart-bar-label">{{ $yearsLabel }}</span>
                       </div>
                     </div>
                   </div>

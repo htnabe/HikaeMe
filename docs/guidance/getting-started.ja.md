@@ -128,6 +128,39 @@ params:
 
 このガイドでは簡潔さのため単一の `hugo.yaml` を使っています。設定を分割して管理したい場合は、実リポジトリの例として [exampleSite/config/\_default/](../../exampleSite/config/_default/) を参照してください。
 
+## スキルセットチャート
+
+`skill-set-chart` shortcode を使うと、スキルを Bootstrap の progress bar として表示できます。データは `params.author.skills` に設定し、author ページなどの本文に shortcode を配置します。
+
+```yaml
+params:
+  author:
+    skills:
+      maxYears: 8
+      groups:
+        - name: "Programming Languages"
+          items:
+            - name: "TypeScript"
+              years: 5
+              purpose: "work and hobby"
+            - name: "Python"
+              years: 6.3
+              purpose: "hobby"
+        - name: "Libraries / Frameworks"
+          items:
+            - name: "Bootstrap"
+              years: 4.5
+              purpose: "work and hobby"
+```
+
+```markdown
+## スキルセット
+
+{{< skill-set-chart >}}
+```
+
+`maxYears` はチャート全体の最大幅を表します。各スキルの `years` には整数または小数を指定でき、`purpose` は tooltip に表示されます。
+
 ## 多言語設定
 
 HikaeMe は Hugo の多言語サイト構成に対応しています。
