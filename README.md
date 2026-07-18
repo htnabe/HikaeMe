@@ -19,6 +19,16 @@ Note: Guidance documents are currently available in English and Japanese.
 - Project Structure: [docs/develop/project-structure.md](./docs/develop/project-structure.md)
 - Testing Policy: [docs/develop/testing-policy.md](./docs/develop/testing-policy.md)
 
+### Versioning
+
+This repository uses Go module semantic import versioning.
+
+- v1.x.x releases use `github.com/htnabe/HikaeMe`
+- v2.x.x and later releases use `github.com/htnabe/HikaeMe/v2`
+
+Even for stable versions v1.x.x and above, not all patches have been applied, and we are gradually marking them as deprecated.
+The [Release Page](https://github.com/htnabe/HikaeMe/releases) lists the deprecated versions, so please check it as needed.
+
 ## Demo
 
 - [My personal blog](https://t-pot.me/)

@@ -43,8 +43,7 @@ error404:
   title:
     other: Oops! You're lost.
   message:
-    other:
-      The page was not found.<br />But if you keep going, maybe someday you'll
+    other: The page was not found.<br />But if you keep going, maybe someday you'll
       find a new path.
   backHome:
     other: Back to Home
@@ -57,3 +56,6 @@ header:
   languageSwitch:
     ariaLabel:
       other: Switch language
+skillSet:
+  years:
+    other: "{{ .years }} year(s)"

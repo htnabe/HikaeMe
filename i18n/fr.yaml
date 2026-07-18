@@ -54,3 +54,6 @@ header:
   languageSwitch:
     ariaLabel:
       other: Changer de langue
+skillSet:
+  years:
+    other: "{{ .years }} ans"

@@ -22,9 +22,7 @@
             {{ if ne .Date .Lastmod }}
               <div class="col ps-0 me-2 text-muted">
                 <i class="mx-0 bi bi-arrow-repeat" aria-hidden="true"></i>
-                <time
-                  datetime="{{ .Lastmod.Format " 2006-01-02T15:04:05JST" }}"
-                >
+                <time datetime="{{ .Lastmod.Format " 2006-01-02T15:04:05JST" }}">
                   {{ .Lastmod.Format ( .Site.Params.dateformat | default "2006/01/02") }}
                 </time>
               </div>
@@ -38,9 +36,7 @@
                 {{ with site.GetPage (printf "/categories/%s" ($categoryName | urlize)) }}
                   {{ $categoryLink = .RelPermalink }}
                 {{ end }}
-                <a href="{{ $categoryLink }}" class="fw-medium"
-                  >{{ $categoryName }}</a
-                >
+                <a href="{{ $categoryLink }}" class="fw-medium">{{ $categoryName }}</a>
               </div>
             {{ end }}
           </div>
@@ -53,10 +49,7 @@
             {{ range $index, $tag := .Params.tags }}
               <div class="col ps-0">
                 {{ $colorClass := index $colors (mod $index (len $colors)) }}
-                <i
-                  class="mx-0 bi bi-hash {{ $colorClass }}"
-                  aria-hidden="true"
-                ></i>
+                <i class="mx-0 bi bi-hash {{ $colorClass }}" aria-hidden="true"></i>
                 {{ $tagName := . }}
                 {{ $tagLink := printf "tags/%s/" ($tagName | urlize) | relLangURL }}
                 {{ with site.GetPage (printf "/tags/%s" ($tagName | urlize)) }}

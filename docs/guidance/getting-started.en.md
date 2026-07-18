@@ -30,6 +30,19 @@ npm --version
 gcc --version
 ```
 
+## Versioning
+
+HikaeMe follows Go module semantic import versioning:
+
+- Use `github.com/htnabe/HikaeMe` for v1.x.x releases
+- Use `github.com/htnabe/HikaeMe/v2` for v2.x.x and later releases
+
+For v2 and later, the repository root `go.mod` must declare:
+
+```go
+module github.com/htnabe/HikaeMe/v2
+```
+
 ## Setup Steps
 
 ### Create a New Hugo Site
@@ -55,15 +68,16 @@ Add the module import to your site configuration. For a single-file setup, edit 
 ```yaml
 module:
   imports:
-    - path: "github.com/htnabe/HikaeMe"
+    - path: "github.com/htnabe/HikaeMe/v2"
 ```
 
 If you use a split configuration directory, place the same block in `config/_default/module.yaml`.
+If you are staying on v1.x.x, use `github.com/htnabe/HikaeMe` instead.
 
 ### Download Theme Dependencies
 
 ```bash
-hugo mod get -u github.com/htnabe/HikaeMe
+hugo mod get -u github.com/htnabe/HikaeMe/v2
 hugo mod npm pack
 npm install
 ```
@@ -105,14 +119,47 @@ locale: "ja-JP"
 
 module:
   imports:
-    - path: "github.com/htnabe/HikaeMe"
+    - path: "github.com/htnabe/HikaeMe/v2"
 
 params:
   author: "Your Name"
   description: "My personal blog"
 ```
 
-This guide uses a single `hugo.yaml` for brevity. If you prefer to split your configuration into multiple files, see [exampleSite/config/_default/](../../exampleSite/config/_default/) for a working example.
+This guide uses a single `hugo.yaml` for brevity. If you prefer to split your configuration into multiple files, see [exampleSite/config/\_default/](../../exampleSite/config/_default/) for a working example.
+
+## Skill Set Chart
+
+Use the `skill-set-chart` shortcode to show skills as Bootstrap progress bars. Configure the data under `params.author.skills`, then place the shortcode in a content page such as your author page.
+
+```yaml
+params:
+  author:
+    skills:
+      maxYears: 8
+      groups:
+        - name: "Programming Languages"
+          items:
+            - name: "TypeScript"
+              years: 5
+              purpose: "work and hobby"
+            - name: "Python"
+              years: 6.3
+              purpose: "hobby"
+        - name: "Libraries / Frameworks"
+          items:
+            - name: "Bootstrap"
+              years: 4.5
+              purpose: "work and hobby"
+```
+
+```markdown
+## Skill Set
+
+{{< skill-set-chart >}}
+```
+
+`maxYears` controls the full width of the chart. Each skill's `years` value may be an integer or decimal value, and `purpose` is shown in the tooltip.
 
 ## Multilingual Setup
 
@@ -148,10 +195,10 @@ Hugo will fall back to global configuration values for keys not defined inside a
 
 Algolia JSON is generated at the **home** kind. Its output path depends on `defaultContentLanguageInSubdir`:
 
-| `defaultContentLanguageInSubdir` | Default language | Other languages |
-|---|---|---|
-| `false` (default) | `/algolia.json` | `/en/algolia.json` |
-| `true` | `/<defaultLang>/algolia.json` | `/en/algolia.json` |
+| `defaultContentLanguageInSubdir` | Default language              | Other languages    |
+| -------------------------------- | ----------------------------- | ------------------ |
+| `false` (default)                | `/algolia.json`               | `/en/algolia.json` |
+| `true`                           | `/<defaultLang>/algolia.json` | `/en/algolia.json` |
 
 With `false`, the root `/algolia.json` is the default-language index. This is expected Hugo behavior, not a bug. In this documentation's sample config, `defaultContentLanguage: "ja"`, so with `true` the default-language output path becomes `/ja/algolia.json`.
 

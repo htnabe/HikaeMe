@@ -20,7 +20,7 @@ Separate paragraphs with a blank line. To force a line break, add two trailing s
 
 ## 3. Emphasis
 
-Use *italic* and **bold** text to emphasize words.
+Use _italic_ and **bold** text to emphasize words.
 
 ## 4. Lists
 

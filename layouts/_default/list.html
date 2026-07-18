@@ -34,22 +34,14 @@
                   <div class="container m-0">
                     <div class="row row-cols-auto">
                       <div class="col px-0">
-                        <i
-                          class="bi bi-clock light mx-0"
-                          aria-hidden="true"
-                        ></i>
-                        <time
-                          datetime="{{ .Date.Format " 2006-01-02T15:04:05JST" }}"
-                        >
+                        <i class="bi bi-clock light mx-0" aria-hidden="true"></i>
+                        <time datetime="{{ .Date.Format " 2006-01-02T15:04:05JST" }}">
                           {{ .Date.Format ( .Site.Params.dateformat | default "2006/01/02") }}
                         </time>
                       </div>
                       <div class="col">
                         {{ range .Params.categories }}
-                          <i
-                            class="bi bi-bookmark light mx-0"
-                            aria-hidden="true"
-                          ></i>
+                          <i class="bi bi-bookmark light mx-0" aria-hidden="true"></i>
                           {{ . }}
                         {{ end }}
                       </div>
@@ -83,10 +75,7 @@
         {{ end }}
         {{ if .Paginator.HasNext }}
           <li class="page-item">
-            <a
-              class="page-link border-top"
-              href="{{ .Paginator.Next.URL }}"
-              rel="next"
+            <a class="page-link border-top" href="{{ .Paginator.Next.URL }}" rel="next"
               >{{ T "pagination.next" }}</a
             >
           </li>

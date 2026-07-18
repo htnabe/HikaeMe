@@ -30,6 +30,19 @@ npm --version
 gcc --version
 ```
 
+## バージョニング
+
+HikaeMe は Go module のセマンティックインポートバージョニングに従います。
+
+- v1.x.x では `github.com/htnabe/HikaeMe` を使います
+- v2.x.x 以降では `github.com/htnabe/HikaeMe/v2` を使います
+
+v2 以降では、リポジトリ直下の `go.mod` に次の宣言が必要です。
+
+```go
+module github.com/htnabe/HikaeMe/v2
+```
+
 ## セットアップ手順
 
 ### Hugo サイトを新規作成
@@ -55,15 +68,16 @@ hugo mod init github.com/yourusername/my-blog
 ```yaml
 module:
   imports:
-    - path: "github.com/htnabe/HikaeMe"
+    - path: "github.com/htnabe/HikaeMe/v2"
 ```
 
 設定を分割している場合は、同じ内容を `config/_default/module.yaml` に配置してください。
+v1.x.x を使う場合は、代わりに `github.com/htnabe/HikaeMe` を指定してください。
 
 ### 依存関係を取得
 
 ```bash
-hugo mod get -u github.com/htnabe/HikaeMe
+hugo mod get -u github.com/htnabe/HikaeMe/v2
 hugo mod npm pack
 npm install
 ```
@@ -105,14 +119,47 @@ locale: "ja-JP"
 
 module:
   imports:
-    - path: "github.com/htnabe/HikaeMe"
+    - path: "github.com/htnabe/HikaeMe/v2"
 
 params:
   author: "Your Name"
   description: "My personal blog"
 ```
 
-このガイドでは簡潔さのため単一の `hugo.yaml` を使っています。設定を分割して管理したい場合は、実リポジトリの例として [exampleSite/config/_default/](../../exampleSite/config/_default/) を参照してください。
+このガイドでは簡潔さのため単一の `hugo.yaml` を使っています。設定を分割して管理したい場合は、実リポジトリの例として [exampleSite/config/\_default/](../../exampleSite/config/_default/) を参照してください。
+
+## スキルセットチャート
+
+`skill-set-chart` shortcode を使うと、スキルを Bootstrap の progress bar として表示できます。データは `params.author.skills` に設定し、author ページなどの本文に shortcode を配置します。
+
+```yaml
+params:
+  author:
+    skills:
+      maxYears: 8
+      groups:
+        - name: "Programming Languages"
+          items:
+            - name: "TypeScript"
+              years: 5
+              purpose: "work and hobby"
+            - name: "Python"
+              years: 6.3
+              purpose: "hobby"
+        - name: "Libraries / Frameworks"
+          items:
+            - name: "Bootstrap"
+              years: 4.5
+              purpose: "work and hobby"
+```
+
+```markdown
+## スキルセット
+
+{{< skill-set-chart >}}
+```
+
+`maxYears` はチャート全体の最大幅を表します。各スキルの `years` には整数または小数を指定でき、`purpose` は tooltip に表示されます。
 
 ## 多言語設定
 
@@ -148,10 +195,10 @@ languages:
 
 Algolia JSON は **home** kind で生成されます。出力先は `defaultContentLanguageInSubdir` の値によって変わります。
 
-| `defaultContentLanguageInSubdir` | 既定言語 | 他言語 |
-|---|---|---|
-| `false`（既定値） | `/algolia.json` | `/en/algolia.json` |
-| `true` | `/<defaultLang>/algolia.json` | `/en/algolia.json` |
+| `defaultContentLanguageInSubdir` | 既定言語                      | 他言語             |
+| -------------------------------- | ----------------------------- | ------------------ |
+| `false`（既定値）                | `/algolia.json`               | `/en/algolia.json` |
+| `true`                           | `/<defaultLang>/algolia.json` | `/en/algolia.json` |
 
 `false` のとき、ルートの `/algolia.json` が既定言語のインデックスになります。これは Hugo の仕様通りの動作であり、異常ではありません。なお、このドキュメントのサンプル設定では `defaultContentLanguage: "ja"` のため、`true` の場合の既定言語の出力先は `/ja/algolia.json` になります。
 
