@@ -1,25 +1,25 @@
 {
   "dependencies": {
-    "@algolia/client-search": "^5.55.0",
+    "@algolia/client-search": "^5.55.1",
     "@popperjs/core": "^2.11.8",
-    "algoliasearch": "^5.55.0",
+    "algoliasearch": "^5.55.2",
     "bootstrap": "^5.3.8",
-    "instantsearch.js": "^4.102.0"
+    "instantsearch.js": "^4.105.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
-    "@playwright/test": "^1.61.0",
+    "@htnabe/prettier-plugin-go-template": "^0.0.1-rc.1",
+    "@playwright/test": "^1.61.1",
     "@types/bootstrap": "^5.2.11",
-    "autoprefixer": "^10.5.0",
+    "autoprefixer": "^10.5.2",
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
     "lint-staged": "^17.0.7",
-    "npm-check-updates": "^22.2.3",
-    "postcss": "^8.5.15",
+    "npm-check-updates": "^22.2.9",
+    "postcss": "^8.5.16",
     "postcss-cli": "^11.0.1",
-    "prettier": "^3.8.4",
-    "prettier-plugin-go-template": "^0.0.15",
-    "vitest": "^4.1.9"
+    "prettier": "^3.9.5",
+    "vitest": "^4.1.10"
   },
   "name": "exampleSite",
   "version": "0.1.0"

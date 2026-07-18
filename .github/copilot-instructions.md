@@ -14,16 +14,17 @@ These instructions define how AI coding assistants should work in this repositor
 - Preserve existing naming, formatting, and template style.
 - Do not refactor unrelated code while implementing a request.
 - Do not introduce new frameworks or large dependencies unless explicitly requested.
+- Remove unnecessary commented-out code when editing or refactoring; keep only comments that explain current, intentional behavior.
 - Write all commit messages, PR text, and generated docs in English unless the user asks otherwise.
 - Write skill files (`.github/skills/**/SKILL.md`) primarily in English; non-English trigger examples are allowed when they improve usability or reflect existing behavior.
 - When reviewing changes (including pull requests), read `.github/prompts/review.prompt.md` first and follow its checklist and output format.
 - When you need to understand folder or file placement, read `docs/develop/project-structure.md` first and follow its structure guidance.
 - Direct merges to `main` and `dev` are not allowed; merge only through Pull Requests.
 - Keep existing release tags as-is. Do not delete, move, or recreate published tags.
-- Continue development in the `v0.x.x` series. Breaking changes are allowed while pre-1.0.
-- Keep `v0` to avoid the Go Modules `/v2` import path issue.
+- Use semantic version tags in `vX.Y.Z` format.
+- Keep the Go module import path aligned with the major version. For v2.x.x and later, include the `/vN` suffix required by Go Modules.
 - Run `npm version`, create git tags, and publish GitHub Releases on `main` after the final PR to `main` is merged.
-- Release operations must use tags in `v0.X.Y` format, and `package.json` version must be updated to `0.X.Y` before tagging.
+- Release operations must use tags in `vX.Y.Z` format, and `package.json` version must match the tag without the leading `v` before tagging.
 
 ## Hugo / Template Guidelines
 

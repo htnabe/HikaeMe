@@ -19,7 +19,7 @@ Do not run `npm run test:e2e` as part of local git hooks.
 
 ## CI
 
-CI runs both categories for non-docs changes:
+CI runs both test categories for non-docs changes:
 
 - Unit tests in the `test` job
 - E2E tests in the `e2e` job
@@ -28,5 +28,7 @@ For pull requests that only change documentation files (`README.md`, `docs/**`, 
 
 - `npm test`
 - `npm run test:e2e`
+
+The CI job still installs dependencies, runs the Hugo production build, and validates Algolia JSON outputs for docs-only pull requests.
 
 See [CI workflow](../../.github/workflows/ci.yml) for details.

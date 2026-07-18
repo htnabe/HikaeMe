@@ -16,6 +16,7 @@
 - [ ] Hugo production build passes: `cd exampleSite && hugo --gc --minify`
 - [ ] Docs updated if behavior changed
 - [ ] No unrelated changes included
+- [ ] No unnecessary commented-out code included
 
 ## Notes for Reviewers
 
