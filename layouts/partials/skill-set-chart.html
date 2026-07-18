@@ -1,6 +1,9 @@
 {{ $skills := .Site.Params.author.skills }}
 {{ with $skills }}
-  {{ $maxYears := .maxYears | default 10 }}
+  {{ $maxYears := .maxYears | default 10 | int }}
+  {{ if lt $maxYears 1 }}
+    {{ $maxYears = 1 }}
+  {{ end }}
   {{ $maxYearsFloat := float $maxYears }}
   {{ $groups := .groups }}
   {{ if not $groups }}
@@ -25,13 +28,20 @@
               <div class="skill-chart-rows">
                 {{ range $skill := $group.items }}
                   {{ $years := float ($skill.years | default 1) }}
+                  {{ $displayYears := $years }}
+                  {{ if lt $displayYears 0 }}
+                    {{ $displayYears = 0.0 }}
+                  {{ end }}
                   {{ $barYears := $years }}
+                  {{ if lt $barYears 0 }}
+                    {{ $barYears = 0.0 }}
+                  {{ end }}
                   {{ if gt $barYears $maxYearsFloat }}
                     {{ $barYears = $maxYearsFloat }}
                   {{ end }}
                   {{ $barWidth := div (mul $barYears 100.0) $maxYearsFloat }}
                   {{ $purpose := $skill.purpose | default "general" }}
-                  {{ $yearsLabel := T "skillSet.years" (dict "years" $years) }}
+                  {{ $yearsLabel := T "skillSet.years" (dict "years" $displayYears) }}
                   <div class="skill-chart-row">
                     <div class="skill-chart-label fw-semibold">{{ $skill.name }}</div>
                     <div class="skill-chart-track progress">
@@ -41,7 +51,7 @@
                         tabindex="0"
                         role="progressbar"
                         aria-label="{{ $skill.name }}: {{ $yearsLabel }}, {{ $purpose }}"
-                        aria-valuenow="{{ $years }}"
+                        aria-valuenow="{{ $barYears }}"
                         aria-valuemin="0"
                         aria-valuemax="{{ $maxYears }}"
                         data-bs-toggle="tooltip"

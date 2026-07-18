@@ -58,4 +58,4 @@ header:
       other: Switch language
 skillSet:
   years:
-    other: "{{ .years }} years"
+    other: "{{ .years }} year(s)"

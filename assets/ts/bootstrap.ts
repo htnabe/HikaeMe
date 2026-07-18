@@ -8,6 +8,6 @@ void Dropdown;
 void Modal;
 void Offcanvas;
 
-document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((element) => {
-  new Tooltip(element);
+document.querySelectorAll<HTMLElement>('[data-bs-toggle="tooltip"]').forEach((element) => {
+  Tooltip.getOrCreateInstance(element, { container: document.body });
 });
