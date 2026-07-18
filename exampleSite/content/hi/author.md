@@ -18,9 +18,7 @@ authorSection: true
 
 ## कौशल
 
-- HTML
-- CSS
-- ...
+{{< skill-set-chart >}}
 
 ## शौक
 

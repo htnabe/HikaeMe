@@ -18,9 +18,7 @@ I am Hoge.
 
 ## Skill Set
 
-- HTML
-- CSS
-- ...
+{{< skill-set-chart >}}
 
 ## Hobbies
 

@@ -18,9 +18,7 @@ Je suis Hoge.
 
 ## Competences
 
-- HTML
-- CSS
-- ...
+{{< skill-set-chart >}}
 
 ## Loisirs
 

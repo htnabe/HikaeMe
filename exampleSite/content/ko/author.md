@@ -16,11 +16,9 @@ authorSection: true
 
 {{< timeline >}}
 
-## 기술 스택
+## 기술
 
-- HTML
-- CSS
-- ...
+{{< skill-set-chart >}}
 
 ## 취미
 

@@ -18,9 +18,7 @@ Ich bin Hoge.
 
 ## Faehigkeiten
 
-- HTML
-- CSS
-- ...
+{{< skill-set-chart >}}
 
 ## Hobbys
 
