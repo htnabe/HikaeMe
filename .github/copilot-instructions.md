@@ -23,8 +23,9 @@ These instructions define how AI coding assistants should work in this repositor
 - Keep existing release tags as-is. Do not delete, move, or recreate published tags.
 - Use semantic version tags in `vX.Y.Z` format.
 - Keep the Go module import path aligned with the major version. For v2.x.x and later, include the `/vN` suffix required by Go Modules.
-- Run `npm version`, create git tags, and publish GitHub Releases on `main` after the final PR to `main` is merged.
-- Release operations must use tags in `vX.Y.Z` format, and `package.json` version must match the tag without the leading `v` before tagging.
+- Prepare release version updates on `dev` before the final PR to `main`; use `npm version <version> --no-git-tag-version` so no tag is created before merge.
+- After the final PR is merged, only create the semantic `vX.Y.Z` git tag and publish the GitHub Release on `main`.
+- Release operations must use tags in `vX.Y.Z` format, and `package.json` version must already match the tag without the leading `v` before tagging.
 
 ## Hugo / Template Guidelines
 
