@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
-    "@htnabe/prettier-plugin-go-template": "^0.0.1-rc.1",
+    "@htnabe/prettier-plugin-go-template": "^0.0.2",
     "@playwright/test": "^1.61.1",
     "@types/bootstrap": "^5.2.11",
     "autoprefixer": "^10.5.2",
