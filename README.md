@@ -10,6 +10,10 @@ A simple theme that displays only the bare minimum of elements readers need.
 
 - [English](./docs/guidance/getting-started.en.md)
 - [日本語](./docs/guidance/getting-started.ja.md)
+- [Image Accessibility (EN)](./docs/guidance/image-accessibility.en.md)
+- [画像アクセシビリティ (JA)](./docs/guidance/image-accessibility.ja.md)
+- [Cloudinary Images (EN)](./docs/guidance/cloudinary-images.en.md)
+- [Cloudinary 画像 (JA)](./docs/guidance/cloudinary-images.ja.md)
 - [Troubleshooting](./docs/guidance/troubleshooting.md)
 
 Note: Guidance documents are currently available in English and Japanese.

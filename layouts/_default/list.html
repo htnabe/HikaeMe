@@ -16,13 +16,15 @@
   {{ $paginator := .Paginate (where $pctx.RegularPages ".Type" "posts") }}
 
   {{ range $index, $page := $paginator.Pages }}
+    {{- $thumbnail := $page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl -}}
+    {{- $thumbnailURL := partial "image-url.html" (dict "site" .Site "url" $thumbnail "width" 640) -}}
     <article class="li article-hover">
       <a class="text-decoration-none" href="{{ .RelPermalink }}">
         <div class="card mb-3 border-0 bg-body">
           <div class="row g-0">
             <img
               class="col-md-4 thumb-sm-height rounded object-fit-cover"
-              src="{{ ($page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}"
+              src="{{ $thumbnailURL }}"
               alt="article thumbnail"
               {{ if ge $index 4 }}loading="lazy"{{ end }}
               {{ if le $index 3 }}fetchpriority="high"{{ end }}

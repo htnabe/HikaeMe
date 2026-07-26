@@ -1,6 +1,13 @@
 {{- $alt := .PlainText | default "" -}}
+{{- $resolvedImageURL := partial "image-url.html" (dict
+  "site" .Page.Site
+  "url" .Destination
+  "keepRelative" true
+  "width" (.Page.Params.cloudinaryImageWidth | default 1200)
+  )
+-}}
 <img
-  src="{{- .Destination | safeURL -}}"
+  src="{{- $resolvedImageURL | safeURL -}}"
   loading="lazy"
   alt="{{ $alt }}"
   {{- with .Title }}title="{{ . }}"{{ end -}}

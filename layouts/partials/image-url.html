@@ -1,0 +1,46 @@
+{{- $site := .site -}}
+{{- $rawURL := .url | default "" -}}
+{{- $width := .width | default 0 -}}
+{{- $keepRelative := .keepRelative | default false -}}
+{{- $useCloudinary := $site.Params.useCloudinary | default false -}}
+{{- $cloudName := $site.Params.cloudinaryCloudName | default "" -}}
+
+{{- $fallback := "" -}}
+{{- if $keepRelative -}}
+  {{- $fallback = $rawURL -}}
+{{- else -}}
+  {{- $fallback = $rawURL | absURL -}}
+{{- end -}}
+
+{{- if not $useCloudinary -}}
+  {{- $fallback -}}
+{{- else -}}
+  {{- if eq $cloudName "" -}}
+    {{- $fallback -}}
+  {{- else -}}
+    {{- $expectedPrefix := printf "https://res.cloudinary.com/%s/image/upload/" $cloudName -}}
+    {{- if not (strings.HasPrefix $rawURL $expectedPrefix) -}}
+      {{- $fallback -}}
+    {{- else -}}
+      {{- $segments := split $rawURL "/image/upload/" -}}
+      {{- if ne (len $segments) 2 -}}
+        {{- $fallback -}}
+      {{- else -}}
+        {{- $basePath := index $segments 0 -}}
+        {{- $publicPath := index $segments 1 -}}
+        {{- $head := index (split $publicPath "/") 0 -}}
+        {{- if and (strings.HasPrefix $head "v") (strings.Contains $head ",") -}}
+          {{- $fallback -}}
+        {{- else if not (strings.HasPrefix $publicPath "v") -}}
+          {{- $fallback -}}
+        {{- else -}}
+          {{- $transform := "f_auto,q_auto" -}}
+          {{- if gt $width 0 -}}
+            {{- $transform = printf "%s,w_%d" $transform $width -}}
+          {{- end -}}
+          {{- printf "%s/image/upload/%s/%s" $basePath $transform $publicPath -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,98 @@
+{{- /* Required */ -}}
+{{- $url := .Get "url" -}}
+{{- if not $url -}}
+  {{- if or (.Get "publicID") (.Get "id") -}}
+    {{- errorf "cldimg shortcode: publicID/id is no longer supported. Use url with base Cloudinary URL (no transforms): https://res.cloudinary.com/<cloud>/image/upload/v..." -}}
+  {{- end -}}
+  {{- errorf "cldimg shortcode: url is required" -}}
+{{- end -}}
+
+{{- $alt := .Get "alt" | default "" -}}
+{{- if eq $alt "" -}}
+  {{- warnf "cldimg shortcode recommends alt: url=%s in page %s" $url .Page.Path -}}
+{{- end -}}
+
+{{- $class := .Get "class" | default "" -}}
+{{- $sizes := .Get "sizes" | default "(min-width: 1400px) 1320px, (min-width: 1200px) 1140px, (min-width: 992px) 960px, 100vw" -}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+{{- $crop := .Get "crop" | default "" -}}
+{{- $caption := .Get "caption" | default "" -}}
+{{- $useCloudinary := site.Params.useCloudinary | default false -}}
+
+{{- if not $useCloudinary -}}
+  <figure>
+    <img
+      src="{{ $url }}"
+      alt="{{ $alt }}"
+      class="{{ $class }}"
+      loading="{{ $loading }}"
+      decoding="async"
+    />
+    {{- if $caption -}}
+      <figcaption>{{ $caption }}</figcaption>
+    {{- end -}}
+  </figure>
+{{- else -}}
+  {{- $cloudName := site.Params.cloudinaryCloudName -}}
+  {{- if not $cloudName -}}
+    {{- errorf "cldimg shortcode: site.Params.cloudinaryCloudName is required when useCloudinary=true" -}}
+  {{- end -}}
+
+  {{- $expectedPrefix := printf "https://res.cloudinary.com/%s/image/upload/" $cloudName -}}
+  {{- if not (strings.HasPrefix $url $expectedPrefix) -}}
+    {{- errorf "cldimg shortcode: url must start with %s. received=%s" $expectedPrefix $url -}}
+  {{- end -}}
+
+  {{- $segments := split $url "/image/upload/" -}}
+  {{- if ne (len $segments) 2 -}}
+    {{- errorf "cldimg shortcode: invalid Cloudinary URL format. expected /image/upload/v... received=%s" $url -}}
+  {{- end -}}
+  {{- $basePath := index $segments 0 -}}
+  {{- $publicPath := index $segments 1 -}}
+
+  {{- if not (strings.HasPrefix $publicPath "v") -}}
+    {{- errorf "cldimg shortcode: url must be non-transformed base URL in /image/upload/v... format. received=%s" $url -}}
+  {{- end -}}
+
+  {{- if not (strings.Contains $url "/image/upload/v") -}}
+    {{- errorf "cldimg shortcode: url must contain /image/upload/v... (no transformations before version). received=%s" $url -}}
+  {{- end -}}
+
+  {{- if strings.Contains $publicPath "/" -}}
+    {{- $head := index (split $publicPath "/") 0 -}}
+    {{- if and (strings.HasPrefix $head "v") (strings.Contains $head ",") -}}
+      {{- errorf "cldimg shortcode: url includes transformation options before version. remove options like f_auto,w_800 and pass base URL only. received=%s" $url -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $widths := slice 320 480 640 768 960 1200 1600 -}}
+  {{- $base := "f_auto,q_auto" -}}
+  {{- if $crop -}}
+    {{- $base = printf "%s,%s" $base $crop -}}
+  {{- end -}}
+
+  {{- $srcW := 768 -}}
+  {{- $src := printf "%s/image/upload/%s,w_%d/%s" $basePath $base $srcW $publicPath -}}
+
+  {{- $srcset := slice -}}
+  {{- range $widths -}}
+    {{- $u := printf "%s/image/upload/%s,w_%d/%s %dw" $basePath $base . $publicPath . -}}
+    {{- $srcset = $srcset | append $u -}}
+  {{- end -}}
+
+
+  <figure>
+    <img
+      src="{{ $src }}"
+      srcset="{{ delimit $srcset ", " }}"
+      sizes="{{ $sizes }}"
+      alt="{{ $alt }}"
+      class="{{ $class }}"
+      loading="{{ $loading }}"
+      decoding="async"
+    />
+    {{- if $caption -}}
+      <figcaption>{{ $caption }}</figcaption>
+    {{- end -}}
+  </figure>
+{{- end -}}

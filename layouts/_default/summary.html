@@ -1,10 +1,12 @@
 <article class="card-wrapper mb-4 mt-4 p-0">
   <div class="card border-0">
     {{ $showThumb := .Page.Params.show_thumb_post | default true }}
+    {{- $thumbnail := .Page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl -}}
+    {{- $thumbnailURL := partial "image-url.html" (dict "site" .Site "url" $thumbnail "width" 1200) -}}
     {{ if $showThumb }}
       <img
         class="thumb height-20rem object-fit-cover"
-        src="{{ (.Page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}"
+        src="{{ $thumbnailURL }}"
         alt="{{ .Title }} thumbnail"
       />
     {{ end }}
