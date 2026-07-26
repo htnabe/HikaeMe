@@ -1,7 +1,14 @@
+{{- $alt := .Get "alt" | default "" -}}
+{{- if eq $alt "" -}}
+  {{- $alt = .Get "caption" | default "" -}}
+{{- end -}}
+{{- if eq $alt "" -}}
+  {{- warnf "img shortcode requires alt (or caption fallback): src=%s in page %s" (.Get "src") .Page.Path -}}
+{{- end -}}
 <figure {{ if .Get "class" }}class="{{ .Get "class" }}"{{ end }}>
   <img
     src="{{ .Get "src" | absURL }}"
-    alt="{{ .Get "caption" }}"
+    alt="{{ $alt }}"
     {{ with (.Get "w") }}width="{{ . }}"{{ end }}{{ with (.Get "h") }}
       height="{{ . }}"
     {{ end }}

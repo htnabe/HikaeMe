@@ -110,6 +110,12 @@ hugo server -D
 
 Open `http://localhost:1313` in your browser.
 
+## Additional Guidance
+
+Keep this page as a quick start. For image accessibility policy and required `alt` usage details, see:
+
+- [Image Accessibility Guide](./image-accessibility.en.md)
+
 ## Minimal Configuration Example (`hugo.yaml`)
 
 ```yaml

@@ -110,6 +110,12 @@ hugo server -D
 
 ブラウザで `http://localhost:1313` を開いて確認します。
 
+## 追加ガイダンス
+
+このページは Quick Start に特化しています。画像アクセシビリティ方針と `alt` 運用の詳細は次を参照してください。
+
+- [画像アクセシビリティガイド](./image-accessibility.ja.md)
+
 ## 最小構成サンプル (`hugo.yaml`)
 
 ```yaml
