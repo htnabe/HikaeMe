@@ -6,9 +6,10 @@
     </header>
     <div class="author p-2 text-center">
       {{ with .thumbnailUrl }}
+        {{- $authorThumbURL := partial "image-url.html" (dict "site" $.Site "url" . "width" 256) -}}
         <img
           class="author-thumb mt-0 mx-auto mb-3 rounded-circle"
-          src="{{ . | absURL }}"
+          src="{{ $authorThumbURL }}"
           alt="{{ $authorAlt }}"
         />
       {{ end }}

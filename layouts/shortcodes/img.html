@@ -7,9 +7,14 @@
     {{- warnf "img shortcode requires alt (or caption fallback): src=%s in page %s" (.Get "src") .Page.Path -}}
   {{- end -}}
 {{- end -}}
+{{- $targetWidth := 0 -}}
+{{- with (.Get "w") -}}
+  {{- $targetWidth = int . -}}
+{{- end -}}
+{{- $imgSrcURL := partial "image-url.html" (dict "site" .Site "url" (.Get "src") "width" $targetWidth) -}}
 <figure {{ if .Get "class" }}class="{{ .Get "class" }}"{{ end }}>
   <img
-    src="{{ .Get "src" | absURL }}"
+    src="{{ $imgSrcURL }}"
     alt="{{ $alt }}"
     {{ with (.Get "w") }}width="{{ . }}"{{ end }}{{ with (.Get "h") }}
       height="{{ . }}"

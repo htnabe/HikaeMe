@@ -307,3 +307,4 @@ jq '[.[].permalink | contains("/en/")] | all'  public/en/algolia.json # true で
 ## 追加ガイダンス
 
 - [画像アクセシビリティガイド](./image-accessibility.ja.md)
+- [Cloudinary 画像ガイド](./cloudinary-images.ja.md)

@@ -10,7 +10,8 @@ This page describes the image accessibility policy for HikaeMe.
 
 ## Current Enforcement Level
 
-The current enforcement level is warning-based.
+> [!IMPORTANT]
+> The current enforcement level is warning-based.
 
 - Markdown images always render an alt attribute (empty alt="" is allowed for decorative images).
 - The img shortcode emits a warning when neither alt nor caption is provided.
@@ -46,4 +47,5 @@ Fallback (legacy compatible, warning-free):
 
 ## Future Direction
 
-This policy may be tightened from warnings to build errors in a future release after migration guidance is complete.
+> [!CAUTION]
+> This policy may be tightened from warnings to build errors in a future release after migration guidance is complete.

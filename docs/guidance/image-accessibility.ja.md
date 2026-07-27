@@ -10,7 +10,8 @@
 
 ## alt に対する警告表示レベル
 
-現在は警告ベースで適用しています。
+> [!IMPORTANT]
+> 現在は警告ベースで適用しています。
 
 - Markdown 画像は alt 属性を常時出力します（装飾画像は alt="" を許容します）。
 - img shortcode で alt が未指定かつ caption も未指定の場合、warning を出します。
@@ -46,4 +47,5 @@
 
 ## 今後の方針
 
-移行ガイドの整備後、将来的に warning から build error へ厳格化する可能性があります。
+> [!CAUTION]
+> 移行ガイドの整備後、将来的に warning から build error へ厳格化する可能性があります。

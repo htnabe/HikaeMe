@@ -11,6 +11,8 @@ logoImageUrl: # https://~ format is also supported
 copyright:
 contactUrl: # Optional, if you want to add a contact form / sns account please write the URL here
 enableAlgolia: true
+useCloudinary: false
+cloudinaryCloudName: # Optional, required when useCloudinary=true and using Cloudinary URL transforms
 logoFontFamily:
 favicon:
   defaultUrl: # Required, add a url to the 32x32 size image. eg: "img/icon.webp"

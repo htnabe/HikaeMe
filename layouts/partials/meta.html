@@ -35,6 +35,8 @@
 {{ $title := "title" }}
 {{ $description := "description" }}
 {{ $shortDescription := "shortDescription" }}
+{{- $metaImage := .Params.thumbnail | default .Site.Params.defaultThumbnailUrl -}}
+{{- $metaImageURL := partial "image-url.html" (dict "site" .Site "url" $metaImage "width" 1200) -}}
 
 {{ if .IsPage }}
   {{ .Scratch.Set $title .Title }}
@@ -54,10 +56,7 @@
 <meta property="og:title" content="{{ .Scratch.Get $title }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
-<meta
-  property="og:image"
-  content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnailUrl ) }}"
-/>
+<meta property="og:image" content="{{ $metaImageURL }}" />
 <meta
   property="og:type"
   content="
@@ -121,7 +120,4 @@
 {{ else }}
   <meta name="twitter:description" content="{{ .Scratch.Get $description }}" />
 {{ end }}
-<meta
-  name="twitter:image"
-  content="{{ absURL (.Params.thumbnail | default .Site.Params.defaultThumbnailUrl ) }}"
-/>
+<meta name="twitter:image" content="{{ $metaImageURL }}" />
