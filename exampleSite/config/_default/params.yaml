@@ -5,13 +5,13 @@ googlefonts: "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500
 enableHighlight: true
 amazonAssociateId: "" # Optional, Include amazon affiliate ID(eg. hikaeme-22)
 since: "2020" # you can add the start period
-defaultThumbnailUrl: "/img/about-page-thumbnail.webp" # https://~ format is also supported
+defaultThumbnailUrl: "https://res.cloudinary.com/takenoko/image/upload/v1632659294/NabeBlog/aboutPage-Thumbnail_lphxof.webp" # https://~ format is also supported
 logoImageUrl: "/img/site-logo.webp" # https://~ format is also supported
 copyright: "author name?"
 contactUrl: "" # Optional, if you want to add a contact form / sns accFount please write the URL here
 enableAlgolia: true
-useCloudinary: false
-cloudinaryCloudName: ""
+useCloudinary: true
+cloudinaryCloudName: "takenoko"
 logoFontFamily: "Orbitron"
 favicon:
   defaultUrl: "/img/icon.webp" # Required, add a url to the 32x32 size image. eg: "/img/icon.webp"

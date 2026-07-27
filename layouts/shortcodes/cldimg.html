@@ -22,7 +22,7 @@
 {{- if not $useCloudinary -}}
   <figure>
     <img
-      src="{{ $url }}"
+      src="{{ $url | absURL }}"
       alt="{{ $alt }}"
       class="{{ $class }}"
       loading="{{ $loading }}"

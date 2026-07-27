@@ -3,7 +3,7 @@
   "site" .Page.Site
   "url" .Destination
   "keepRelative" true
-  "width" (.Page.Params.cloudinaryImageWidth | default 1200)
+  "width" 1200
   )
 -}}
 <img
@@ -16,9 +16,7 @@
       .Page.Resources.GetMatch .Destination
     -}}
       {{- if eq .MediaType.SubType "svg" -}}
-        {{/* SVGファイルの場合はXMLとしてパースしてheight,
-          width属性を設定
-        */}}
+        {{/* For SVG files, parse as XML and set height/width attributes. */}}
         {{- with .Content | transform.Unmarshal -}}
           {{- with index . "-width" -}}width="{{ . }}"{{ end -}}
           {{- with index . "-height" -}}height="{{ . }}"{{ end -}}
@@ -31,7 +29,7 @@
       {{- if and (not
         (hasPrefix $path "/" )) (not (hasPrefix $path "../" ))
       -}}
-        {{/* ファイルが存在しない場合はエラー */}}
+        {{/* Raise an error when the file does not exist. */}}
         {{- errorf "Not Found Image: %s in page %s" .Destination .Page.Path -}}
       {{- end -}}
     {{- end -}}
