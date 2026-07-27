@@ -1,11 +1,16 @@
 {{ with .Site.Params.author }}
+  {{- $authorAlt := .name | default "author profile image" -}}
   <section class="sidebar mb-3 pt-2 pt-1">
     <header class="px-2 pt-2 pb-3 m-auto text-start fw-bold">
       {{ T "sidebar.author" }}
     </header>
     <div class="author p-2 text-center">
       {{ with .thumbnailUrl }}
-        <img class="author-thumb mt-0 mx-auto mb-3 rounded-circle" src="{{ . | absURL }}" />
+        <img
+          class="author-thumb mt-0 mx-auto mb-3 rounded-circle"
+          src="{{ . | absURL }}"
+          alt="{{ $authorAlt }}"
+        />
       {{ end }}
       <div class="mb-2 fw-semibold fs-5">{{ .name }}</div>
       <div class="row justify-content-center mb-2">

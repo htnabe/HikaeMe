@@ -5,6 +5,7 @@
       <img
         class="thumb height-20rem object-fit-cover"
         src="{{ (.Page.Params.thumbnail | default .Site.Params.defaultThumbnailUrl) | absURL }}"
+        alt="{{ .Title }} thumbnail"
       />
     {{ end }}
     <div class="card-body">

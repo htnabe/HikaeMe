@@ -1,12 +1,9 @@
+{{- $alt := .PlainText | default "" -}}
 <img
   src="{{- .Destination | safeURL -}}"
   loading="lazy"
+  alt="{{ $alt }}"
   {{- with .Title }}title="{{ . }}"{{ end -}}
-  {{- with
-    .PlainText
-  }}
-    alt="{{ . }}"
-  {{ end -}}
   {{- if not (urls.Parse .Destination).Scheme -}}
     {{- with
       .Page.Resources.GetMatch .Destination
