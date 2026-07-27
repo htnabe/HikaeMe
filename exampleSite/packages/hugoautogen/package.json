@@ -2,16 +2,16 @@
   "dependencies": {
     "@algolia/client-search": "^5.55.1",
     "@popperjs/core": "^2.11.8",
-    "algoliasearch": "^5.55.2",
+    "algoliasearch": "^5.56.0",
     "bootstrap": "^5.3.8",
-    "instantsearch.js": "^4.105.0"
+    "instantsearch.js": "^4.106.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
-    "@htnabe/prettier-plugin-go-template": "^0.0.1-rc.1",
+    "@htnabe/prettier-plugin-go-template": "^0.0.2",
     "@playwright/test": "^1.61.1",
     "@types/bootstrap": "^5.2.11",
-    "autoprefixer": "^10.5.2",
+    "autoprefixer": "^10.5.4",
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
     "lint-staged": "^17.0.7",
