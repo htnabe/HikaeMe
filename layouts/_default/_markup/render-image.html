@@ -1,7 +1,4 @@
 {{- $alt := .PlainText | default "" -}}
-{{- if eq $alt "" -}}
-  {{- warnf "Image alt text is empty: %s in page %s" .Destination .Page.Path -}}
-{{- end -}}
 <img
   src="{{- .Destination | safeURL -}}"
   loading="lazy"

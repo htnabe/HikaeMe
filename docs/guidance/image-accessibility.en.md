@@ -12,7 +12,7 @@ This page describes the image accessibility policy for HikaeMe.
 
 The current enforcement level is warning-based.
 
-- Markdown images without alt text emit a Hugo warning during build.
+- Markdown images always render an alt attribute (empty alt="" is allowed for decorative images).
 - The img shortcode emits a warning when neither alt nor caption is provided.
 - Existing templates and shortcodes now always output alt attributes.
 
