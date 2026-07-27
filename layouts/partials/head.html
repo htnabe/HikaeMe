@@ -104,8 +104,8 @@
   {{ end }}
 {{ end }}
 
-{{/* syntax highlisht */}}
-{{ if .Site.Params.EnableHighlight | default true }}
+{{/* syntax highlight */}}
+{{ if and (.Site.Params.EnableHighlight | default true) .IsPage }}
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/espresso.min.css"
