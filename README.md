@@ -16,7 +16,8 @@ A simple theme that displays only the bare minimum of elements readers need.
 - [Cloudinary 画像 (JA)](./docs/guidance/cloudinary-images.ja.md)
 - [Troubleshooting](./docs/guidance/troubleshooting.md)
 
-Note: Guidance documents are currently available in English and Japanese.
+> [!NOTE]
+> Guidance documents are currently available in English and Japanese.
 
 ### Develop (for contributors/developers/AI)
 

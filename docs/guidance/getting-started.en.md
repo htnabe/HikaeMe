@@ -307,3 +307,4 @@ jq '[.[].permalink | contains("/en/")] | all'  public/en/algolia.json  # expect 
 ## Additional Guidance
 
 - [Image Accessibility Guide](./image-accessibility.en.md)
+- [Cloudinary Images Guide](./cloudinary-images.en.md)

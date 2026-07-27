@@ -8,6 +8,14 @@
 - Cloud名: params.cloudinaryCloudName
 - useCloudinaryがfalseの場合、全画像を通常URLのまま使います（変換なし）。
 
+> [!IMPORTANT]
+> サイトで Cloudinary 画像を主に使う場合は、cldimg shortcode を優先してください。
+> img shortcode でも Cloudinary URL は動作しますが、レスポンシブな srcset/sizes は生成されません。
+> 端末幅ごとの画像・帯域最適化を行いたい場合は cldimg を使ってください。
+
+> [!NOTE]
+> Cloudinary 画像を使わないサイトでは useCloudinary: false とし、img shortcode を使ってください。
+
 ## 設定
 
 params設定に次を追加します。
@@ -53,6 +61,10 @@ cldimg は、明示的にレスポンシブsrcsetを出したい場合に使い�
 - crop
 - caption
 
+> [!NOTE]
+> useCloudinary=true の場合でも、cldimg と img は同じ出力になりません。
+> img は単一の src を出力し、cldimg は src に加えて srcset と sizes を出力します。
+
 ## 検証ルール
 
 useCloudinary=true の場合、cldimg は次を検証します。
@@ -60,6 +72,10 @@ useCloudinary=true の場合、cldimg は次を検証します。
 - URLが設定したcloud nameのprefixで始まること
 - URLが /image/upload/v... 形式であること
 - バージョン前に変換オプションが入っていないこと
+
+> [!CAUTION]
+> cldimg には、変換オプションを含まない Cloudinary ベースURLを渡してください。
+> バージョンセグメントより前に変換オプションが入っているURLは、仕様上バリデーションエラーになります。
 
 ## フォールバック
 
