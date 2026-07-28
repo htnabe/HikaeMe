@@ -25,7 +25,7 @@
             <img
               class="col-md-4 thumb-sm-height rounded object-fit-cover"
               src="{{ $thumbnailURL }}"
-              alt="article thumbnail"
+              alt="{{ .Title }} thumbnail"
               {{ if ge $index 4 }}loading="lazy"{{ end }}
               {{ if le $index 3 }}fetchpriority="high"{{ end }}
             />

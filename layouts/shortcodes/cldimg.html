@@ -17,7 +17,7 @@
 {{- $loading := .Get "loading" | default "lazy" -}}
 {{- $crop := .Get "crop" | default "" -}}
 {{- $caption := .Get "caption" | default "" -}}
-{{- $useCloudinary := site.Params.useCloudinary | default false -}}
+{{- $useCloudinary := .Site.Params.useCloudinary | default false -}}
 
 {{- if not $useCloudinary -}}
   <figure>
@@ -33,7 +33,7 @@
     {{- end -}}
   </figure>
 {{- else -}}
-  {{- $cloudName := site.Params.cloudinaryCloudName -}}
+  {{- $cloudName := .Site.Params.cloudinaryCloudName -}}
   {{- if not $cloudName -}}
     {{- errorf "cldimg shortcode: site.Params.cloudinaryCloudName is required when useCloudinary=true" -}}
   {{- end -}}
@@ -56,13 +56,6 @@
 
   {{- if not (strings.Contains $url "/image/upload/v") -}}
     {{- errorf "cldimg shortcode: url must contain /image/upload/v... (no transformations before version). received=%s" $url -}}
-  {{- end -}}
-
-  {{- if strings.Contains $publicPath "/" -}}
-    {{- $head := index (split $publicPath "/") 0 -}}
-    {{- if and (strings.HasPrefix $head "v") (strings.Contains $head ",") -}}
-      {{- errorf "cldimg shortcode: url includes transformation options before version. remove options like f_auto,w_800 and pass base URL only. received=%s" $url -}}
-    {{- end -}}
   {{- end -}}
 
   {{- $widths := slice 320 480 640 768 960 1200 1600 -}}
