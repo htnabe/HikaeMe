@@ -303,3 +303,8 @@ jq 'length' public/en/algolia.json
 jq '[.[].permalink | contains("/en/")] | any' public/algolia.json    # false であること
 jq '[.[].permalink | contains("/en/")] | all'  public/en/algolia.json # true であること
 ```
+
+## 追加ガイダンス
+
+- [画像アクセシビリティガイド](./image-accessibility.ja.md)
+- [Cloudinary 画像ガイド](./cloudinary-images.ja.md)

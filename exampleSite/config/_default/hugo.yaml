@@ -6,5 +6,5 @@ disableDefaultLanguageRedirect: false
 enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
-timeZone: "Japan"
+timeZone: "Asia/Tokyo"
 locale: "ja-JP"

@@ -303,3 +303,8 @@ jq 'length' public/en/algolia.json
 jq '[.[].permalink | contains("/en/")] | any' public/algolia.json   # expect false
 jq '[.[].permalink | contains("/en/")] | all'  public/en/algolia.json  # expect true
 ```
+
+## Additional Guidance
+
+- [Image Accessibility Guide](./image-accessibility.en.md)
+- [Cloudinary Images Guide](./cloudinary-images.en.md)

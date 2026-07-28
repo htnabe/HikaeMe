@@ -1,12 +1,14 @@
 {{- $affiliateId := .Site.Params.amazonAssociateId }}
 {{- $asin := .Get "asin" -}}
 {{- $title := .Get "title" -}}
+{{- $alt := .Get "alt" | default $title | default "amazon product image" -}}
 <div class="card mb-3 border-0 bg-body-secondary shadow">
   <div class="row g-0">
     <div class="col-sm-3 d-flex align-items-center justify-content-center">
       <img
         class="height-100px shadow-none rounded"
         src="https://images-na.ssl-images-amazon.com/images/P/{{ $asin }}.09.LZZZZZZZ.jpg"
+        alt="{{ $alt }}"
         loading="lazy"
       />
     </div>
