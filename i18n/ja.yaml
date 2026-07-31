@@ -6,6 +6,8 @@ footer:
 sidebar:
   categories:
     other: カテゴリー
+  toc:
+    other: 目次
   author:
     other: AUTHOR
   support:

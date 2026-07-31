@@ -6,6 +6,8 @@ footer:
 sidebar:
   categories:
     other: 分类
+  toc:
+    other: 目录
   author:
     other: AUTHOR
   support:

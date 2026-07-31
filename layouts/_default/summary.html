@@ -70,6 +70,7 @@
 
       {{ if .Params.toc }}
         <div class="toc d-block d-lg-none">
+          <p class="mb-0">{{ i18n "sidebar.toc" }}</p>
           {{ .TableOfContents }}
         </div>
       {{ end }}
