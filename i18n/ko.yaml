@@ -6,6 +6,8 @@ footer:
 sidebar:
   categories:
     other: 카테고리
+  toc:
+    other: 목차
   author:
     other: AUTHOR
   support:

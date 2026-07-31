@@ -1,6 +1,7 @@
 {{ if .Params.toc }}
   {{/* NOTE: Hidden below the lg breakpoint. */}}
   <div class="toc d-none d-lg-block text-decoration-none overflow-auto">
+    <p class="mb-0">{{ i18n "sidebar.toc" }}</p>
     {{ .TableOfContents }}
   </div>
 {{ end }}

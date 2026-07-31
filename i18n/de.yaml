@@ -6,6 +6,8 @@ footer:
 sidebar:
   categories:
     other: Kategorien
+  toc:
+    other: Inhaltsverzeichnis
   author:
     other: AUTOR
   support:

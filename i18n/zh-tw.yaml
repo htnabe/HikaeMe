@@ -6,6 +6,8 @@ footer:
 sidebar:
   categories:
     other: 分類
+  toc:
+    other: 目錄
   author:
     other: AUTHOR
   support:
