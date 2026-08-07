@@ -30,7 +30,7 @@
     "jsdom": "^29.1.1",
     "lint-staged": "^17.2.0",
     "npm-check-updates": "^22.2.9",
-    "postcss": "^8.5.16",
+    "postcss": "^8.5.24",
     "postcss-cli": "^11.0.1",
     "prettier": "^3.9.5",
     "vitest": "^4.1.10"
