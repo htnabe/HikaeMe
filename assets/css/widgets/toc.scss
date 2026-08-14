@@ -13,14 +13,6 @@
     overflow-y: auto;
   }
 
-  nav > ul::before {
-    content: "目次";
-    font-size: 120%;
-    font-weight: 600;
-    display: block;
-    margin: 0.4rem 0;
-  }
-
   ul {
     > li {
       font-weight: 520;

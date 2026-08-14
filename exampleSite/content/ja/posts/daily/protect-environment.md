@@ -2,6 +2,7 @@
 title: "環境を守ろう"
 date: 2024-08-19T21:51:19+09:00
 draft: false
+show_thumb_post: false
 toc: true
 tags: [環境, 保全, environment]
 categories: [Daily]

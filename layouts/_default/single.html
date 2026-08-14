@@ -4,7 +4,7 @@
   {{ .Render "summary" }}
 
   {{ if .Page.Params.PostsPage | default true }}
-    <div class="row">
+    <div class="row gy-3">
       <div class="col-md-6">
         <header class="mb-2">{{ T "article.next" }}</header>
         {{ with .NextInSection }}
