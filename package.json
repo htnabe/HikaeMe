@@ -14,11 +14,11 @@
     }
   },
   "dependencies": {
-    "@algolia/client-search": "^5.55.1",
+    "@algolia/client-search": "^5.56.0",
     "@popperjs/core": "^2.11.8",
     "algoliasearch": "^5.56.0",
     "bootstrap": "^5.3.8",
-    "instantsearch.js": "^4.108.0"
+    "instantsearch.js": "^4.111.1"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
@@ -29,7 +29,7 @@
     "husky": "^9.1.7",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.3.0",
-    "npm-check-updates": "^23.0.0",
+    "npm-check-updates": "^23.0.2",
     "postcss": "^8.5.26",
     "postcss-cli": "^11.0.1",
     "prettier": "^3.9.6",
