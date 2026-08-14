@@ -7,3 +7,8 @@ updates:
     cooldown:
       default-days: 7
     target-branch: "dev"
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: weekly
+    target-branch: "dev"
