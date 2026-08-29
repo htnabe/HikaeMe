@@ -16,7 +16,7 @@
   "dependencies": {
     "@algolia/client-search": "^5.56.0",
     "@popperjs/core": "^2.11.8",
-    "algoliasearch": "^5.56.0",
+    "algoliasearch": "^5.57.0",
     "bootstrap": "^5.3.8",
     "instantsearch.js": "^4.111.1"
   },
