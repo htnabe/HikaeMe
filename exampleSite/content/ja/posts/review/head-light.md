@@ -12,7 +12,7 @@ thumbnail: ""
 
 最近、**LumenMax 3000**という新しいヘッドライトを試してみました。このヘッドライトは、アウトドア活動や夜間の作業に最適とされており、明るさやバッテリーの持ちが特徴です。今回は、その使用感や性能について詳しくレビューします。
 
-{{<amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB メモリ / 512GB SSD">}}
+{{< amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB メモリ / 512GB SSD" >}}
 
 ## デザインと使いやすさ
 

@@ -92,7 +92,7 @@ Use the `amazon` shortcode like this to render an Amazon card.
 {{</* amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB Memory / 512GB SSD" */>}}
 ```
 
-{{<amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB Memory / 512GB SSD">}}
+{{< amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB Memory / 512GB SSD" >}}
 
 ## Summary
 
