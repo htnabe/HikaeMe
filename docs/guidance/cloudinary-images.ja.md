@@ -47,10 +47,11 @@ cldimg は、明示的にレスポンシブsrcsetを出したい場合に使い�
 
 ```markdown
 {{< cldimg
-  url="https://res.cloudinary.com/your-cloud-name/image/upload/v1234/path/to/image.webp"
-  alt="画像の説明"
-  caption="任意のキャプション"
->}}
+url="https://res.cloudinary.com/your-cloud-name/image/upload/v1234/path/to/image.webp"
+alt="画像の説明"
+caption="任意のキャプション"
+
+> }}
 ```
 
 任意パラメータ:

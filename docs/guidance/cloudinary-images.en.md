@@ -47,10 +47,11 @@ Use cldimg when you want explicit responsive srcset generation.
 
 ```markdown
 {{< cldimg
-  url="https://res.cloudinary.com/your-cloud-name/image/upload/v1234/path/to/image.webp"
-  alt="Example image"
-  caption="Optional caption"
->}}
+url="https://res.cloudinary.com/your-cloud-name/image/upload/v1234/path/to/image.webp"
+alt="Example image"
+caption="Optional caption"
+
+> }}
 ```
 
 Optional parameters:
