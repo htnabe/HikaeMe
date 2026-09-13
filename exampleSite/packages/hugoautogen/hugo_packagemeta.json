@@ -1,5 +1,5 @@
 {
-  "sum": "197877622fa2a9fb",
+  "sum": "2c72d0513a0cd0b2",
   "dependencySources": {
     "dependencies": {
       "@algolia/client-search": "../../../HikaeMe",
@@ -11,8 +11,10 @@
     "devDependencies": {
       "@fullhuman/postcss-purgecss": "../../../HikaeMe",
       "@htnabe/prettier-plugin-go-template": "../../../HikaeMe",
+      "@htnabe/prettier-plugin-hugo-post": "../../../HikaeMe",
       "@playwright/test": "../../../HikaeMe",
       "@types/bootstrap": "../../../HikaeMe",
+      "@types/node": "../../../HikaeMe",
       "autoprefixer": "../../../HikaeMe",
       "husky": "../../../HikaeMe",
       "jsdom": "../../../HikaeMe",
