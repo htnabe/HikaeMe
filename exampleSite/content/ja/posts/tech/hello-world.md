@@ -91,7 +91,7 @@ def hello_world():
     print(sorted([*[num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]], max([num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]]) * 2]))
 ```
 
-あるいはショートコード{{< /* highlight * >}}を使ってください
+あるいはショートコード{{</* highlight */>}}を使ってください
 
 {{< highlight LaTeX "linenos=inline" >}}
 \documentclass[11pt,usenames,dvipsnames]{beamer}
@@ -110,13 +110,13 @@ def hello_world():
 Bootstrapのテーブルのせいで通常のマークダウンのテーブルを書けないので、以下の様にショートコードを使ってください。
 
 ```
-{{< /* table "table" * >}}
+{{</* table "table" */>}}
 | 列1 | 列2 | 列3 |
-|-----|-----|-----|
+| --- | --- | --- |
 | A1  | B1  | C1  |
 | A2  | B2  | C2  |
 
-{{< /* /table * >}}
+{{</* /table */>}}
 ```
 
 上記は次の様に表示されます。
@@ -159,7 +159,7 @@ Bootstrapのテーブルのせいで通常のマークダウンのテーブル�
 以下のように `amazon` ショートコードを使うと、Amazonカードを表示できます。
 
 ```markdown
-{{< /* amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB メモリ / 512GB SSD" * >}}
+{{</* amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB メモリ / 512GB SSD" */>}}
 ```
 
 {{< amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB メモリ / 512GB SSD" >}}
