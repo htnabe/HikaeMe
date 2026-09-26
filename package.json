@@ -27,7 +27,7 @@
     "@playwright/test": "^1.63.0",
     "@types/bootstrap": "^5.2.11",
     "@types/node": "^26.5.1",
-    "autoprefixer": "^10.6.0",
+    "autoprefixer": "^10.6.1",
     "husky": "^9.1.7",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.5.1",
