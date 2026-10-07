@@ -81,7 +81,7 @@ def hello_world():
     print(sorted([*[num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]], max([num for num in [34, 12, 57, 23, 89, 45, 67, 1, 90, 33]]) * 2]))
 ```
 
-{{</ highlight >}}
+{{< / highlight >}}
 
 - result
 
@@ -93,7 +93,7 @@ def hello_world():
 
 あるいはショートコード{{</* highlight */>}}を使ってください
 
-{{< highlight LaTeX "linenos=inline">}}
+{{< highlight LaTeX "linenos=inline" >}}
 \documentclass[11pt,usenames,dvipsnames]{beamer}
 \usetheme{CambridgeUS}
 \usecolortheme{dolphin}
@@ -112,20 +112,23 @@ Bootstrapのテーブルのせいで通常のマークダウンのテーブル�
 ```
 {{</* table "table" */>}}
 | 列1 | 列2 | 列3 |
-|-----|-----|-----|
+| --- | --- | --- |
 | A1  | B1  | C1  |
 | A2  | B2  | C2  |
-{{</* table */>}}
+
+{{</* /table */>}}
 ```
 
 上記は次の様に表示されます。
 
 {{< table "table" >}}
+
 | 列1 | 列2 | 列3 |
-|-----|-----|-----|
-| A1 | B1 | C1 |
-| A2 | B2 | C2 |
-{{</ table >}}
+| --- | --- | --- |
+| A1  | B1  | C1  |
+| A2  | B2  | C2  |
+
+{{< / table >}}
 
 ## 11. タスクリスト
 
@@ -159,7 +162,7 @@ Bootstrapのテーブルのせいで通常のマークダウンのテーブル�
 {{</* amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB メモリ / 512GB SSD" */>}}
 ```
 
-{{<amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB メモリ / 512GB SSD">}}
+{{< amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB メモリ / 512GB SSD" >}}
 
 ## まとめ
 

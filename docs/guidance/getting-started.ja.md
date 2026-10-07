@@ -302,6 +302,7 @@ jq 'length' public/en/algolia.json
 # 言語混在がないことを確認
 jq '[.[].permalink | contains("/en/")] | any' public/algolia.json    # false であること
 jq '[.[].permalink | contains("/en/")] | all'  public/en/algolia.json # true であること
+
 ```
 
 ## 追加ガイダンス

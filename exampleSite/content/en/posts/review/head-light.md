@@ -12,7 +12,7 @@ thumbnail: ""
 
 I recently tested the **LumenMax 3000** headlight. It is marketed for outdoor activities and nighttime work, with a focus on brightness and battery life.
 
-{{<amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB Memory / 512GB SSD">}}
+{{< amazon asin="B0DZDMQYQL" title="Apple 2025 MacBook Pro 10 / 16GB Memory / 512GB SSD" >}}
 
 ## Design and Usability
 
