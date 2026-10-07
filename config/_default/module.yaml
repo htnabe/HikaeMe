@@ -1,3 +1,4 @@
 hugoVersion:
   extended: true
   min: "0.160.0"
+  max: "0.166.0"
