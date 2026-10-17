@@ -24,7 +24,7 @@
     "@fullhuman/postcss-purgecss": "^8.0.0",
     "@htnabe/prettier-plugin-go-template": "^0.0.3",
     "@htnabe/prettier-plugin-hugo-post": "^0.0.2",
-    "@playwright/test": "^1.63.0",
+    "@playwright/test": "^1.64.0",
     "@types/bootstrap": "^5.2.11",
     "@types/node": "^26.6.4",
     "autoprefixer": "^10.6.1",
