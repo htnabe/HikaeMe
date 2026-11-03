@@ -32,12 +32,10 @@ gcc --version
 
 ## Versioning
 
-HikaeMe follows Go module semantic import versioning:
+HikaeMe follows Go module semantic import versioning.
+Use `github.com/htnabe/HikaeMe/v2` for v2.x.x releases.
 
-- Use `github.com/htnabe/HikaeMe` for v1.x.x releases
-- Use `github.com/htnabe/HikaeMe/v2` for v2.x.x and later releases
-
-For v2 and later, the repository root `go.mod` must declare:
+The HikaeMe repository's root `go.mod` declares:
 
 ```go
 module github.com/htnabe/HikaeMe/v2
@@ -72,7 +70,6 @@ module:
 ```
 
 If you use a split configuration directory, place the same block in `config/_default/module.yaml`.
-If you are staying on v1.x.x, use `github.com/htnabe/HikaeMe` instead.
 
 ### Download Theme Dependencies
 

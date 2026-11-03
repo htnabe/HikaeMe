@@ -23,12 +23,9 @@ A simple theme that displays only the bare minimum of elements readers need.
 ### Versioning
 
 This repository uses Go module semantic import versioning.
+v2.x.x releases use `github.com/htnabe/HikaeMe/v2`.
 
-- v1.x.x releases use `github.com/htnabe/HikaeMe`
-- v2.x.x and later releases use `github.com/htnabe/HikaeMe/v2`
-
-Even for stable versions v1.x.x and above, not all patches have been applied, and we are gradually marking them as deprecated.
-The [Release Page](https://github.com/htnabe/HikaeMe/releases) lists the deprecated versions, so please check it as needed.
+All HikaeMe v1.x.x releases are deprecated due to security and other concerns.
 
 ## Demo
 
