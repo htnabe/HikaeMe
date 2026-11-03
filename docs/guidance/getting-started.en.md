@@ -9,7 +9,7 @@ Prepare the following tools:
 - [Hugo](https://gohugo.io/installation/) (0.160.0 or newer)
 - [Go](https://golang.org/doc/install) (required for Hugo modules)
 - [Git](https://git-scm.com/)
-- [Node.js and npm](https://nodejs.org/)
+- [Node.js and npm](https://nodejs.org/) (Node.js 26 or newer)
 - GCC (required for compiling native dependencies)
 - Sass (SCSS compiler)
 
