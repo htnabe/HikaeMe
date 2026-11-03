@@ -14,35 +14,35 @@
     }
   },
   "dependencies": {
-    "@algolia/client-search": "^5.60.0",
+    "@algolia/client-search": "^5.61.0",
     "@popperjs/core": "^2.11.8",
-    "algoliasearch": "^5.59.0",
+    "algoliasearch": "^5.61.0",
     "bootstrap": "^5.3.8",
-    "instantsearch.js": "^4.119.0"
+    "instantsearch.js": "^4.121.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
-    "@htnabe/prettier-plugin-go-template": "^0.0.3",
+    "@htnabe/prettier-plugin-go-template": "^0.0.6",
     "@htnabe/prettier-plugin-hugo-post": "^0.0.2",
     "@playwright/test": "^1.64.1",
     "@types/bootstrap": "^5.2.11",
-    "@types/node": "^26.6.4",
-    "autoprefixer": "^10.6.1",
+    "@types/node": "^26.6.6",
+    "autoprefixer": "^10.6.2",
     "husky": "^9.1.7",
-    "jsdom": "^30.1.2",
+    "jsdom": "^30.1.3",
     "lint-staged": "^17.6.0",
-    "npm-check-updates": "^23.1.0",
-    "postcss": "^8.5.29",
+    "npm-check-updates": "^23.1.1",
+    "postcss": "^8.5.32",
     "postcss-cli": "^12.0.0",
-    "prettier": "^3.9.9",
-    "vitest": "^5.0.3"
+    "prettier": "^3.9.10",
+    "vitest": "^5.1.0"
   },
   "lint-staged": {
     "*.{html,css,scss}": "prettier --write",
     "*.{js,jsx,ts,tsx}": "prettier --write"
   },
   "engines": {
-    "node": ">=22.22.1"
+    "node": ">=26.0.0"
   },
   "scripts": {
     "dev": "cd exampleSite && hugo serve --gc --watch",
