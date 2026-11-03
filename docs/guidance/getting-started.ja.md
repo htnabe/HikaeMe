@@ -6,7 +6,7 @@
 
 以下のツールを事前に用意してください。
 
-- [Hugo](https://gohugo.io/installation/)（0.160.0 以上）
+- [Hugo](https://gohugo.io/installation/)（0.169.0 以上）
 - [Go](https://golang.org/doc/install)（Hugo Modules に必要）
 - [Git](https://git-scm.com/)
 - [Node.js と npm](https://nodejs.org/)（Node.js 26 以上）

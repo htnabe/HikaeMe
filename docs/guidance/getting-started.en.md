@@ -6,7 +6,7 @@ This guide explains how to set up a new Hugo site with the HikaeMe theme.
 
 Prepare the following tools:
 
-- [Hugo](https://gohugo.io/installation/) (0.160.0 or newer)
+- [Hugo](https://gohugo.io/installation/) (0.169.0 or newer)
 - [Go](https://golang.org/doc/install) (required for Hugo modules)
 - [Git](https://git-scm.com/)
 - [Node.js and npm](https://nodejs.org/) (Node.js 26 or newer)
