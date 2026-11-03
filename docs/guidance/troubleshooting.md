@@ -23,7 +23,7 @@ hugo mod get -u
 
 Solution:
 
-1. Ensure Node.js is installed: `node --version` (must match the version specified in `package.json`, currently >=22.22.1).
+1. Ensure Node.js is installed: `node --version` (must match the version specified in `package.json`, currently >=26.0.0).
 2. Clear npm cache:
 
 ```bash
