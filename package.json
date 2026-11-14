@@ -21,7 +21,7 @@
     "instantsearch.js": "^4.121.0"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^8.0.0",
+    "@fullhuman/postcss-purgecss": "^9.0.0",
     "@htnabe/prettier-plugin-go-template": "^0.0.6",
     "@htnabe/prettier-plugin-hugo-post": "^0.0.2",
     "@playwright/test": "^1.64.1",
