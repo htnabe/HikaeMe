@@ -46,6 +46,8 @@ update the local installation. No dependency synchronization check runs on commi
 CI checks dependency synchronization and installs both the root and example site
 dependencies with `npm ci`. Test code and test runners remain at the repository
 root; Hugo builds and E2E tests use the example site and its local `node_modules`.
+Each workflow run resolves the latest stable Hugo release once and shares that
+version between the build and E2E jobs. It does not select prereleases.
 
 CI runs both test categories for non-docs changes:
 

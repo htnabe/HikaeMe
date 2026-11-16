@@ -10,8 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       e2e_required: ${{ steps.decide.outputs.e2e_required }}
+      hugo_version: ${{ steps.hugo.outputs.version }}
 
     steps:
+      - name: Resolve latest stable Hugo version
+        id: hugo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="$(gh api repos/gohugoio/hugo/releases/latest --jq '.tag_name | ltrimstr("v")')"
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Using Hugo $version"
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -44,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: changes
     env:
-      HUGO_VERSION: 0.169.0
+      HUGO_VERSION: ${{ needs.changes.outputs.hugo_version }}
       DART_SASS_VERSION: 1.97.3
       HUSKY: 0
 
@@ -90,7 +101,7 @@ jobs:
           tar -C "${HOME}/.local/hugo" -xf "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
           rm "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
           echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
-          echo "Hugo: $(hugo version)"
+          "${HOME}/.local/hugo/hugo" version
 
       - name: Hugo production build
         run: cd exampleSite && hugo --gc --minify
@@ -138,6 +149,7 @@ jobs:
     needs: [changes, test]
     if: ${{ needs.changes.outputs.e2e_required == 'true' }}
     env:
+      HUGO_VERSION: ${{ needs.changes.outputs.hugo_version }}
       HUSKY: 0
 
     steps:
@@ -161,7 +173,6 @@ jobs:
 
       - name: Install Hugo and Dart Sass
         env:
-          HUGO_VERSION: 0.169.0
           DART_SASS_VERSION: 1.97.3
         run: |
           mkdir -p "${HOME}/.local"
@@ -174,6 +185,7 @@ jobs:
           tar -C "${HOME}/.local/hugo" -xf "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
           rm "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
           echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
+          "${HOME}/.local/hugo/hugo" version
 
       - name: Run E2E tests
         run: npm run test:e2e
