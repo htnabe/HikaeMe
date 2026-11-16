@@ -63,6 +63,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check example site dependency synchronization
+        run: npm run check:example-deps
+
+      - name: Install example site dependencies
+        run: npm ci --prefix exampleSite
+
       - name: Run all tests
         if: ${{ needs.changes.outputs.e2e_required == 'true' }}
         run: npm test
@@ -146,6 +152,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Install example site dependencies
+        run: npm ci --prefix exampleSite
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
