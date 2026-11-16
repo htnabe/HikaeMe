@@ -55,7 +55,7 @@
     "test:e2e": "playwright test",
     "update": "ncu -u && npm install --ignore-scripts"
   },
-  "version": "2.0.7",
+  "version": "2.0.8",
   "type": "module",
   "prettier": {
     "plugins": [
