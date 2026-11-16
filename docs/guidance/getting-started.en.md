@@ -6,7 +6,7 @@ This guide explains how to set up a new Hugo site with the HikaeMe theme.
 
 Prepare the following tools:
 
-- [Hugo](https://gohugo.io/installation/) (0.160.0 or newer)
+- [Hugo](https://gohugo.io/installation/) (0.169.0 or newer)
 - [Go](https://golang.org/doc/install) (required for Hugo modules)
 - [Git](https://git-scm.com/)
 - [Node.js and npm](https://nodejs.org/) (Node.js 26 or newer)
@@ -32,12 +32,10 @@ gcc --version
 
 ## Versioning
 
-HikaeMe follows Go module semantic import versioning:
+HikaeMe follows Go module semantic import versioning.
+Use `github.com/htnabe/HikaeMe/v2` for v2.x.x releases.
 
-- Use `github.com/htnabe/HikaeMe` for v1.x.x releases
-- Use `github.com/htnabe/HikaeMe/v2` for v2.x.x and later releases
-
-For v2 and later, the repository root `go.mod` must declare:
+The HikaeMe repository's root `go.mod` declares:
 
 ```go
 module github.com/htnabe/HikaeMe/v2
@@ -72,7 +70,6 @@ module:
 ```
 
 If you use a split configuration directory, place the same block in `config/_default/module.yaml`.
-If you are staying on v1.x.x, use `github.com/htnabe/HikaeMe` instead.
 
 ### Download Theme Dependencies
 

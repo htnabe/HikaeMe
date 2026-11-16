@@ -7,7 +7,7 @@
 
   // Install Node.js 26 until the base image provides it.
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
+    "ghcr.io/devcontainers/features/node:2": {
       "version": "26"
     }
   },
